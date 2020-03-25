@@ -13,6 +13,6 @@
     - [https://sos1920-00.herokuapp.com/api/v1/my-awesome-resource-3/docs](https://sos1920-00.herokuapp.com/api/v1/my-awesome-resource-3/docs) (developed by [Adrià León García](https://github.com/Adrleogar))
 
 -  **Links Postman**:
-	- [ACTUALIZAR](ACTUALIZAR) (developed by [Juan José Requena Lama](https://github.com/wuaho))
+	- [SOS1920-12-overdose_deaths](https://documenter.getpostman.com/view/10637417/SzYT6hqp) (developed by [Juan José Requena Lama](https://github.com/wuaho))
     - [ACTUALIZAR](ACTUALIZAR) (developed by [Pascual Requena Lama](https://github.com/Requena115))
     - [ACTUALIZAR](ACTUALIZAR) (developed by [Adrià León García](https://github.com/Adrleogar))
