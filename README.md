@@ -8,6 +8,11 @@
 - **Repository**: [gti-sos/SOS1920-12](https://github.com/gti-sos/SOS1920-12)
 - **URL**: [https://sos1920-12.herokuapp.com](https://sos1920-12.herokuapp.com)
 -  **APIs**:
-    - [https://sos1920-12.herokuapp.com/api/v1/my-awesome-resource-1/docs](https://sos1920-12.herokuapp.com/api/v1/my-awesome-resource-1/docs) (developed by [Juan José Requena Lama](https://github.com/wuaho))
+    - [https://sos1920-12.herokuapp.com/api/v1/overdose_deaths](https://sos1920-12.herokuapp.com/api/v1/overdose_deaths) (developed by [Juan José Requena Lama](https://github.com/wuaho))
     - [https://sos1920-00.herokuapp.com/api/v1/my-awesome-resource-2/docs](https://sos1920-00.herokuapp.com/api/v1/my-awesome-resource-2/docs) (developed by [Pascual Requena Lama](https://github.com/Requena115))
     - [https://sos1920-00.herokuapp.com/api/v1/my-awesome-resource-3/docs](https://sos1920-00.herokuapp.com/api/v1/my-awesome-resource-3/docs) (developed by [Adrià León García](https://github.com/Adrleogar))
+
+-  **Links Postman**:
+	- [ACTUALIZAR](ACTUALIZAR) (developed by [Juan José Requena Lama](https://github.com/wuaho))
+    - [ACTUALIZAR](ACTUALIZAR) (developed by [Pascual Requena Lama](https://github.com/Requena115))
+    - [ACTUALIZAR](ACTUALIZAR) (developed by [Adrià León García](https://github.com/Adrleogar))
