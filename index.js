@@ -244,7 +244,7 @@ app.get(BASE_API_URL + "/drug_offences", (request, response) => {
 	if(overdose_deaths.length <1){
 		response.sendStatus(400,"BAD REQUEST(data is empty)");
 	}else{
-		response.send(JSON.stringify(overdose_deaths,null,2));
+		response.send(JSON.stringify(drug_offences,null,2));
 	}
 });
 
