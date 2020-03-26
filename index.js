@@ -313,7 +313,7 @@ app.put(BASE_API_URL + "/drug_offences/:country/:year", (request, response) =>{
 
 //DELETE overdose_deaths
 
-app.delete(BASE_API_URL + "/drug_offences/:country:/year",(request, response)=> {
+app.delete(BASE_API_URL + "/drug_offences/:country/:year",(request, response)=> {
 
 	var country = request.params.country;
 	var year = request.params.year;
