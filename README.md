@@ -15,4 +15,4 @@
 -  **Links Postman**:
 	- [SOS1920-12-overdose_deaths](https://documenter.getpostman.com/view/10637417/SzYT6hqp) (developed bzy [Juan José Requena Lama](https://github.com/wuaho))
     - [ACTUALIZAR](ACTUALIZAR) (developed by [Pascual Requena Lama](https://github.com/Requena115))
-    - [ACTUALIZAR](ACTUALIZAR) (developed by [Adrià León García](https://github.com/Adrleogar))
+    - [SOS1920-12-drug_offences](https://documenter.getpostman.com/view/10697548/SzYUa25t) (developed by [Adrià León García](https://github.com/Adrleogar))
