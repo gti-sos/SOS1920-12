@@ -387,7 +387,7 @@ app.get(BASE_API_URL + "/school-dropouts/loadInitialData", (request, response) =
 });
 
 //POST school_dropouts
-app.post(BASE_API_URL + "/school_dropouts", (request, response) => {
+app.post(BASE_API_URL + "/school-dropouts", (request, response) => {
 	var auxSchoolDropouts = request.body;
 
 	if ((auxSchoolDropouts == null) || (auxSchoolDropouts.country == null) || (auxSchoolDropouts.year == null) || (auxSchoolDropouts.sd_all == null)) {
@@ -401,7 +401,7 @@ app.post(BASE_API_URL + "/school_dropouts", (request, response) => {
 });
 
 //GET school_dropouts
-app.get(BASE_API_URL + "/school_dropouts", (request, response) => {
+app.get(BASE_API_URL + "/school-dropouts", (request, response) => {
 
 	if (school_dropouts.length < 1) {
 		response.sendStatus(400, "BAD REQUEST(data is empty)");
@@ -411,23 +411,23 @@ app.get(BASE_API_URL + "/school_dropouts", (request, response) => {
 });
 
 //PUT school_dropouts
-app.put(BASE_API_URL + "/school_dropouts", (request, response) => {
+app.put(BASE_API_URL + "/school-dropouts", (request, response) => {
 	response.sendStatus(405, "METHOD NOT ALLOWED")
 });
 
 //DELETE school_dropouts
-app.delete(BASE_API_URL + "/school_dropouts", (request, response) => {
+app.delete(BASE_API_URL + "/school-dropouts", (request, response) => {
 	school_dropouts = [];
 	response.sendStatus(200, "OK");
 });
 
 //POST school_dropouts/country
-app.post(BASE_API_URL + "/school_dropouts/:country", (request, response) => {
+app.post(BASE_API_URL + "/school-dropouts/:country", (request, response) => {
 	response.sendStatus(405, "METHOD NOT ALLOWED")
 });
 
 //GET school_dropouts/country
-app.get(BASE_API_URL + "/school_dropouts/:country", (request, response) => {
+app.get(BASE_API_URL + "/school-dropouts/:country", (request, response) => {
 	var country = request.params.country;
 	var school_dropouts_filtered = school_dropouts.filter((c) => {
 		return (c.country == country);
@@ -441,7 +441,7 @@ app.get(BASE_API_URL + "/school_dropouts/:country", (request, response) => {
 });
 
 //PUT school_dropouts/country/year
-app.put(BASE_API_URL + "/school_dropouts/:country/:year", (request, response) => {
+app.put(BASE_API_URL + "/school-dropouts/:country/:year", (request, response) => {
 	var country = request.params.country;
 	var year = request.params.year;
 
@@ -461,7 +461,7 @@ app.put(BASE_API_URL + "/school_dropouts/:country/:year", (request, response) =>
 
 
 //DELETE school_dropouts/country/year
-app.delete(BASE_API_URL + "/school_dropouts/:country/:year", (request, response) => {
+app.delete(BASE_API_URL + "/school-dropouts/:country/:year", (request, response) => {
 	var country = request.params.country;
 	var year = request.params.year;
 
