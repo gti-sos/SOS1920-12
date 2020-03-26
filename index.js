@@ -213,7 +213,7 @@ var origdata_drug_offences = [
 
 ]
 
-//LOADini
+//LOADinitialData
 app.get(BASE_API_URL + "/drug_offences/loadInitData", (request, response) => {
 
 	if (drug_offences.length >= 1) {
