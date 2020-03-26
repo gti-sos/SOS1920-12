@@ -216,6 +216,8 @@ var origdata_drug_offences = [
 //LOADinitialData
 app.get(BASE_API_URL + "/drug_offences/loadInitData", (request, response) => {
 
+	drug_offences = [];
+
 	if (drug_offences.length >= 1) {
 		response.sendStatus(409, "CONFLICT(this action would remove the existing data)");
 	} else {
@@ -241,7 +243,7 @@ app.post(BASE_API_URL + "/drug_offences", (request, response) => {
 //GET Drug_Offences
 app.get(BASE_API_URL + "/drug_offences", (request, response) => {
 
-	if(overdose_deaths.length <1){
+	if(drug_offences.length <1){
 		response.sendStatus(400,"BAD REQUEST(data is empty)");
 	}else{
 		response.send(JSON.stringify(drug_offences,null,2));
