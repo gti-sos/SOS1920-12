@@ -265,7 +265,7 @@ app.delete(BASE_API_URL + "/drug_offences", (request, response) =>{
 });
 
 //POST Drug_Offences/XXX
-app.post(BASE_API_URL + "/drugg_offences/:country", (request, response) =>{
+app.post(BASE_API_URL + "/drug_offences/:country", (request, response) =>{
 
 	response.sendStatus(405, "METHOD NOT ALLOWED")
 });
@@ -311,7 +311,7 @@ app.put(BASE_API_URL + "/drug_offences/:country/:year", (request, response) =>{
 
 //DELETE overdose_deaths
 
-app.delete(BASE_API_URL + "/drugg_offences/:country:/year",(request, response)=> {
+app.delete(BASE_API_URL + "/drug_offences/:country:/year",(request, response)=> {
 
 	var country = request.params.country;
 	var year = request.params.year;
