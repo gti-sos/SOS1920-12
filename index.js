@@ -214,7 +214,7 @@ var origdata_drug_offences = [
 ]
 
 //LOADini
-app.get(BASE_API_URL + "/durg_offences/loadInitData", (request, response) => {
+app.get(BASE_API_URL + "/drug_offences/loadInitData", (request, response) => {
 
 	if (drug_offences.length >= 1) {
 		response.sendStatus(409, "CONFLICT(this action would remove the existing data)");
