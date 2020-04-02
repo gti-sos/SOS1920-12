@@ -69,7 +69,7 @@ var initialOverdose_deaths = [
 
 // load initial overdose_deaths
 
-app.get(BASE_API_URL + "/overdose_deaths/loadInitialData", (request, response) => {
+app.get(BASE_API_URL + "/overdose-deaths/loadInitialData", (request, response) => {
 	if (overdose_deaths.length >= 1) {
 		response.sendStatus(409, "CONFLICT(this action would remove the existing data)");
 	}
@@ -80,7 +80,7 @@ app.get(BASE_API_URL + "/overdose_deaths/loadInitialData", (request, response) =
 });
 
 //POST overdose_deaths
-app.post(BASE_API_URL + "/overdose_deaths", (request, response) => {
+app.post(BASE_API_URL + "/overdose-deaths", (request, response) => {
 
 	var newOverdoseDeaths = request.body;
 
@@ -95,7 +95,7 @@ app.post(BASE_API_URL + "/overdose_deaths", (request, response) => {
 });
 
 //GET overdose_deaths
-app.get(BASE_API_URL + "/overdose_deaths", (request, response) => {
+app.get(BASE_API_URL + "/overdose-deaths", (request, response) => {
 
 	if (overdose_deaths.length < 1) {
 		response.sendStatus(400, "BAD REQUEST(data is empty)");
@@ -105,23 +105,23 @@ app.get(BASE_API_URL + "/overdose_deaths", (request, response) => {
 });
 
 //PUT overdose_deaths
-app.put(BASE_API_URL + "/overdose_deaths", (request, response) => {
+app.put(BASE_API_URL + "/overdose-deaths", (request, response) => {
 	response.sendStatus(405, "METHOD NOT ALLOWED")
 });
 
 //DELETE overdose_deaths
-app.delete(BASE_API_URL + "/overdose_deaths", (request, response) => {
+app.delete(BASE_API_URL + "/overdose-deaths", (request, response) => {
 	overdose_deaths = [];
 	response.sendStatus(200, "OK");
 });
 
 //POST overdose_deaths/XXX
-app.post(BASE_API_URL + "/overdose_deaths/:country", (request, response) => {
+app.post(BASE_API_URL + "/overdose-deaths/:country", (request, response) => {
 	response.sendStatus(405, "METHOD NOT ALLOWED")
 });
 
 //GET overdose_deaths/XXX
-app.get(BASE_API_URL + "/overdose_deaths/:country", (request, response) => {
+app.get(BASE_API_URL + "/overdose-deaths/:country", (request, response) => {
 
 	var country = request.params.country;
 	var filteredOverdose_deaths = overdose_deaths.filter((c) => {
@@ -136,7 +136,7 @@ app.get(BASE_API_URL + "/overdose_deaths/:country", (request, response) => {
 });
 
 //PUT overdose_deaths/XXX
-app.put(BASE_API_URL + "/overdose_deaths/:country/:year", (request, response) => {
+app.put(BASE_API_URL + "/overdose-deaths/:country/:year", (request, response) => {
 	var country = request.params.country;
 	var year = request.params.year;
 
@@ -155,7 +155,7 @@ app.put(BASE_API_URL + "/overdose_deaths/:country/:year", (request, response) =>
 });
 
 //DELETE overdose_deaths/XXX
-app.delete(BASE_API_URL + "/overdose_deaths/:country/:year", (request, response) => {
+app.delete(BASE_API_URL + "/overdose-deaths/:country/:year", (request, response) => {
 	var country = request.params.country;
 	var year = request.params.year;
 
