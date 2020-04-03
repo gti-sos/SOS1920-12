@@ -20,4 +20,6 @@
 
 `git branch` Para saber en que rama estamos 
 
-`git checkout  [nombre de la rama]` Para cambiar a una rama diferente 
+`git checkout  [nombre de la rama]` Para cambiar a una rama diferente
+
+`git branch -d [nombre de la rama]` Para eliminar una rama localmente
