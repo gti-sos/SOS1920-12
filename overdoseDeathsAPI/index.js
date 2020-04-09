@@ -52,24 +52,18 @@ var initialOverdose_deaths = [
 // GET load initial overdose-deaths
 
 app.get(BASE_API_URL + "/overdose-deaths/loadInitialData", (req, res) => {
-	
-	/*
-	ANTES SIN LA BASE DE DATOS TENIA EL AVISO 409 PERO NO SE COMO PONERLO JUNTO, TAMPOCO ES MUY NECESARIO 
-	NO PERMITIR QUE SE PUEDA CARGAR INFINITAMENTE LOS DATOS 
+
+	console.log("New GET .../loadInitialData");
+	var overdose_deaths = db.getAllData();
 
 	if (overdose_deaths.length >= 1) {
 		res.sendStatus(409, "CONFLICT(this action would remove the existing data)");
+		console.log("There is already loaded data");
+	}else{
+		db.insert(initialOverdose_deaths);
+		res.sendStatus(200);
+		console.log("Initial overdose-deaths data loaded"+JSON.stringify(initialOverdose_deaths, null, 2));
 	}
-	else {
-		overdose_deaths = initialOverdose_deaths;
-		res.send(JSON.stringify(overdose_deaths, null, 2));
-		}
-		*/
-
-	console.log("New GET .../loadInitialData");
-	db.insert(initialOverdose_deaths);
-	res.sendStatus(200);
-	console.log("Initial overdose-deaths loaded"+JSON.stringify(initialOverdose_deaths, null, 2));
 });
 
 //GET overdose-deaths
@@ -124,51 +118,74 @@ app.get(BASE_API_URL + "/overdose-deaths", (req, res) => {
 		res.send(JSON.stringify(overdose_deaths, null, 2));
 		console.log("Data sent:"+JSON.stringify(overdose_deaths, null, 2));
 	}});
+	
 });
 
 //POST overdose-deaths
 app.post(BASE_API_URL + "/overdose-deaths", (req, res) => {
  
-	var newOverdoseDeaths = request.body;
+	var newOverdoseDeaths = req.body;
 
 	if ((newOverdoseDeaths == null) || (newOverdoseDeaths.country == null) || (newOverdoseDeaths.year == null) || (newOverdoseDeaths.death_total == null)) {
-		response.sendStatus(400, "BAD REQUEST(data provided not correctly)");
+		res.sendStatus(400, "BAD REQUEST(data not correctly provided )");
 	}
 	else {
-		overdose_deaths.push(newOverdoseDeaths);
-		response.sendStatus(201, "CREATED");
+		db.insert(newOverdoseDeaths);
+		res.sendStatus(201, "CREATED");
+		console.log("Data input:"+JSON.stringify(newOverdoseDeaths, null, 2));
 	}
-	
-
 });
 
-
-
-
 //PUT overdose-deaths
-app.put(BASE_API_URL + "/overdose-deaths", (request, response) => {
-	response.sendStatus(405, "METHOD NOT ALLOWED")
+app.put(BASE_API_URL + "/overdose-deaths", (req, res) => {
+	res.sendStatus(405, "METHOD NOT ALLOWED")
 });
 
 //DELETE overdose-deaths
-app.delete(BASE_API_URL + "/overdose-deaths", (request, response) => {
-	overdose_deaths = [];
-	response.sendStatus(200, "OK");
+app.delete(BASE_API_URL + "/overdose-deaths", (req, res) => {
+	db.remove({}, { multi: true }, function (err, numRemoved) {
+	});
+	res.sendStatus(200, "OK");
 });
 
-//GET overdose-deaths/XXX
-app.get(BASE_API_URL + "/overdose-deaths/:country", (request, response) => {
+//GET overdose-deaths/:country
+app.get(BASE_API_URL + "/overdose-deaths/:country", (req, res) => {
 
-	var country = request.params.country;
-	var filteredOverdose_deaths = overdose_deaths.filter((c) => {
-		return (c.country == country);
+	var country = req.params.country;
+	var query = {"country":country};
+
+	db.find(query).exec((err,overdose_deaths) => {
+		if (overdose_deaths.length >= 1) {
+			delete overdose_deaths[0]._id;
+			res.send(JSON.stringify(overdose_deaths[0], null, 2));
+			console.log("Data sent:"+JSON.stringify(overdose_deaths[0], null, 2));
+		} else {
+			res.sendStatus(404, "NOT FOUND");
+		}
 	});
+});
+//---------------------------------------------------------------------------ME HE QUEDADO AQUI---------------------------------------------------------------------------------
+//CONSEGUIR BUENOS CONSOLE LOGS
+//CONSEGUIR QUE CADA PETICION LO PUEDA HACER DE AL MENOS DOS PARAMETROS, COUNTRY Y YEAR
 
-	if (filteredOverdose_deaths.length >= 1) {
-		response.send(filteredOverdose_deaths[0]);
-	} else {
-		response.sendStatus(404, "NOT FOUND");
-	}
+
+
+//GET overdose-deaths/:country/:year
+app.get(BASE_API_URL + "/overdose-deaths/:country/:year", (req, res) => {
+
+	var country = req.params.country;
+	var year = req.params.year;
+	var query = {"country":country, "year":parseInt(year)};
+
+	db.find(query).exec((err,overdose_deaths) => {
+		if (overdose_deaths.length >= 1) {
+			delete overdose_deaths[0]._id;
+			res.send(JSON.stringify(overdose_deaths[0], null, 2));
+			console.log("Data sent:"+JSON.stringify(overdose_deaths[0], null, 2));
+		} else {
+			res.sendStatus(404, "NOT FOUND");
+		}
+	});
 });
 
 //POST overdose-deaths/XXX
