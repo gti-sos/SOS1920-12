@@ -1,4 +1,5 @@
 // -------------------------------------OVERDOSE-DEATHS API-------------------------------------
+//-------Fijarme mas en los datos que no se pueden meter y que estoy permitiendo que se haga--------
 module.exports = function (app) {
 	console.log("Registering overdose-deaths API...");
 	const dataStore = require("nedb");
@@ -10,8 +11,6 @@ module.exports = function (app) {
 		filename : dbFileName, 
 		autoload : true
 });
-	
-// antes: var overdose_deaths = [];
 
 var initialOverdose_deaths = [
 	{
@@ -176,11 +175,6 @@ app.get(BASE_API_URL + "/overdose-deaths/:country", (req, res) => {
 		}
 	});
 });
-//---------------------------------------------------------------------------ME HE QUEDADO AQUI---------------------------------------------------------------------------------
-//CONSEGUIR BUENOS CONSOLE LOGS
-//CONSEGUIR QUE CADA PETICION LO PUEDA HACER DE AL MENOS DOS PARAMETROS, COUNTRY Y YEAR
-
-
 
 //GET overdose-deaths/:country/:year
 app.get(BASE_API_URL + "/overdose-deaths/:country/:year", (req, res) => {
@@ -211,7 +205,6 @@ app.post(BASE_API_URL + "/overdose-deaths/:param", (req, res) => {
 app.post(BASE_API_URL + "/overdose-deaths/:param1/:param2", (req, res) => {
 	res.sendStatus(405, "METHOD NOT ALLOWED");
 });
-
 
 //PUT overdose-deaths/:country/:year
 app.put(BASE_API_URL + "/overdose-deaths/:country/:year", (req, res) => {
