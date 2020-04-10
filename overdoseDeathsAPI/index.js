@@ -55,13 +55,13 @@ app.get(BASE_API_URL + "/overdose-deaths/loadInitialData", (req, res) => {
 
 	console.log("New GET .../loadInitialData");
 	var overdose_deaths = db.getAllData();
-
+	
 	if (overdose_deaths.length >= 1) {
 		res.sendStatus(409, "CONFLICT(this action would remove the existing data)");
 		console.log("There is already loaded data");
 	}else{
 		db.insert(initialOverdose_deaths);
-		res.sendStatus(200);
+		res.send(JSON.stringify(initialOverdose_deaths, null, 2));
 		console.log("Initial overdose-deaths data loaded"+JSON.stringify(initialOverdose_deaths, null, 2));
 	}
 });
@@ -69,6 +69,7 @@ app.get(BASE_API_URL + "/overdose-deaths/loadInitialData", (req, res) => {
 //GET overdose-deaths
 app.get(BASE_API_URL + "/overdose-deaths", (req, res) => {
 	
+	console.log("New GET .../overdose-deaths");
 	//This property is an object containing a property for each query string parameter in the route. If there is no query string, it is the empty object, {}.
 	// For example  for /api/v1/overdose-deaths?country=Germany&year=2015 the result would be query = { country: 'Germany', year: '2015' }
 	//Podemos acceder a cada valor con query.clave  e.g. query.country nos devolveria 'Germany'
@@ -101,8 +102,6 @@ app.get(BASE_API_URL + "/overdose-deaths", (req, res) => {
 		query.mean_age = parseFloat(query.mean_age);
 	}
 
-	console.log("New GET .../overdose-deaths");
-
 	//err y overdose_deaths son: el error que devuelve y el array con las muertes que satisfacen la query 
 	// por otra parte, .skip nos consigue el offset deseado y .limit pues lo mismo pero con el limit
 
@@ -113,7 +112,9 @@ app.get(BASE_API_URL + "/overdose-deaths", (req, res) => {
 	});	
 
 	if (overdose_deaths.length < 1) {
-		res.sendStatus(400, "BAD REQUEST(data is empty)");}
+		res.sendStatus(400, "BAD REQUEST(data is empty)");
+		console.log("The requested data is empty");
+	}
 	else{
 		res.send(JSON.stringify(overdose_deaths, null, 2));
 		console.log("Data sent:"+JSON.stringify(overdose_deaths, null, 2));
@@ -123,11 +124,14 @@ app.get(BASE_API_URL + "/overdose-deaths", (req, res) => {
 
 //POST overdose-deaths
 app.post(BASE_API_URL + "/overdose-deaths", (req, res) => {
- 
+	console.log("New POST .../overdose-deaths");
+	//Aqui estaria bien conseguir que no se puedan meter parametros extras 
+
 	var newOverdoseDeaths = req.body;
 
 	if ((newOverdoseDeaths == null) || (newOverdoseDeaths.country == null) || (newOverdoseDeaths.year == null) || (newOverdoseDeaths.death_total == null)) {
 		res.sendStatus(400, "BAD REQUEST(data not correctly provided )");
+		console.log("The data wasnt correctly provided");
 	}
 	else {
 		db.insert(newOverdoseDeaths);
@@ -143,13 +147,20 @@ app.put(BASE_API_URL + "/overdose-deaths", (req, res) => {
 
 //DELETE overdose-deaths
 app.delete(BASE_API_URL + "/overdose-deaths", (req, res) => {
+	console.log("New DELETE .../overdose-deaths");
+
 	db.remove({}, { multi: true }, function (err, numRemoved) {
 	});
 	res.sendStatus(200, "OK");
+	console.log("Data successfully removed");
 });
 
 //GET overdose-deaths/:country
 app.get(BASE_API_URL + "/overdose-deaths/:country", (req, res) => {
+	console.log("New GET .../overdose-deaths/:country");
+
+	//Podriamos hacer que este codigo tambien valiese para un GET overdose-deaths/:year pero para ayer tendriamos que mirar si en la query 
+	//se ha introducido un numero o un string y a partir de ahi realizar la query introducida
 
 	var country = req.params.country;
 	var query = {"country":country};
@@ -161,6 +172,7 @@ app.get(BASE_API_URL + "/overdose-deaths/:country", (req, res) => {
 			console.log("Data sent:"+JSON.stringify(overdose_deaths[0], null, 2));
 		} else {
 			res.sendStatus(404, "NOT FOUND");
+			console.log("The data requested is empty");
 		}
 	});
 });
@@ -172,6 +184,7 @@ app.get(BASE_API_URL + "/overdose-deaths/:country", (req, res) => {
 
 //GET overdose-deaths/:country/:year
 app.get(BASE_API_URL + "/overdose-deaths/:country/:year", (req, res) => {
+	console.log("New GET .../overdose-deaths/:country/:year");
 
 	var country = req.params.country;
 	var year = req.params.year;
@@ -184,53 +197,67 @@ app.get(BASE_API_URL + "/overdose-deaths/:country/:year", (req, res) => {
 			console.log("Data sent:"+JSON.stringify(overdose_deaths[0], null, 2));
 		} else {
 			res.sendStatus(404, "NOT FOUND");
+			console.log("The data requested is empty");
 		}
 	});
 });
 
-//POST overdose-deaths/XXX
-app.post(BASE_API_URL + "/overdose-deaths/:country", (request, response) => {
-	response.sendStatus(405, "METHOD NOT ALLOWED")
+//POST overdose-deaths/:param
+app.post(BASE_API_URL + "/overdose-deaths/:param", (req, res) => {
+	res.sendStatus(405, "METHOD NOT ALLOWED");
+});
+
+//POST overdose-deaths/:param1/:param2
+app.post(BASE_API_URL + "/overdose-deaths/:param1/:param2", (req, res) => {
+	res.sendStatus(405, "METHOD NOT ALLOWED");
 });
 
 
+//PUT overdose-deaths/:country/:year
+app.put(BASE_API_URL + "/overdose-deaths/:country/:year", (req, res) => {
+	console.log("New PUT .../overdose-deaths/:country/:year");
 
-//PUT overdose-deaths/XXX
-app.put(BASE_API_URL + "/overdose-deaths/:country/:year", (request, response) => {
-	var country = request.params.country;
-	var year = request.params.year;
-
-	var newOverdoseDeaths = request.body;
+	var country = req.params.country;
+	var year = req.params.year;
+	var newOverdoseDeaths = req.body;
+	var query = {"country":country, "year":parseInt(year)};
 
 	if (country != newOverdoseDeaths.country || year != newOverdoseDeaths.year) {
-		response.sendStatus(400, "BAD REQUEST(data does not match)");
+		res.sendStatus(400, "BAD REQUEST(data does not match)");
+		console.log("Data does not match");
 	} else {
-		var filteredOverdose_deaths = overdose_deaths.filter((c) => {
-			return (!((c.country == country) && (c.year == year)));
+		db.update(query,newOverdoseDeaths,(err,numReplaced) =>{
+			if(numReplaced == 0){
+				res.sendStatus(400, "BAD REQUEST(there is no such data in the database)");
+				console.log("There is no such data in the database");
+
+			}
+			else{
+				res.sendStatus(200, "OK");
+				console.log("Database updated");
+			}
 		});
-		overdose_deaths = filteredOverdose_deaths;
-		overdose_deaths.push(newOverdoseDeaths);
-		response.sendStatus(200, "OK");
 	}
 });
 
-//DELETE overdose-deaths/XXX
-app.delete(BASE_API_URL + "/overdose-deaths/:country/:year", (request, response) => {
-	var country = request.params.country;
-	var year = request.params.year;
+//DELETE overdose-deaths/:country/:year
+app.delete(BASE_API_URL + "/overdose-deaths/:country/:year", (req, res) => {
+	console.log("New DELETE .../overdose-deaths/:country/:year");
 
-	var filteredOverdose_deaths = overdose_deaths.filter((c) => {
-		return (!((c.country == country) && (c.year == year)));
+	var country = req.params.country;
+	var year = req.params.year;
+	var query = {"country":country, "year":parseInt(year)};
+
+	db.remove(query, {multi:true}, (err, numRemoved) =>{
+		if(numRemoved == 0){
+			res.sendStatus(404, "NOT FOUND");
+			console.log("There is no such data in the database");
+		}
+		else{
+			res.sendStatus(200, "OK");
+			console.log("Object removed");
+		}
 	});
-
-	if (filteredOverdose_deaths.length < overdose_deaths.length) {
-		overdose_deaths = filteredOverdose_deaths;
-		response.sendStatus(200, "OK");
-	} else {
-		response.sendStatus(404, "NOT FOUND");
-	}
-
 });
-
-}
+};
 // -------------------------------------END-OVERDOSE-DEATHS API-------------------------------------
