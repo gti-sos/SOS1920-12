@@ -125,7 +125,7 @@ module.exports = function (app) {
 	app.post(BASE_API_URL + "/drug_offences", (req, res) => {
 		console.log("New POST .../drug_offences");
 
-		var newDrugOffences = req.body;
+		var newDrug_offences = req.body;
 
 		if ((newDrug_offences == null) || (newDrug_offences.country == null) || (newDrug_offences.year == null) || (newDrug_offences.cannabis_offences == null || newDrugOffences.offences_supply == null)) {
 			res.sendStatus(400, "BAD REQUEST(data not correctly provided )");
