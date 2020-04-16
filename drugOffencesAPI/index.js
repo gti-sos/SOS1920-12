@@ -202,18 +202,23 @@ module.exports = function (app) {
 	app.put(BASE_API_URL + "/drug_offences/:country/:year", (request, response) => {
 		var country = request.params.country;
 		var year = request.params.year;
-
 		var newDrugOffence = request.body;
+		var query = {"country":country, "year":parseInt(year)};
 
 		if (country != newDrugOffence.country || year != newDrugOffence.year) {
 			response.sendStatus(400, "BAD REQUEST, (Data does not match)");
 		} else {
-			var filteredDrug_offences = drug_offences.filter((c) => {
-				return (!((c.country == country) && (c.year == year)));
-			});
-			drug_offences = filteredDrug_offences;
-			drug_offences.push(newDruggOffence);
-			response.sendStatus(200, "OK");
+			db.update(query,newDrugOffence,(err,numReplaced) =>{
+			if(numReplaced == 0){
+				res.sendStatus(400, "BAD REQUEST(there is no such data in the database)");
+				console.log("There is no such data in the database");
+
+			}
+			else{
+				res.sendStatus(200, "OK");
+				console.log("Database updated");
+			}
+		});
 		}
 	});
 
@@ -225,7 +230,7 @@ module.exports = function (app) {
 		var year = request.params.year;
 		var query = {"country":country, "year":parseInt(year)};
 
-		db.remove(query, {multi:true}, (err, numRemoved) =>{
+		db.remove(query, {multi :true}, (err, numRemoved) =>{
 			if(numRemoved == 0){
 				response.sendStatus(404, "NOT FOUND");
 				console.log("There is no such data in the database");
