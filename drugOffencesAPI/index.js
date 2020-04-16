@@ -57,6 +57,7 @@ app.get(BASE_API_URL + "/drug_offences/loadInitData", (request, response) => {
 	if (drug_offences.length >= 1) {
 		response.sendStatus(409, "CONFLICT(this action would remove the existing data)");
 	} else {
+		db.insert(origdata_drug_offences);
 		drug_offences = origdata_drug_offences;
 		response.send(JSON.stringify(drug_offences, null, 2));
 	}
