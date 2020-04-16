@@ -132,7 +132,7 @@ module.exports = function (app) {
 			console.log("The data wasnt correctly provided");
 		}
 		else {
-			db.insert(drug_offences);
+			db.insert(newDrug_offences);
 			res.sendStatus(201, "CREATED");
 			console.log("Data input:" + JSON.stringify(drug_offences, null, 2));
 		}
@@ -157,7 +157,7 @@ module.exports = function (app) {
 	app.get(BASE_API_URL + "/drug_offences/:country", (req, res) => {
 		console.log("New GET .../drug_offences/:country");
 
-		//Podriamos hacer que este codigo tambien valiese para un GET overdose-deaths/:year pero para year tendriamos que mirar si en la query 
+		//Podriamos hacer que este codigo tambien valiese para un GET drug_offences/:year pero para year tendriamos que mirar si en la query 
 		//se ha introducido un numero o un string y a partir de ahi realizar la query introducida
 
 		var country = req.params.country;
