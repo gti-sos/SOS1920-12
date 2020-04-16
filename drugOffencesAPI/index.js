@@ -163,9 +163,9 @@ module.exports = function (app) {
 		var country = req.params.country;
 		var query = { "country": country };
 
-		db.find(query).exec((err, overdose_deaths) => {
+		db.find(query).exec((err, drug_offences) => {
 			if (drug_offences.length >= 1) {
-				delete overdose_deaths[0]._id;
+				delete drug_offences[0]._id;
 				res.send(JSON.stringify(drug_offences[0], null, 2));
 				console.log("Data sent:" + JSON.stringify(drug_offences[0], null, 2));
 			} else {
@@ -220,8 +220,8 @@ module.exports = function (app) {
 	});
 
 
-	//POST overdose-deaths/:param1/:param2
-	app.post(BASE_API_URL + "/overdose-deaths/:param1/:param2", (req, res) => {
+	//POST drug_offences/:param1/:param2
+	app.post(BASE_API_URL + "/drug_offences/:param1/:param2", (req, res) => {
 		res.sendStatus(405, "METHOD NOT ALLOWED");
 	});
 
