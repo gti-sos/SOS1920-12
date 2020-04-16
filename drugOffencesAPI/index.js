@@ -227,11 +227,11 @@ module.exports = function (app) {
 
 		db.remove(query, {multi:true}, (err, numRemoved) =>{
 			if(numRemoved == 0){
-				res.sendStatus(404, "NOT FOUND");
+				response.sendStatus(404, "NOT FOUND");
 				console.log("There is no such data in the database");
 			}
 			else{
-				res.sendStatus(200, "OK");
+				response.sendStatus(200, "OK");
 				console.log("Object removed");
 			}
 		});
