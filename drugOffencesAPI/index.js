@@ -1,5 +1,5 @@
 module.exports = function (app) {
-	console.log("Registering drug-offences API...");
+	console.log("Registering drug_offences API...");
 	const dataStore = require("nedb");
 	const path = require("path");
 	const BASE_API_URL = "/api/v1";
@@ -61,13 +61,13 @@ app.get(BASE_API_URL + "/drug_offences/loadInitData", (request, response) => {
 	}
 });
 
-//GET drug-offences
-app.get(BASE_API_URL + "/drug-offences", (req, res) => {
+//GET drug_offences
+app.get(BASE_API_URL + "/drug_offences", (req, res) => {
 	
-	console.log("New GET .../drug-offences");
+	console.log("New GET .../drug_offences");
 
 	//Esta propiedad es un objeto que contiene una propiedad para cada parametro en la ruta. Si no hubiese query devolvería un objeto vacío, {}.
-	//Por ejemplo para /api/v1/drug-offences?country=Spain&year=2016 el resultado sería query = { country: 'Spain', year: '2016'}
+	//Por ejemplo para /api/v1/drug_offences?country=Spain&year=2016 el resultado sería query = { country: 'Spain', year: '2016'}
 	//Podemos acceder a cada valor con query.clave e.g. query.country nos devolveria 'Spain'
 
 	var query = req.query;
