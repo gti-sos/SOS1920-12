@@ -1,5 +1,5 @@
 module.exports = function (app) {
-	console.log("Registering drugg-offences API...");
+	console.log("Registering drug-offences API...");
 	const dataStore = require("nedb");
 	const path = require("path");
 	const BASE_API_URL = "/api/v1";
