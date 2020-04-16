@@ -153,6 +153,27 @@ module.exports = function (app) {
 		console.log("Data successfully removed");
 	});
 
+	//GET drug_offences/:country/:year
+	app.get(BASE_API_URL + "/drug_offences/:country/:year",(req,res)=>{
+		console.log("New GET ...drug_offence/:country/:year");
+
+		var country = req.params.country;
+		var year = req.params.year;
+		var query = {"country": country, "year":parseInt(year)};
+
+		db.find(query).exec((err, drug_offences)=>{
+			if (drug_offences.length>=1) {
+				delete drug_offences[0]._id;
+				res.send(JSON.stringify(drug_offences[0], null, 2));
+				console.log("Data sent: " + JSON.stringify(drug_offences[0], null, 2))
+			} else {
+				res.sendStatus(404, "NOT FOUND");
+				console.log("The data requested is empty");
+			}
+
+		})
+	});
+
 	//GET drug_offences/:country
 	app.get(BASE_API_URL + "/drug_offences/:country", (req, res) => {
 		console.log("New GET .../drug_offences/:country");
@@ -202,16 +223,18 @@ module.exports = function (app) {
 
 		var country = request.params.country;
 		var year = request.params.year;
-		var filteredDrug_offences = drug_offences.filter((c) => {
-			return (!((c.country == country) && (c.year == year)));
-		});
+		var query = {"country":country, "year":parseInt(year)};
 
-		if (filteredDrug_offences.length < drug_offences.length) {
-			drug_offences = filteredDrug_offences;
-			response.sendStatus(200, "OK");
-		} else {
-			response.sendStatus(404, "NOT FOUND");
-		}
+		db.remove(query, {multi:true}, (err, numRemoved) =>{
+			if(numRemoved == 0){
+				res.sendStatus(404, "NOT FOUND");
+				console.log("There is no such data in the database");
+			}
+			else{
+				res.sendStatus(200, "OK");
+				console.log("Object removed");
+			}
+		});
 	})
 
 	//POST drug_offences/:param
