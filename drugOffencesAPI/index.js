@@ -210,12 +210,12 @@ module.exports = function (app) {
 		} else {
 			db.update(query,newDrugOffence,(err,numReplaced) =>{
 			if(numReplaced == 0){
-				res.sendStatus(400, "BAD REQUEST(there is no such data in the database)");
+				response.sendStatus(400, "BAD REQUEST(there is no such data in the database)");
 				console.log("There is no such data in the database");
 
 			}
 			else{
-				res.sendStatus(200, "OK");
+				response.sendStatus(200, "OK");
 				console.log("Database updated");
 			}
 		});
