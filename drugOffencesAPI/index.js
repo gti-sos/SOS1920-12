@@ -127,7 +127,7 @@ module.exports = function (app) {
 
 		var newDrug_offences = req.body;
 
-		if ((newDrug_offences == null) || (newDrug_offences.country == null) || (newDrug_offences.year == null) || (newDrug_offences.cannabis_offences == null || newDrugOffences.offences_supply == null)) {
+		if ((newDrug_offences == null) || (newDrug_offences.country == null) || (newDrug_offences.year == null) || (newDrug_offences.cannabis_offences == null || newDrug_offences.offences_supply == null)) {
 			res.sendStatus(400, "BAD REQUEST(data not correctly provided )");
 			console.log("The data wasnt correctly provided");
 		}
