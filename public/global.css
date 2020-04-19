@@ -65,22 +65,3 @@ button:focus {
 	border-color: #666;
 }
 
-/*Esto es freestyle del antiguo css que teniamos, se puede quitar o cambiar lo que quieras
-*/
-body {
-	background-color: #9fd5d1;
-}
-
-h2 {
-	text-align: center;
-	font-family: verdana;
-	font-size: 40px;
-}
-
-p {
-	font-family: verdana;
-	font-size: 20px;
-}
-li{
-	font-family: verdana;	
-}
