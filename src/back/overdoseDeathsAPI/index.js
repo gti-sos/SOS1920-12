@@ -1,5 +1,6 @@
 // -------------------------------------OVERDOSE-DEATHS API-------------------------------------
-//-------Fijarme mas en los datos que no se pueden meter y que estoy permitiendo que se haga--------
+//-------TO DO: he adherido un PUT Y UN DELETE AL FINAL PARA LAS PRUEBAS DE LA ULTIMA CLASE, DEBERIA DE QUITARLOS Y CONSEGUIR QUE LOS DATOS INTRODUCIDOS POR FRONT QUE SON NUMEROS SE GUARDEN
+// COMO NUMEROS Y NO COMO STRING ADEMAS DE ACTUALIZAR LOS METODOS DEL FRONTEND--------
 module.exports = function (app) {
 	console.log("Registering overdose-deaths API...");
 	const dataStore = require("nedb");
@@ -232,6 +233,32 @@ app.put(BASE_API_URL + "/overdose-deaths/:country/:year", (req, res) => {
 		});
 	}
 });
+//ADHERIDO EN LA ULTIMA CLASE
+//PUT overdose-deaths/:country/:year
+app.put(BASE_API_URL + "/overdose-deaths/:country", (req, res) => {
+	console.log("New PUT .../overdose-deaths/:country");
+
+	var country = req.params.country;
+	var newOverdoseDeaths = req.body;
+	var query = {"country":country};
+
+	if (country != newOverdoseDeaths.country) {
+		res.sendStatus(400, "BAD REQUEST(data does not match)");
+		console.log("Data does not match");
+	} else {
+		db.update(query,newOverdoseDeaths,(err,numReplaced) =>{
+			if(numReplaced == 0){
+				res.sendStatus(400, "BAD REQUEST(there is no such data in the database)");
+				console.log("There is no such data in the database");
+
+			}
+			else{
+				res.sendStatus(200, "OK");
+				console.log("Database updated");
+			}
+		});
+	}
+});
 
 //DELETE overdose-deaths/:country/:year
 app.delete(BASE_API_URL + "/overdose-deaths/:country/:year", (req, res) => {
@@ -252,5 +279,25 @@ app.delete(BASE_API_URL + "/overdose-deaths/:country/:year", (req, res) => {
 		}
 	});
 });
+//ADHERIDO EN LA ULTIMA CLASE
+//DELETE overdose-deaths/:country
+app.delete(BASE_API_URL + "/overdose-deaths/:country", (req, res) => {
+	console.log("New DELETE .../overdose-deaths/:country");
+
+	var country = req.params.country;
+	var query = {"country":country};
+
+	db.remove(query, {multi:true}, (err, numRemoved) =>{
+		if(numRemoved == 0){
+			res.sendStatus(404, "NOT FOUND");
+			console.log("There is no such data in the database");
+		}
+		else{
+			res.sendStatus(200, "OK");
+			console.log("Object removed");
+		}
+	});
+});
+
 };
 // -------------------------------------END-OVERDOSE-DEATHS API-------------------------------------

@@ -31,7 +31,7 @@
 	}
 	
 	async function insertOverdoseDeath(){
-		
+		 
 		console.log("Inserting overdose deaths...");
 		const res = await fetch("/api/v1/overdose-deaths",{
 			method:"POST",
@@ -43,7 +43,15 @@
 			getOverdoseDeaths();
 		});	
 	}
-	
+
+	async function deleteOverdoseDeath(country) {
+		console.log("Deleting overdose death...");
+		const res = await fetch("/api/v1/overdose-deaths/" + country,{
+			method:"DELETE"
+		}).then(function (res) {
+			getOverdoseDeaths();
+		});	
+	}
 	</script>
 
 <main>
@@ -71,17 +79,19 @@
 						<td><input bind:value="{newOverdoseDeath.death_female}"></td>
 						<td><input bind:value="{newOverdoseDeath.death_total}"></td>
 						<td><input bind:value="{newOverdoseDeath.mean_age}"></td>
-						<td><Button color= "primary" outline on:click={insertOverdoseDeath}>Insert</Button></td>
+						<td><Button outline color= "primary"  on:click={insertOverdoseDeath}>Insert</Button></td>
 					</tr>
 				{#each overdose_deaths as overdose_death}
 					<tr>
-						<td>{overdose_death.country}</td>
+						<td>
+							<a href= "#/overdose-deaths/{overdose_death.country}">{overdose_death.country} </a>
+						</td>
 						<td>{overdose_death.year}</td>
 						<td>{overdose_death.death_male}</td>
 						<td>{overdose_death.death_female}</td>
 						<td>{overdose_death.death_total}</td>
 						<td>{overdose_death.mean_age}</td>
-						<td><Button color="danger" outline>Delete</Button></td>
+						<td><Button outline color="danger" on:click="{deleteOverdoseDeath(overdose_death.country)}">Delete</Button></td>
 					</tr>
 				{/each}
 			</tbody>
