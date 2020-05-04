@@ -234,7 +234,8 @@ app.put(BASE_API_URL + "/overdose-deaths/:country/:year", (req, res) => {
 	}
 });
 //ADHERIDO EN LA ULTIMA CLASE
-//PUT overdose-deaths/:country/:year
+//PUT overdose-deaths/:country
+/*
 app.put(BASE_API_URL + "/overdose-deaths/:country", (req, res) => {
 	console.log("New PUT .../overdose-deaths/:country");
 
@@ -258,7 +259,7 @@ app.put(BASE_API_URL + "/overdose-deaths/:country", (req, res) => {
 			}
 		});
 	}
-});
+}); */
 
 //DELETE overdose-deaths/:country/:year
 app.delete(BASE_API_URL + "/overdose-deaths/:country/:year", (req, res) => {
@@ -281,6 +282,7 @@ app.delete(BASE_API_URL + "/overdose-deaths/:country/:year", (req, res) => {
 });
 //ADHERIDO EN LA ULTIMA CLASE
 //DELETE overdose-deaths/:country
+/*
 app.delete(BASE_API_URL + "/overdose-deaths/:country", (req, res) => {
 	console.log("New DELETE .../overdose-deaths/:country");
 
@@ -297,7 +299,7 @@ app.delete(BASE_API_URL + "/overdose-deaths/:country", (req, res) => {
 			console.log("Object removed");
 		}
 	});
-});
+}); */
 
 };
 // -------------------------------------END-OVERDOSE-DEATHS API-------------------------------------

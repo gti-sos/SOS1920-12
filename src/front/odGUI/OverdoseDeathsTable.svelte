@@ -33,20 +33,28 @@
 	async function insertOverdoseDeath(){
 		 
 		console.log("Inserting overdose deaths...");
-		const res = await fetch("/api/v1/overdose-deaths",{
+		//Comprobamos que el año y la fecha no estén vacíos, ojo cuidao que el string vacio no es null
+		if (newOverdoseDeath.country == "" || newOverdoseDeath.country == null || newOverdoseDeath.year == "" || newOverdoseDeath.year == null) {
+			alert("Los campos 'Pais' y 'Año' no pueden estar vacios");
+		}
+		else{
+			const res = await fetch("/api/v1/overdose-deaths",{
 			method:"POST",
 			body:JSON.stringify(newOverdoseDeath),
 			headers:{
 				"Content-Type": "application/json"
 			}
-		}).then(function (res) {
-			getOverdoseDeaths();
-		});	
+			}).then(function (res) {
+				getOverdoseDeaths();
+			});	
+
+		}
+		
 	}
 
-	async function deleteOverdoseDeath(country) {
+	async function deleteOverdoseDeath(country,year) {
 		console.log("Deleting overdose death...");
-		const res = await fetch("/api/v1/overdose-deaths/" + country,{
+		const res = await fetch("/api/v1/overdose-deaths/" + country + "/"+year,{
 			method:"DELETE"
 		}).then(function (res) {
 			getOverdoseDeaths();
@@ -62,36 +70,36 @@
 		<Table bordered>
 			<thead>
 				<tr>
-					<th>Country</th>
-					<th>Year</th>
-					<th>Death-male</th>
-					<th>Death-female</th>
-					<th>Death-total</th>
-					<th>Mean-age</th>
+					<th>Pais</th>
+					<th>Año</th>
+					<th>Hombres fallecidos</th>
+					<th>Mujeres fallecidas</th>
+					<th>Total de fallecidos</th>
+					<th>Edad media</th>
 					<th>Actions</th>
 				</tr>
 			</thead>
 			<tbody>
 					<tr>
-						<td><input bind:value="{newOverdoseDeath.country}"></td>
-						<td><input bind:value="{newOverdoseDeath.year}"></td>
-						<td><input bind:value="{newOverdoseDeath.death_male}"></td>
-						<td><input bind:value="{newOverdoseDeath.death_female}"></td>
-						<td><input bind:value="{newOverdoseDeath.death_total}"></td>
-						<td><input bind:value="{newOverdoseDeath.mean_age}"></td>
+						<td><input type="text" placeholder="South Korea" bind:value="{newOverdoseDeath.country}"></td>
+						<td><input type="number" placeholder="2019" min=0 bind:value="{newOverdoseDeath.year}"></td>
+						<td><input type="number" placeholder="20" min=0 bind:value="{newOverdoseDeath.death_male}"></td>
+						<td><input type="number" placeholder="10" min=0 bind:value="{newOverdoseDeath.death_female}"></td>
+						<td><input type="number" placeholder="30" min=0 bind:value="{newOverdoseDeath.death_total}"></td>
+						<td><input type="number" placeholder="20.5" step=0.1 min=0 bind:value="{newOverdoseDeath.mean_age}"></td>
 						<td><Button outline color= "primary"  on:click={insertOverdoseDeath}>Insert</Button></td>
 					</tr>
 				{#each overdose_deaths as overdose_death}
 					<tr>
 						<td>
-							<a href= "#/overdose-deaths/{overdose_death.country}">{overdose_death.country} </a>
+							<a href= "#/overdose-deaths/{overdose_death.country}/{overdose_death.year}">{overdose_death.country} </a>
 						</td>
 						<td>{overdose_death.year}</td>
 						<td>{overdose_death.death_male}</td>
 						<td>{overdose_death.death_female}</td>
 						<td>{overdose_death.death_total}</td>
 						<td>{overdose_death.mean_age}</td>
-						<td><Button outline color="danger" on:click="{deleteOverdoseDeath(overdose_death.country)}">Delete</Button></td>
+						<td><Button outline color="danger" on:click="{deleteOverdoseDeath(overdose_death.country, overdose_death.year)}">Delete</Button></td>
 					</tr>
 				{/each}
 			</tbody>
