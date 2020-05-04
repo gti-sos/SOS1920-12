@@ -4,7 +4,6 @@
     import Table from "sveltestrap/src/Table.svelte"; 
     import Button from "sveltestrap/src/Button.svelte";
     
-    
     export let params = {};
 
     let overdose_death = {};
@@ -21,7 +20,7 @@
 	
 		console.log("Fetching overdose deaths...");
 		//Awaits lo que hace es esperar la finalización de la solicitud HTTP. El código se reanuda (para la iteración ...) solo después de completar cada solicitud.
-		const res = await fetch("/api/v1/overdose-deaths/"+params.country);
+		const res = await fetch("/api/v1/overdose-deaths/"+params.country+"/"+params.year);
 		if(res.ok){
 			console.log("OK");
 			const json = await res.json();
@@ -42,40 +41,41 @@
 		}
     }
     async function updateOverdoseDeath(){
-        console.log("Updating overdose death..." + params.country);
-		const res = await fetch("/api/v1/overdose-deaths/"+ params.country,{
-			method:"PUT",
-			body:JSON.stringify({
-                country: params.country,
-                year: updatedYear,
-                death_male: updatedDeathMale,
-                death_female: updatedDeathFemale,
-                death_total: updatedDeathTotal,
-                mean_age: updatedMeanAge
-            }),
-			headers:{
-				"Content-Type": "application/json"
-			}
-		}).then(function (res) {
-			getOverdoseDeath();
-		});	
-
+		if(confirm("¿Está seguro de que desea actualizar esta entrada?")){
+			console.log("Updating overdose death..." + params.country +" "+params.year);
+			const res = await fetch("/api/v1/overdose-deaths/"+ params.country +"/"+params.year,{
+				method:"PUT",
+				body:JSON.stringify({
+					country: params.country,
+					year: parseInt(params.year),
+					death_male: updatedDeathMale,
+					death_female: updatedDeathFemale,
+					death_total: updatedDeathTotal,
+					mean_age: updatedMeanAge
+				}),
+				headers:{
+					"Content-Type": "application/json"
+				}
+			}).then(function (res) {
+				getOverdoseDeath();
+			});	
+		}
     }
 </script>
 <main>
-    <h3> Edit Overdose Deaths <strong>{params.country} </strong></h3>
+    <h3> Editar entrada: fallecimientos por sobredosis en  <strong>{params.country}</strong> en el año <strong>{params.year}</strong></h3>
     {#await overdose_death}
 		Loading overdose death...
 	{:then overdose_death}
 		<Table bordered>
 			<thead>
 				<tr>
-					<th>Country</th>
-					<th>Year</th>
-					<th>Death-male</th>
-					<th>Death-female</th>
-					<th>Death-total</th>
-					<th>Mean-age</th>
+					<th>Pais</th>
+					<th>Año</th>
+					<th>Hombres fallecidos</th>
+					<th>Mujeres fallecidas</th>
+					<th>Total fallecidos</th>
+					<th>Edad media</th>
 					<th>Actions</th>
 				</tr>
 			</thead>
@@ -83,11 +83,11 @@
 					<tr>
 						<td>{updatedCountry}</td>
 						<td>{updatedYear}</td>
-						<td><input bind:value="{updatedDeathMale}"></td>
-						<td><input bind:value="{updatedDeathFemale}"></td>
-						<td><input bind:value="{updatedDeathTotal}"></td>
-						<td><input bind:value="{updatedMeanAge}"></td>
-						<td><Button outline color= "primary"  on:click={updateOverdoseDeath}>Update</Button></td>
+						<td><input type="number" placeholder="20" min=0 bind:value="{updatedDeathMale}"></td>
+						<td><input type="number" placeholder="10" min=0 bind:value="{updatedDeathFemale}"></td>
+						<td><input type="number" placeholder="30" min=0 bind:value="{updatedDeathTotal}"></td>
+						<td><input type="number" placeholder="20.5" min=0 step=0.1 bind:value="{updatedMeanAge}"></td>
+						<td><Button outline color= "warning"  on:click={updateOverdoseDeath}>Actualizar</Button></td>
 					</tr>
 			</tbody>
 		</Table>
@@ -96,5 +96,5 @@
         <p style="color: red">ERROR:{errorMsg}</p>
     {/if}
 
-    <button outline color="secondary" on:click="{pop}"> Back</button>
+    <button outline color="secondary" on:click="{pop}"> Atrás</button>
 </main>
