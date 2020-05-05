@@ -13,7 +13,9 @@
     let updatedDeathMale = 2;
     let updatedDeathFemale = 0;
     let updatedMeanAge = 37.5;
-    let errorMsg = "";
+	let errorMsg = "";
+
+	
 
     onMount(getOverdoseDeath);
 	async function getOverdoseDeath(){

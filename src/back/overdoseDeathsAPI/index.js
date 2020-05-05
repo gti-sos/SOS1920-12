@@ -23,12 +23,76 @@ var initialOverdose_deaths = [
 		mean_age: 36.7
 	},
 	{
+		country: "Belgium",
+		year: 2005,
+		death_male: 77,
+		death_female: 28,
+		death_total: 105,
+		mean_age: 36.2
+	},
+	{
 		country: "Croatia",
 		year: 2016,
 		death_male: 44,
 		death_female: 12,
 		death_total: 56,
 		mean_age: 37.1
+	},
+	{
+		country: "Czechia",
+		year: 2010,
+		death_male: 49,
+		death_female: 6,
+		death_total: 55,
+		mean_age: 32.3
+	},
+	{
+		country: "Denmark",
+		year: 2011,
+		death_male: 219,
+		death_female: 82,
+		death_total: 301,
+		mean_age: 44.4
+	},
+	{
+		country: "Finland",
+		year: 2009,
+		death_male: 130,
+		death_female: 45,
+		death_total: 175,
+		mean_age: 38.7
+	},
+	{
+		country: "France",
+		year: 2010,
+		death_male: 44,
+		death_female: 12,
+		death_total: 392,
+		mean_age: 37.1
+	},
+	{
+		country: "France",
+		year: 2011,
+		death_male: 249,
+		death_female: 91,
+		death_total: 340,
+		mean_age: 45.7
+	},
+	{
+		country: "France",
+		year: 2012,
+		death_male: 186,
+		death_female: 78,
+		death_total: 264,
+		mean_age: 44.8
+	},
+	{
+		country: "Germany",
+		year: 2014,
+		death_male: 845,
+		death_female: 153,
+		death_total: 1032,
+		mean_age: 38
 	},
 	{
 		country: "Germany",
@@ -39,12 +103,164 @@ var initialOverdose_deaths = [
 		mean_age: 38.1
 	},
 	{
+		country: "Germany",
+		year: 2016,
+		death_male: 1075,
+		death_female: 205,
+		death_total: 1333,
+		mean_age: 38.3
+	},
+	{
+		country: "Germany",
+		year: 2017,
+		death_male: 952,
+		death_female: 173,
+		death_total: 1272,
+		mean_age: 38.9
+	},
+	{
+		country: "Hungary",
+		year: 2004,
+		death_male: 28,
+		death_female: 6,
+		death_total: 34,
+		mean_age: 30.1
+	},
+	{
+		country: "Ireland",
+		year: 2011,
+		death_male: 178,
+		death_female: 49,
+		death_total: 227,
+		mean_age: 36.4
+	},
+	{
+		country: "Italy",
+		year: 2016,
+		death_male: 241,
+		death_female: 27,
+		death_total: 268,
+		mean_age: 40.1
+	},
+	{
 		country: "Italy",
 		year: 2017,
 		death_male: 253,
 		death_female: 41,
 		death_total: 294,
 		mean_age: 39.4
+	},
+	{
+		country: "Latvia",
+		year: 2017,
+		death_male: 20,
+		death_female: 2,
+		death_total: 22,
+		mean_age: 35.9
+	},
+	{
+		country: "Netherlands",
+		year: 2015,
+		death_male: 145,
+		death_female: 52,
+		death_total: 197,
+		mean_age: 42.8
+	},
+	{
+		country: "Norway ",
+		year: 2014,
+		death_male: 202,
+		death_female: 64,
+		death_total: 266,
+		mean_age: 42.6
+	},
+	{
+		country: "Norway ",
+		year: 2015,
+		death_male: 206,
+		death_female: 83,
+		death_total: 289,
+		mean_age: 42.7
+	},
+	{
+		country: "Norway ",
+		year: 2016,
+		death_male: 196,
+		death_female: 86,
+		death_total: 282,
+		mean_age: 44
+	},
+	{
+		country: "Poland",
+		year: 2016,
+		death_male: 147,
+		death_female: 57,
+		death_total: 204,
+		mean_age: 39.4
+	},
+	{
+		country: "Portugal ",
+		year: 2014,
+		death_male: 33,
+		death_female: 4,
+		death_total: 37,
+		mean_age: 42
+	},
+	{
+		country: "Portugal ",
+		year: 2016,
+		death_male: 24,
+		death_female: 6,
+		death_total: 30,
+		mean_age: 42.5
+	},
+	{
+		country: "Slovakia",
+		year: 2014,
+		death_male: 11,
+		death_female: 2,
+		death_total: 13,
+		mean_age: 39.2
+	},
+	{
+		country: "Slovenia",
+		year: 2017,
+		death_male: 37,
+		death_female: 10,
+		death_total: 47,
+		mean_age: 40.5
+	},
+	{
+		country: "Turkey",
+		year: 2017,
+		death_male: 909,
+		death_female: 32,
+		death_total: 941,
+		mean_age: 32
+	},
+	{
+		country: "United Kingdom",
+		year: 2014,
+		death_male: 1993,
+		death_female: 724,
+		death_total: 2717,
+		mean_age: 41.6
+	},
+	{
+		country: "United Kingdom",
+		year: 2015,
+		death_male: 2313,
+		death_female: 827,
+		death_total: 3140,
+		mean_age: 42.1
+	},
+	{
+		country: "United Kingdom",
+		year: 2016,
+		death_male: 2318,
+		death_female: 938,
+		death_total: 3256,
+		mean_age: 42.2
 	}
 ];
 

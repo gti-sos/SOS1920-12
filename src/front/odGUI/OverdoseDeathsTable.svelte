@@ -2,6 +2,8 @@
 	import { onMount } from "svelte";
 	import Table from "sveltestrap/src/Table.svelte"; 
 	import Button from "sveltestrap/src/Button.svelte";
+	import { Pagination, PaginationItem, PaginationLink } from 'sveltestrap';
+	import { Form, FormGroup, FormText, Input, Label } from 'sveltestrap';
 
 	let overdose_deaths = [];
 	let newOverdoseDeath = {
@@ -12,22 +14,59 @@
 		death_total:"",
 		mean_age:""
 	}
+	//Estas variables son para paginacion
+	let limit = 10;
+	let offset = 0;
+	let moreDeaths = true;
+	let currentPage=1; // No la utilizamos pero nos sirve para saber en que pagina estamos (quizas en un futuro)
+	
+	//Estas variables son para las busquedas
+
 	onMount(getOverdoseDeaths);
+	
+	async function loadOverdoseDeaths(){
+	
+	console.log("Fetching overdose deaths...");
+	//Awaits lo que hace es esperar la finalización de la solicitud HTTP. El código se reanuda (para la iteración ...) solo después de completar cada solicitud.
+	const res = await fetch("/api/v1/overdose-deaths/loadInitialData");
+	if(res.ok){
+		console.log("OK");
+		const json = await res.json();
+		overdose_deaths = json;
+		console.log("Loaded "+ overdose_deaths.length +" overdose deaths." )
+	}
+	else{
+		console.log("ERROR");
+	}
+}
 
 	async function getOverdoseDeaths(){
 	
 		console.log("Fetching overdose deaths...");
 		//Awaits lo que hace es esperar la finalización de la solicitud HTTP. El código se reanuda (para la iteración ...) solo después de completar cada solicitud.
-		const res = await fetch("/api/v1/overdose-deaths");
+		const res = await fetch("/api/v1/overdose-deaths?limit="+limit+"&offset="+(offset*limit));
+		//Tenemos que preguntar tambien si hay mas datos, ya que, si no los hay, pasando de pagina estariamos haciendo una peticion a la api que nos devolveria un error, un 400 BAD REQUEST
+		//data is empty
+		const after =  await fetch("/api/v1/overdose-deaths?limit="+limit+"&offset="+(limit*(offset+1)));
+
 		if(res.ok){
 			console.log("OK");
 			const json = await res.json();
 			overdose_deaths = json;
-			console.log("Received "+ overdose_deaths.length +" overdose deaths." )
 		}
 		else{
 			console.log("ERROR");
 		}
+			//Si  le damos a siguiente pagina, ¿habran elementos?
+		if(after.ok){
+			moreDeaths = true;
+			const jsonAfter = await after.json();
+		}
+		else{
+			moreDeaths = false;
+		}
+			
+		console.log("Received "+ overdose_deaths.length +" overdose deaths." )
 	}
 	
 	async function insertOverdoseDeath(){
@@ -73,13 +112,22 @@
 			});	
 		}
 	}
+
+	function changePage(increment){
+		//La variable se llama increment pero podria ser un numero negativo y asi cambiariamos a una pagina menor
+		offset += increment;
+		currentPage += increment;
+		getOverdoseDeaths();
+	}
 	</script>
+	
 
 <main>
 
 	{#await overdose_deaths}
 		Loading overdose deaths...
 	{:then overdose_deaths}
+		<Button outline color= "primary"  on:click={loadOverdoseDeaths}>Cargar</Button>
 		<Table bordered>
 			<thead>
 				<tr>
@@ -94,12 +142,12 @@
 			</thead>
 			<tbody>
 					<tr>
-						<td><input type="text" placeholder="South Korea" bind:value="{newOverdoseDeath.country}"></td>
-						<td><input type="number" placeholder="2019" min=0 bind:value="{newOverdoseDeath.year}"></td>
-						<td><input type="number" placeholder="20" min=0 bind:value="{newOverdoseDeath.death_male}"></td>
-						<td><input type="number" placeholder="10" min=0 bind:value="{newOverdoseDeath.death_female}"></td>
-						<td><input type="number" placeholder="30" min=0 bind:value="{newOverdoseDeath.death_total}"></td>
-						<td><input type="number" placeholder="20.5" min=0 step=0.1  bind:value="{newOverdoseDeath.mean_age}"></td>
+						<td><Input type="text" placeholder="South Korea" bind:value="{newOverdoseDeath.country}"/></td>
+						<td><Input type="number" placeholder="2019" min=0 bind:value="{newOverdoseDeath.year}"/></td>
+						<td><Input type="number" placeholder="20" min=0 bind:value="{newOverdoseDeath.death_male}"/></td>
+						<td><Input type="number" placeholder="10" min=0 bind:value="{newOverdoseDeath.death_female}"/></td>
+						<td><Input type="number" placeholder="30" min=0 bind:value="{newOverdoseDeath.death_total}"/></td>
+						<td><Input type="number" placeholder="20.5" min=0 step=0.1  bind:value="{newOverdoseDeath.mean_age}"/></td>
 						<td><Button outline color= "primary"  on:click={insertOverdoseDeath}>Insertar</Button></td>
 					</tr>
 				{#each overdose_deaths as overdose_death}
@@ -118,5 +166,17 @@
 			</tbody>
 		</Table>
 	{/await}
+	<Pagination ariaLabel="Web pagination">
+		<!-- Si estamos en la pagina 1, no podemos darle al boton que nos lleva una pagina atras, no tendria sentido que pudiesemos darle-->
+		<PaginationItem class="{currentPage===1 ? 'disabled' : ''}">
+		  <PaginationLink previous href="#/overdose-deaths" on:click="{() => changePage(-1)}" />
+		</PaginationItem>
+		{#if moreDeaths}
+		<PaginationItem>
+		  	<PaginationLink next href="#/overdose-deaths" on:click="{() => changePage(1)}" />
+		</PaginationItem>
+		{/if}
+	  </Pagination>
+
 	<Button outline on:click={deleteOverdoseDeaths} color="danger">  Eliminar todo </Button>
 </main>
