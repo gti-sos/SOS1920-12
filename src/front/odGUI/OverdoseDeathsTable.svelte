@@ -4,6 +4,7 @@
 	import Button from "sveltestrap/src/Button.svelte";
 	import { Pagination, PaginationItem, PaginationLink } from 'sveltestrap';
 	import { Form, FormGroup, FormText, Input, Label } from 'sveltestrap';
+	import {Alert} from 'sveltestrap';
 
 	let overdose_deaths = [];
 	let newOverdoseDeath = {
@@ -21,52 +22,81 @@
 	let currentPage=1; // No la utilizamos pero nos sirve para saber en que pagina estamos (quizas en un futuro)
 	
 	//Estas variables son para las busquedas
+	let searchCountry= "";
+	let searchYear = "";
+
+	//Estas variables son para los errores
+	let okayMsg = "";
+	let errorMsg = "";
+
 
 	onMount(getOverdoseDeaths);
 	
 	async function loadOverdoseDeaths(){
 	
-	console.log("Fetching overdose deaths...");
-	//Awaits lo que hace es esperar la finalización de la solicitud HTTP. El código se reanuda (para la iteración ...) solo después de completar cada solicitud.
-	const res = await fetch("/api/v1/overdose-deaths/loadInitialData");
-	if(res.ok){
-		console.log("OK");
-		const json = await res.json();
-		overdose_deaths = json;
-		console.log("Loaded "+ overdose_deaths.length +" overdose deaths." )
+		console.log("Fetching overdose deaths...");
+		//Awaits lo que hace es esperar la finalización de la solicitud HTTP. El código se reanuda (para la iteración ...) solo después de completar cada solicitud.
+		const res = await fetch("/api/v1/overdose-deaths/loadInitialData").then(function(res){
+			if (res.ok){
+				console.log("OK");
+				getOverdoseDeaths();
+			}
+			else if(res.status ==409){
+				errorMsg = "Ya hay datos cargados. Esta accion eliminaria los datos existentes. Si quiere cargar los datos iniciales, por favor, elimine todos los disponibles primero."
+				console.log("ERROR ALREADY LOADED DATA");
+			}
+			else{
+				console.log("ERROR");
+			}
+		});
+		
 	}
-	else{
-		console.log("ERROR");
-	}
-}
 
 	async function getOverdoseDeaths(){
 	
 		console.log("Fetching overdose deaths...");
+		var url = "/api/v1/overdose-deaths?limit="+limit+"&offset="+(offset*limit);
+		var urlAfter = "/api/v1/overdose-deaths?limit="+limit+"&offset="+(limit*(offset+1));
+		//Pero mira que bonico quedan asi los IF pero quieron poner dos cosas en la misma condicion asi que F
+		//url= (country!="") ? url+"&country="+country : url;
+		//url= (year!="") ? url+"&year="+year : url;
+		if(searchCountry!="" &&searchCountry!=null){
+			url = url+"&country="+searchCountry;
+			urlAfter= urlAfter+"&country="+searchCountry;
+		}
+		
+
+		if(searchYear!="" && searchYear!=null){
+			url = url+"&year="+searchYear;
+			urlAfter= urlAfter+"&year="+searchYear;
+		}
 		//Awaits lo que hace es esperar la finalización de la solicitud HTTP. El código se reanuda (para la iteración ...) solo después de completar cada solicitud.
-		const res = await fetch("/api/v1/overdose-deaths?limit="+limit+"&offset="+(offset*limit));
+		const res = await fetch(url);
+		//const res = await fetch("/api/v1/overdose-deaths?limit="+limit+"&offset="+(offset*limit)+"&country="+country);
 		//Tenemos que preguntar tambien si hay mas datos, ya que, si no los hay, pasando de pagina estariamos haciendo una peticion a la api que nos devolveria un error, un 400 BAD REQUEST
 		//data is empty
-		const after =  await fetch("/api/v1/overdose-deaths?limit="+limit+"&offset="+(limit*(offset+1)));
+		const after =  await fetch(urlAfter);
 
-		if(res.ok){
+		if(res.ok && after.ok){
 			console.log("OK");
 			const json = await res.json();
+			const jsonAfter = await after.json();
 			overdose_deaths = json;
+			//Comprobamos si hay mas datos o no despues para activar o desactivar el boton
+			if(jsonAfter.length ==0){
+				moreDeaths=false;
+			}
+			else{
+				moreDeaths=true;
+			}
+			console.log("Received "+ overdose_deaths.length +" overdose deaths." )
 		}
 		else{
 			console.log("ERROR");
-		}
-			//Si  le damos a siguiente pagina, ¿habran elementos?
-		if(after.ok){
-			moreDeaths = true;
-			const jsonAfter = await after.json();
-		}
-		else{
-			moreDeaths = false;
+			errorMsg= "Fallo del servidor en la solicitud"
 		}
 			
-		console.log("Received "+ overdose_deaths.length +" overdose deaths." )
+		
 	}
 	
 	async function insertOverdoseDeath(){
@@ -92,17 +122,23 @@
 	}
 
 	async function deleteOverdoseDeaths() {
+		console.log("Deleting overdose deaths...");
 		if(confirm("¿Está seguro de que desea eliminar todas las entradas?")){
 			console.log("Deleting all overdose deaths...");
 			const res = await fetch("/api/v1/overdose-deaths/", {
 				method: "DELETE"
 			}).then(function (res) {
-				getOverdoseDeaths();
+				if(res.ok){
+					getOverdoseDeaths();
+					offset = 0;
+					currentPage = 1;
+				}
 			});
 		}
 	}
 
 	async function deleteOverdoseDeath(country,year) {
+		console.log("Inserting overdose death...");
 		if(confirm("¿Está seguro de que desea eliminar esta entrada?")){
 			console.log("Deleting overdose death...");
 			const res = await fetch("/api/v1/overdose-deaths/" + country + "/"+year,{
@@ -113,6 +149,20 @@
 		}
 	}
 
+	async function searchDeath(country,year){
+		if(searchCountry!=""){
+			url = url+"&country="+searchCountry;
+			urlAfter= urlAfter+"&country="+searchCountry;
+		}
+		
+
+		if(searchYear!=""){
+			url = url+"&year="+searchYear;
+			urlAfter= urlAfter+"&year="+searchYear;
+		}
+
+	}
+
 	function changePage(increment){
 		//La variable se llama increment pero podria ser un numero negativo y asi cambiariamos a una pagina menor
 		offset += increment;
@@ -120,14 +170,37 @@
 		getOverdoseDeaths();
 	}
 	</script>
+
+
 	
 
 <main>
 
+	<div role="alert" class="alert alert-primary" style="display: none;"> 
+		Esto es un ejemplo
+	</div>
 	{#await overdose_deaths}
 		Loading overdose deaths...
 	{:then overdose_deaths}
-		<Button outline color= "primary"  on:click={loadOverdoseDeaths}>Cargar</Button>
+	
+
+	<Form class="form-inline" >
+		<Label for="country" class="mb-2 mr-sm-2">Busqueda por Pais:</Label>
+		<Input type="text" class="form-control mb-2 mr-sm-2" id="country" placeholder="Introduzca un país" name="country" bind:value="{searchCountry}"/>
+		<Label for="year" class="mb-2 mr-sm-2">y Año:</Label>
+		<Input type="number" class="form-control mb-2 mr-sm-2" id="year" placeholder="Introduzca un año" name="year" bind:value="{searchYear}"/>   
+	</Form>
+	<Button class="button-search" on:click="{getOverdoseDeaths}" >Buscar</Button>
+
+	<Button outline color= "primary"  on:click="{loadOverdoseDeaths}">Cargar</Button>
+	{#if errorMsg}
+		<p style="color: red">ERROR: {errorMsg}</p>
+		
+	{/if}
+	{#if okayMsg}
+	<p style="color: green">OK: {okayMsg}</p>
+	{/if}
+
 		<Table bordered>
 			<thead>
 				<tr>
@@ -143,7 +216,7 @@
 			<tbody>
 					<tr>
 						<td><Input type="text" placeholder="South Korea" bind:value="{newOverdoseDeath.country}"/></td>
-						<td><Input type="number" placeholder="2019" min=0 bind:value="{newOverdoseDeath.year}"/></td>
+						<td><Input type="number" placeholder="2019" min=1990 bind:value="{newOverdoseDeath.year}"/></td>
 						<td><Input type="number" placeholder="20" min=0 bind:value="{newOverdoseDeath.death_male}"/></td>
 						<td><Input type="number" placeholder="10" min=0 bind:value="{newOverdoseDeath.death_female}"/></td>
 						<td><Input type="number" placeholder="30" min=0 bind:value="{newOverdoseDeath.death_total}"/></td>
@@ -178,5 +251,5 @@
 		{/if}
 	  </Pagination>
 
-	<Button outline on:click={deleteOverdoseDeaths} color="danger">  Eliminar todo </Button>
+	<Button block outline on:click={deleteOverdoseDeaths} color="danger">  Eliminar todo </Button>
 </main>

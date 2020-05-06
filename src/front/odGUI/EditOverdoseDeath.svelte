@@ -7,12 +7,14 @@
     export let params = {};
 
     let overdose_death = {};
-    let updatedCountry = "Japan";
-    let updatedYear = 2014;
-    let updatedDeathTotal = 2;
-    let updatedDeathMale = 2;
+    let updatedCountry = "";
+    let updatedYear = 0;
+    let updatedDeathTotal = 0;
+    let updatedDeathMale = 0;
     let updatedDeathFemale = 0;
-    let updatedMeanAge = 37.5;
+	let updatedMeanAge = 0.0;
+	
+	let okayMsg = "";
 	let errorMsg = "";
 
 	
@@ -37,9 +39,9 @@
 
 			console.log("Received overdose deaths." );
 		}
-		else{
-            errorMsg = res.status + ": " + res.statusText;
-			console.log("ERROR" + errorMsg);
+		else if(res.status==404){
+            errorMsg = "La entrada que está buscando no existe";
+			console.log("ERROR" + res.status + ": " + res.statusText);
 		}
     }
     async function updateOverdoseDeath(){
@@ -59,13 +61,27 @@
 					"Content-Type": "application/json"
 				}
 			}).then(function (res) {
-				getOverdoseDeath();
+				if(res.ok){
+					getOverdoseDeath();
+					okayMsg="Entrada actualizada!";
+				}
+				else if(res.status == 400){
+					errorMsg = "La entrada que está actualizando no existe";
+				}
 			});	
 		}
     }
 </script>
 <main>
-    <h3> Editar entrada: fallecimientos por sobredosis en  <strong>{params.country}</strong> en el año <strong>{params.year}</strong></h3>
+
+	<h3> Editar entrada: fallecimientos por sobredosis en  <strong>{params.country}</strong> en el año <strong>{params.year}</strong></h3>
+	{#if errorMsg}
+		<p style="color: red">ERROR: {errorMsg}</p>
+		
+	{/if}
+	{#if okayMsg}
+	<p style="color: green">OK: {okayMsg}</p>
+	{/if}
     {#await overdose_death}
 		Loading overdose death...
 	{:then overdose_death}
@@ -94,9 +110,6 @@
 			</tbody>
 		</Table>
     {/await}
-    {#if errorMsg}
-        <p style="color: red">ERROR:{errorMsg}</p>
-    {/if}
 
     <button outline color="secondary" on:click="{pop}"> Atrás</button>
 </main>

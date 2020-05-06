@@ -167,7 +167,7 @@ var initialOverdose_deaths = [
 		mean_age: 42.8
 	},
 	{
-		country: "Norway ",
+		country: "Norway",
 		year: 2014,
 		death_male: 202,
 		death_female: 64,
@@ -175,7 +175,7 @@ var initialOverdose_deaths = [
 		mean_age: 42.6
 	},
 	{
-		country: "Norway ",
+		country: "Norway",
 		year: 2015,
 		death_male: 206,
 		death_female: 83,
@@ -183,7 +183,7 @@ var initialOverdose_deaths = [
 		mean_age: 42.7
 	},
 	{
-		country: "Norway ",
+		country: "Norway",
 		year: 2016,
 		death_male: 196,
 		death_female: 86,
@@ -199,7 +199,7 @@ var initialOverdose_deaths = [
 		mean_age: 39.4
 	},
 	{
-		country: "Portugal ",
+		country: "Portugal",
 		year: 2014,
 		death_male: 33,
 		death_female: 4,
@@ -207,7 +207,7 @@ var initialOverdose_deaths = [
 		mean_age: 42
 	},
 	{
-		country: "Portugal ",
+		country: "Portugal",
 		year: 2016,
 		death_male: 24,
 		death_female: 6,
@@ -325,8 +325,9 @@ app.get(BASE_API_URL + "/overdose-deaths", (req, res) => {
 		//Si no queremos enseñar el id de cada objeto en la base de datos:
 		overdose_deaths.forEach( (c) =>{
 			delete c._id;
-	});	
+		});	
 
+	/* ESTO NO NOS SIRVE MUCHO EN EL FRONT,DA MAS PROBLEMAS QUE LOS QUE QUITA
 	if (overdose_deaths.length < 1) {
 		res.sendStatus(400, "BAD REQUEST(data is empty)");
 		console.log("The requested data is empty");
@@ -335,7 +336,10 @@ app.get(BASE_API_URL + "/overdose-deaths", (req, res) => {
 		res.send(JSON.stringify(overdose_deaths, null, 2));
 		console.log("Data sent:"+JSON.stringify(overdose_deaths, null, 2));
 	}});
-	
+	si queremos ponerlo como antes tenemos que quitar esto de abajo*/
+		res.send(JSON.stringify(overdose_deaths, null, 2));
+		console.log("Data sent:"+JSON.stringify(overdose_deaths, null, 2));
+	});
 });
 
 //POST overdose-deaths
