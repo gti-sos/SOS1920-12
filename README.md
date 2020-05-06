@@ -13,6 +13,7 @@
     - [https://sos1920-12.herokuapp.com/api/v1/drug_offences](https://sos1920-12.herokuapp.com/api/v1/drug_offences) (developed by [Adrià León García](https://github.com/Adrleogar))
 
 -  **Links Postman**:
-	- [SOS1920-12-overdose-deaths](https://documenter.getpostman.com/view/10637417/SzYT6hqp) (developed by [Juan José Requena Lama](https://github.com/wuaho))
-    - [SOS1920-12-school-dropouts](https://documenter.getpostman.com/view/395479/Szf3bWdA) (developed by [Pascual Requena Lama](https://github.com/Requena115))
-    - [SOS1920-12-drug_offences](https://documenter.getpostman.com/view/10697548/SzYUa25t) (developed by [Adrià León García](https://github.com/Adrleogar))
+	  - [overdose-deaths/v2](https://documenter.getpostman.com/view/10637417/SzYT6hqp) (developed by [Juan José Requena Lama](https://github.com/wuaho))
+      [overdose-deaths/v1](https://documenter.getpostman.com/view/10637417/SzYT6hqp)
+    - [school-dropouts](https://documenter.getpostman.com/view/395479/Szf3bWdA) (developed by [Pascual Requena Lama](https://github.com/Requena115))
+    - [drug_offences](https://documenter.getpostman.com/view/10697548/SzYUa25t) (developed by [Adrià León García](https://github.com/Adrleogar))

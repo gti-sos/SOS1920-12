@@ -237,7 +237,7 @@
 			</thead>
 			<tbody>
 					<tr>
-						<td><Input type="text" placeholder="South Korea" bind:value="{newOverdoseDeath.country}"/></td>
+						<td><Input type="text" placeholder="Vatican City" bind:value="{newOverdoseDeath.country}"/></td>
 						<td><Input type="number" placeholder="2019" min=1990 bind:value="{newOverdoseDeath.year}"/></td>
 						<td><Input type="number" placeholder="20" min=0 bind:value="{newOverdoseDeath.death_male}"/></td>
 						<td><Input type="number" placeholder="10" min=0 bind:value="{newOverdoseDeath.death_female}"/></td>
