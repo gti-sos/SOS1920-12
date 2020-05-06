@@ -8,11 +8,11 @@
 - **Repository**: [gti-sos/SOS1920-12](https://github.com/gti-sos/SOS1920-12)
 - **URL**: [https://sos1920-12.herokuapp.com](https://sos1920-12.herokuapp.com)
 -  **APIs**:
-    - [https://sos1920-12.herokuapp.com/api/v1/overdose-deaths](https://sos1920-12.herokuapp.com/api/v1/overdose-deaths) (developed by [Juan José Requena Lama](https://github.com/wuaho))
-    - [https://sos1920-12.herokuapp.com/api/v1/school-dropouts](https://sos1920-12.herokuapp.com/api/v1/school-dropouts) (developed by [Pascual Requena Lama](https://github.com/Requena115))
-    - [https://sos1920-12.herokuapp.com/api/v1/drug_offences](https://sos1920-12.herokuapp.com/api/v1/drug_offences) (developed by [Adrià León García](https://github.com/Adrleogar))
+    - [https://sos1920-12.herokuapp.com/#/overdose-deaths](https://sos1920-12.herokuapp.com/#/overdose-deaths) (developed by [Juan José Requena Lama](https://github.com/wuaho))
+    - [https://sos1920-12.herokuapp.com/#/school-dropouts](https://sos1920-12.herokuapp.com/#/school-dropouts) (developed by [Pascual Requena Lama](https://github.com/Requena115))
+    - [https://sos1920-12.herokuapp.com/#/drug_offences](https://sos1920-12.herokuapp.com/#/drug_offences) (developed by [Adrià León García](https://github.com/Adrleogar))
 
 -  **Links Postman**:
-	  - [overdose-deaths/v2](https://documenter.getpostman.com/view/10637417/SzYT6hqp) (developed by [Juan José Requena Lama](https://github.com/wuaho))  [overdose-deaths/v1](https://documenter.getpostman.com/view/10637417/SzYT6hqp)
+	  - V1 [overdose-deaths/v1](https://documenter.getpostman.com/view/10637417/SzmcbeQ7)  V2 [overdose-deaths/v2](https://documenter.getpostman.com/view/10637417/SzYT6hqp) (developed by [Juan José Requena Lama](https://github.com/wuaho))  
     - [school-dropouts](https://documenter.getpostman.com/view/395479/Szf3bWdA) (developed by [Pascual Requena Lama](https://github.com/Requena115))
     - [drug_offences](https://documenter.getpostman.com/view/10697548/SzYUa25t) (developed by [Adrià León García](https://github.com/Adrleogar))
