@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 {"country":"United Kingdom","year":2015,"death_male":2313,"death_female":827,"death_total":3140,"mean_age":42.1,"_id":"6C7ywNsSKNlvH2I8"}
 {"country":"Norway","year":2014,"death_male":202,"death_female":64,"death_total":266,"mean_age":42.6,"_id":"6LkmGRcXJ44vGjBF"}
 {"country":"Belgium","year":2005,"death_male":77,"death_female":28,"death_total":105,"mean_age":36.2,"_id":"75oxz5kNFfcWea15"}
@@ -94,3 +95,36 @@
 {"country":"United Kingdom","year":2014,"death_male":1993,"death_female":724,"death_total":2717,"mean_age":41.6,"_id":"3uKjjoj9VNoSxFpF"}
 {"country":"United Kingdom","year":2015,"death_male":2313,"death_female":827,"death_total":3140,"mean_age":42.1,"_id":"rcDsjEmAeXKRb27C"}
 {"country":"United Kingdom","year":2016,"death_male":2318,"death_female":938,"death_total":3256,"mean_age":42.2,"_id":"JeQpIzgyK3C97kvR"}
+=======
+{"country":"Germany","year":2014,"death_male":847,"death_female":155,"death_total":1032,"mean_age":38,"_id":"0XYuTkxNnVR9SzgU"}
+{"country":"Norway","year":2016,"death_male":196,"death_female":86,"death_total":282,"mean_age":44,"_id":"0v6g71aXuEpLxNek"}
+{"country":"Latvia","year":2017,"death_male":20,"death_female":2,"death_total":22,"mean_age":35.9,"_id":"1BWopvPAGZCxVcXX"}
+{"country":"Denmark","year":2011,"death_male":219,"death_female":82,"death_total":301,"mean_age":44.4,"_id":"1oDE8g2qwJsVYtKB"}
+{"country":"Germany","year":2015,"death_male":1001,"death_female":191,"death_total":1226,"mean_age":38.1,"_id":"6N4byWKOtoKZppod"}
+{"country":"United Kingdom","year":2016,"death_male":2318,"death_female":938,"death_total":3256,"mean_age":42.2,"_id":"AlHgJiV1x3rc7bTP"}
+{"country":"Turkey","year":2017,"death_male":909,"death_female":32,"death_total":941,"mean_age":32,"_id":"Cjr918JV7IDM9X0E"}
+{"country":"Croatia","year":2016,"death_male":44,"death_female":12,"death_total":56,"mean_age":37.1,"_id":"DSAVU8HvmujQszkH"}
+{"country":"Finland","year":2009,"death_male":130,"death_female":45,"death_total":175,"mean_age":38.7,"_id":"GC3pxQGqxzohHlib"}
+{"country":"Germany","year":2016,"death_male":1075,"death_female":205,"death_total":1333,"mean_age":38.3,"_id":"JpPAT5ybsiBA6FAO"}
+{"country":"Austria","year":2017,"death_male":125,"death_female":29,"death_total":154,"mean_age":36.7,"_id":"K4ji58n58s54ff0I"}
+{"country":"Poland","year":2016,"death_male":147,"death_female":57,"death_total":204,"mean_age":39.4,"_id":"KcZQxBGdXWjuPWtN"}
+{"country":"Portugal","year":2016,"death_male":24,"death_female":6,"death_total":30,"mean_age":42.5,"_id":"Mzx2HanSRvJsglim"}
+{"country":"Norway","year":2014,"death_male":202,"death_female":64,"death_total":266,"mean_age":42.6,"_id":"OBYzQxsUvxlKepWW"}
+{"country":"United Kingdom","year":2015,"death_male":2313,"death_female":827,"death_total":3140,"mean_age":42.1,"_id":"Or8wPXf5jdqVMyS6"}
+{"country":"Italy","year":2016,"death_male":241,"death_female":27,"death_total":268,"mean_age":40.1,"_id":"Pf2j6iQClC06dl7r"}
+{"country":"Portugal","year":2014,"death_male":33,"death_female":4,"death_total":37,"mean_age":42,"_id":"RhsvReN7aUJc4cyI"}
+{"country":"France","year":2012,"death_male":186,"death_female":78,"death_total":264,"mean_age":44.8,"_id":"VQWqIMbH7YqkY4BN"}
+{"country":"Belgium","year":2005,"death_male":77,"death_female":28,"death_total":105,"mean_age":36.2,"_id":"XIbQ2EBF8m9DHM0D"}
+{"country":"Germany","year":2017,"death_male":952,"death_female":173,"death_total":1272,"mean_age":38.9,"_id":"YkIdR8gap0tMX57d"}
+{"country":"Netherlands","year":2015,"death_male":145,"death_female":52,"death_total":197,"mean_age":42.8,"_id":"Za3cbR7UhE3dsX9X"}
+{"country":"Czechia","year":2010,"death_male":49,"death_female":6,"death_total":55,"mean_age":32.3,"_id":"bAnVmNWyxkRAqMds"}
+{"country":"United Kingdom","year":2014,"death_male":1993,"death_female":724,"death_total":2717,"mean_age":41.6,"_id":"c4V6YIb9VkQV9wP2"}
+{"country":"Slovenia","year":2017,"death_male":37,"death_female":10,"death_total":47,"mean_age":40.5,"_id":"dyMqku2VPztnGb1s"}
+{"country":"Ireland","year":2011,"death_male":178,"death_female":49,"death_total":227,"mean_age":36.4,"_id":"eWByT2oukGbNyKLq"}
+{"country":"Hungary","year":2004,"death_male":28,"death_female":6,"death_total":34,"mean_age":30.1,"_id":"epzw4MvSVzjKQ0YT"}
+{"country":"France","year":2011,"death_male":249,"death_female":91,"death_total":340,"mean_age":45.7,"_id":"jrKf44SPo1XGZvYW"}
+{"country":"Italy","year":2017,"death_male":253,"death_female":41,"death_total":294,"mean_age":39.4,"_id":"klRXTbIRD6UMkxYl"}
+{"country":"Slovakia","year":2014,"death_male":11,"death_female":2,"death_total":13,"mean_age":39.2,"_id":"mtY2wCcaoKsSm1wg"}
+{"country":"France","year":2010,"death_male":44,"death_female":12,"death_total":392,"mean_age":37.1,"_id":"tYxqefPB1kVAkAds"}
+{"country":"Norway","year":2015,"death_male":206,"death_female":83,"death_total":289,"mean_age":42.7,"_id":"yuemhiHBd0stALdl"}
+>>>>>>> Stashed changes
