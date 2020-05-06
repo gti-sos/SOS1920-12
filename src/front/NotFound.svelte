@@ -1,4 +1,4 @@
 <main> 
-    <h1> La pagina no existe! </h1>
+    <h1> ¡Esta página no existe! </h1>
 
 </main> 
