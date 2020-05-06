@@ -5,6 +5,7 @@
 	import { Pagination, PaginationItem, PaginationLink } from 'sveltestrap';
 	import { Form, FormGroup, FormText, Input, Label } from 'sveltestrap';
 	import {Alert} from 'sveltestrap';
+	import { pop } from "svelte-spa-router";
 
 	let overdose_deaths = [];
 	let newOverdoseDeath = {
@@ -36,12 +37,13 @@
 	
 		console.log("Fetching overdose deaths...");
 		//Awaits lo que hace es esperar la finalización de la solicitud HTTP. El código se reanuda (para la iteración ...) solo después de completar cada solicitud.
-		const res = await fetch("/api/v1/overdose-deaths/loadInitialData").then(function(res){
+		const res = await fetch("/api/v2/overdose-deaths/loadInitialData").then(function(res){
 			if (res.ok){
 				console.log("OK");
 				getOverdoseDeaths();
+				okayMsg= "Datos cargados correctamente."
 			}
-			else if(res.status ==409){
+			else if(res.status == 409){
 				errorMsg = "Ya hay datos cargados. Esta accion eliminaria los datos existentes. Si quiere cargar los datos iniciales, por favor, elimine todos los disponibles primero."
 				console.log("ERROR ALREADY LOADED DATA");
 			}
@@ -55,8 +57,8 @@
 	async function getOverdoseDeaths(){
 	
 		console.log("Fetching overdose deaths...");
-		var url = "/api/v1/overdose-deaths?limit="+limit+"&offset="+(offset*limit);
-		var urlAfter = "/api/v1/overdose-deaths?limit="+limit+"&offset="+(limit*(offset+1));
+		var url = "/api/v2/overdose-deaths?limit="+limit+"&offset="+(offset*limit);
+		var urlAfter = "/api/v2/overdose-deaths?limit="+limit+"&offset="+(limit*(offset+1));
 		//Pero mira que bonico quedan asi los IF pero quieron poner dos cosas en la misma condicion asi que F
 		//url= (country!="") ? url+"&country="+country : url;
 		//url= (year!="") ? url+"&year="+year : url;
@@ -72,7 +74,7 @@
 		}
 		//Awaits lo que hace es esperar la finalización de la solicitud HTTP. El código se reanuda (para la iteración ...) solo después de completar cada solicitud.
 		const res = await fetch(url);
-		//const res = await fetch("/api/v1/overdose-deaths?limit="+limit+"&offset="+(offset*limit)+"&country="+country);
+		//const res = await fetch("/api/v2/overdose-deaths?limit="+limit+"&offset="+(offset*limit)+"&country="+country);
 		//Tenemos que preguntar tambien si hay mas datos, ya que, si no los hay, pasando de pagina estariamos haciendo una peticion a la api que nos devolveria un error, un 400 BAD REQUEST
 		//data is empty
 		const after =  await fetch(urlAfter);
@@ -107,31 +109,43 @@
 			alert("Los campos 'Pais' y 'Año' no pueden estar vacios");
 		}
 		else{
-			const res = await fetch("/api/v1/overdose-deaths",{
+			const res = await fetch("/api/v2/overdose-deaths",{
 			method:"POST",
 			body:JSON.stringify(newOverdoseDeath),
 			headers:{
 				"Content-Type": "application/json"
 			}
 			}).then(function (res) {
-				getOverdoseDeaths();
+				if(res.status == 201){
+					getOverdoseDeaths();
+					console.log("Data introduced");
+					okayMsg="Entrada introducida correctamente a la base de datos";
+				}
+				else if(res.status == 400){
+					console.log("ERROR Data was not correctly introduced");
+					errorMsg= "Los datos de la entrada no fueron introducidos correctamente";
+				}
 			});	
-
 		}
-		
 	}
 
 	async function deleteOverdoseDeaths() {
 		console.log("Deleting overdose deaths...");
 		if(confirm("¿Está seguro de que desea eliminar todas las entradas?")){
 			console.log("Deleting all overdose deaths...");
-			const res = await fetch("/api/v1/overdose-deaths/", {
+			const res = await fetch("/api/v2/overdose-deaths/", {
 				method: "DELETE"
 			}).then(function (res) {
 				if(res.ok){
 					getOverdoseDeaths();
 					offset = 0;
 					currentPage = 1;
+					okayMsg="Datos eliminados correctamente";
+					console.log("OK All data erased");
+				}
+				else{
+					console.log("ERROR Data was not erased");
+					errorMsg= "No se han podido eliminar los datos";
 				}
 			});
 		}
@@ -141,10 +155,22 @@
 		console.log("Inserting overdose death...");
 		if(confirm("¿Está seguro de que desea eliminar esta entrada?")){
 			console.log("Deleting overdose death...");
-			const res = await fetch("/api/v1/overdose-deaths/" + country + "/"+year,{
+			const res = await fetch("/api/v2/overdose-deaths/" + country + "/"+year,{
 				method:"DELETE"
 			}).then(function (res) {
-				getOverdoseDeaths();
+				if(res.ok){
+					getOverdoseDeaths();
+					okayMsg="Entrada eliminada correctamente";
+					console.log("OK data erased");
+				}
+				else if(res.status=404){
+					errorMsg="La entrada que intenta eliminar no se encuentra en la base de datos";
+					console.log("ERROR Data not found in database");
+				}
+				else{
+					errorMsg="No se ha podido eliminar la entrada";
+					console.log("ERROR");
+				}
 			});	
 		}
 	}
@@ -175,10 +201,6 @@
 	
 
 <main>
-
-	<div role="alert" class="alert alert-primary" style="display: none;"> 
-		Esto es un ejemplo
-	</div>
 	{#await overdose_deaths}
 		Loading overdose deaths...
 	{:then overdose_deaths}
@@ -251,5 +273,6 @@
 		{/if}
 	  </Pagination>
 
+	<Button outline color="secondary" on:click="{pop}"> Atrás</Button>
 	<Button block outline on:click={deleteOverdoseDeaths} color="danger">  Eliminar todo </Button>
 </main>

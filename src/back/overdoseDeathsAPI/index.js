@@ -5,7 +5,7 @@ module.exports = function (app) {
 	console.log("Registering overdose-deaths API...");
 	const dataStore = require("nedb");
 	const path = require("path");
-	const BASE_API_URL = "/api/v1";
+	const BASE_API_URL = "/api/v2";
 	const dbFileName = path.join(__dirname,"overdoseDeaths.db");
 	
 	const db = new dataStore({
