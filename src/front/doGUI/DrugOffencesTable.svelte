@@ -16,7 +16,7 @@
 			offences_supply: ""
     }
     	//Variables de paginacion
-	let limit = 10;
+	let limit = 1;
 	let offset = 0;
 	let moreOffences = true;
 	let currentPage=1; // No la utilizamos pero nos sirve para saber en que pagina estamos (quizas en un futuro)
@@ -97,8 +97,22 @@ async function insertDrugOffence(){
 		}
 		else{
 			const res = await fetch("/api/v1/drug_offences",{
-
-			})
+				method:"POST",
+				body:JSON.stringify(newDrugOffence),
+				headers:{
+					"Content-Type": "application/json"
+				}
+			}).then(function(res){
+				if(res.status ==201){
+					getDrugOffences();
+					console.log("Data Introduced");
+					okayMsg="Entrada introducida correctamente a la base de datos"
+				}
+				else if(res.status == 400){
+					console.log("ERROR Data was not correctly introduced");
+					errorMsg = "Los datos de la entrada no fueron introducidos correctamente";
+				}
+			});
 		}
 }
 
@@ -203,6 +217,7 @@ async function insertDrugOffence(){
 					<td><Input type="number" placeholder="XxXxX" bind:value="{newDrugOffence.cannabis_offences}"/></td>
 					<td><Input type="number" placeholder="XxXxX" bind:value="{newDrugOffence.offences_use}"/></td>
 					<td><Input type="number" placeholder="XxXxX" bind:value="{newDrugOffence.offences_supply}"/></td>
+						<td><Button outline color= "primary"  on:click={insertDrugOffence}>Insertar</Button></td>
 				</tr>
 			{#each drug_offences as drug_offence}
 				<tr>
