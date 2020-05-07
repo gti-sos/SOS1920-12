@@ -228,7 +228,7 @@ async function insertDrugOffence(){
 					<td>{drug_offence.cannabis_offences}</td>
 					<td>{drug_offence.offences_use}</td>
 					<td>{drug_offence.offences_supply}</td>
-					<td><Button outline color="danger" on:click="{deleteDrugOffence(drug_offence.country,drug_offences.year)}">Eliminar</Button></td>
+					<td><Button outline color="danger" on:click="{deleteDrugOffence(drug_offence.country,drug_offence.year)}">Eliminar</Button></td>
 				</tr>
 			{/each}
 			</tbody>
