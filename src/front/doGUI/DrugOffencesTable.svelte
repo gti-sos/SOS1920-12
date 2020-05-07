@@ -16,7 +16,7 @@
 			offences_supply: ""
     }
     	//Variables de paginacion
-	let limit = 2;
+	let limit = 5;
 	let offset = 0;
 	let moreOffences = true;
 	let currentPage=1; // No la utilizamos pero nos sirve para saber en que pagina estamos (quizas en un futuro)
@@ -92,7 +92,7 @@
 async function insertDrugOffence(){
 
 	console.log("Inserting Drug offences...");
-		if (newOverdoseDeath.country == "" || newOverdoseDeath.country == null || newOverdoseDeath.year == "" || newOverdoseDeath.year == null) {
+		if (newDrugOffence.country == "" || newDrugOffence.country == null || newDrugOffence.year == "" || newDrugOffence.year == null) {
 		alert("Los campos 'Pais' y 'Año' no pueden estar vacios");
 		}
 		else{
