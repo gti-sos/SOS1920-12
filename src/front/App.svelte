@@ -10,7 +10,8 @@
 
 	
 	//Imports para school-dropouts
-	//import XXXXXXXX from './sdGUI/XXXXXXXXXXXXX.svelte';
+	import SchoolDropouts from './sdGUI/SchoolDropoutsTable.svelte';
+	import EditSchoolDropout from './sdGUI/EditSchoolDropout.svelte';
 
 	//Imports para drug-offences
 	//import YYYYYYYYY from './doGUI/YYYYYYYYYYYYYY.svelte';
@@ -26,6 +27,10 @@
 
 		"/drug-offences/:country/:year": EditDrugOffences,
 		"/drug-offences": DrugOffences,
+		
+		"/school-dropouts/:country/:year": EditSchoolDropout,
+		"/school-dropouts": SchoolDropouts,
+		
 		"*": NotFound
 	};
 </script>

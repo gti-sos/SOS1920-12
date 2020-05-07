@@ -3,7 +3,7 @@ module.exports = function (app) {
 	console.log("Registering school-dropouts API...");
 	const dataStore = require("nedb");
 	const path = require("path");
-	const BASE_API_URL = "/api/v1";
+	const BASE_API_URL = "/api/v2";
 	const dbFileName = path.join(__dirname,"schoolDroupouts.db");
 	
 	const db = new dataStore({
@@ -46,6 +46,48 @@ var initialSchool_dropouts = [
 		sd_all: 19,
 		sd_mas: 22.7,
 		sd_fem: 15.1
+	},
+	{
+		country: "Germany",
+		year: 1990,
+		sd_all: 11,
+		sd_mas: 9.3,
+		sd_fem: 6.1
+	},
+	{
+		country: "Austria",
+		year: 2013,
+		sd_all: 15,
+		sd_mas: 7.7,
+		sd_fem: 5.1
+	},
+	{
+		country: "Portugal",
+		year: 2016,
+		sd_all: 11.2,
+		sd_mas: 19.9,
+		sd_fem: 7.1
+	},
+	{
+		country: "Denmark",
+		year: 2004,
+		sd_all: 18,
+		sd_mas: 23.7,
+		sd_fem: 16.2
+	},
+	{
+		country: "Greece",
+		year: 1995,
+		sd_all: 19,
+		sd_mas: 22.7,
+		sd_fem: 15.1
+	},
+	{
+		country: "Croatia",
+		year: 2001,
+		sd_all: 13,
+		sd_mas: 16.5,
+		sd_fem: 9
 	}
 ];
 
@@ -99,15 +141,9 @@ app.get(BASE_API_URL + "/school-dropouts", (req, res) => {
 		school_dropouts.forEach( (c) =>{
 			delete c._id;
 	});	
-
-	if (school_dropouts.length < 1) {
-		res.sendStatus(400, "BAD REQUEST(data is empty)");
-		console.log("The requested data is empty");
-	}
-	else{
 		res.send(JSON.stringify(school_dropouts, null, 2));
 		console.log("Data sent:"+JSON.stringify(school_dropouts, null, 2));
-	}});
+	});
 	
 });
 
