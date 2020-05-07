@@ -21,7 +21,7 @@
     async function getDrugOffence(){
 
         console.log("Fetching drug offences...");
-        const res = await fetch("/api/v2/drug_offences/" + params.country+ "/" + params.year);
+        const res = await fetch("/api/v1/drug_offences/" + params.country+ "/" + params.year);
         if(res.ok){
             console.log("OK");
             const json = await res.json();
@@ -42,7 +42,8 @@
     }
     async function updateDrugOffence(){
         if(confirm("¿Está seguro de que desea actualizar esta entrada?")){
-            console.log("Updating drug offence..." + params.country + " " +params.year,{
+            console.log("Updating drug offence..." + params.country + " " +params.year);
+            	const res = await fetch("/api/v1/drug_offences/"+ params.country +"/"+params.year,{
                 method:"PUT",
                 body:JSON.stringify({
                     country:params.country,
