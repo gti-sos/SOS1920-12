@@ -16,7 +16,7 @@
 			offences_supply: ""
     }
     	//Variables de paginacion
-	let limit = 1;
+	let limit = 2;
 	let offset = 0;
 	let moreOffences = true;
 	let currentPage=1; // No la utilizamos pero nos sirve para saber en que pagina estamos (quizas en un futuro)
@@ -37,14 +37,14 @@
         if (res.ok) {
             console.log("OK");
             okayMsg= "Datos cargados correctamente.";
-            getDrugOffences;
+            getDrugOffences();
 
         } else if(res.status==409) {
             errorMsg="Ya hay datos cargados, si desea volver a cargarlos deberá primero eliminarlos a través de otra función. Gracias";
             console.log("ALREADY LOADED DATA")
             
         }else{
-            Console.log("ERROR");
+            console.log("ERROR");
         }
         });
     }
@@ -222,13 +222,13 @@ async function insertDrugOffence(){
 			{#each drug_offences as drug_offence}
 				<tr>
 					<td>
-					<a href = "#/drug_offences/{drug_offence.country}/{drug_offence.year}">{deleteDrugOffence.country}</a>
+					<a href = "#/drug-offences/{drug_offence.country}/{drug_offence.year}">{drug_offence.country}</a>
 					</td>
 					<td>{drug_offence.year}</td>
 					<td>{drug_offence.cannabis_offences}</td>
 					<td>{drug_offence.offences_use}</td>
 					<td>{drug_offence.offences_supply}</td>
-					<td><Button outline color="danget" on:click="{deleteDrugOffence(drug_offence.country,drug_offences.year)}">Eliminar</Button></td>
+					<td><Button outline color="danger" on:click="{deleteDrugOffence(drug_offence.country,drug_offences.year)}">Eliminar</Button></td>
 				</tr>
 			{/each}
 			</tbody>
@@ -236,11 +236,11 @@ async function insertDrugOffence(){
 		{/await}
 		<Pagination ariaLabel ="Web Pagination">
 		<PaginationItem class="{currentPage===1? 'disabled' : ''}">
-			<PaginationLink previous href="#/drug_offences" on:click="{() =>changePage(-1)}" />
+			<PaginationLink previous href="#/drug-offences" on:click="{() =>changePage(-1)}" />
 		</PaginationItem>
 		{#if moreOffences}
 		<PaginationItem>
-			<PaginationLink next href="#/drug_offences" on:click="{() => changePage(1)}"/>
+			<PaginationLink next href="#/drug-offences" on:click="{() => changePage(1)}"/>
 		</PaginationItem>
 		{/if}
 		</Pagination>

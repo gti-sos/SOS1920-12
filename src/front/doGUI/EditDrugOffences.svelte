@@ -12,7 +12,7 @@
     let updatedYear = 0;
     let updatedCannabisOffences = 0;
     let updatedOffencesUse = 0;
-    let updatedOffencesSuply = 0;
+    let updatedOffencesSupply = 0;
 
     let okayMsg = "";
     let errorMsg = "";
@@ -31,7 +31,7 @@
             updatedYear = drug_offence.year;
             updatedCannabisOffences = drug_offence.cannabis_offences;
             updatedOffencesUse = drug_offence.offences_use;
-            updatedOffencesSuply = drug_offence.offences_suply;
+            updatedOffencesSupply = drug_offence.offences_supply;
 
             console.log("Received drug offences.");
         }
@@ -50,7 +50,7 @@
                     year:parseInt(params.year),
                     cannabis_offences: updatedCannabisOffences,
                     offences_use:updatedOffencesUse,
-                    offences_suply:updatedOffencesSuply
+                    offences_supply:updatedOffencesSupply
                 }),
                 headers:{
                     "Content-Type": "application/json"
@@ -96,9 +96,9 @@
 					<tr>
 						<td>{updatedCountry}</td>
 						<td>{updatedYear}</td>
-						<td><input type="number" placeholder="XxXxX" min=0 bind:value="{updatedCannabisOffences}"></td>
-						<td><input type="number" placeholder="XxXxX" min=0 bind:value="{updatedOffencesSuply}"></td>
-						<td><input type="number" placeholder="30" min=0 bind:value="{updatedOffencesUse}"></td>
+						<td><input type="number" placeholder="00" min=0 bind:value="{updatedCannabisOffences}"></td>
+						<td><input type="number" placeholder="00" min=0 bind:value="{updatedOffencesUse}"></td>
+						<td><input type="number" placeholder="30" min=0 bind:value="{updatedOffencesSupply}"></td>
 						<td><Button outline color= "warning"  on:click={updateDrugOffence}>Actualizar</Button></td>
 					</tr>
 			</tbody>
