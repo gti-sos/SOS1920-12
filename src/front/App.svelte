@@ -7,12 +7,15 @@
 	//Imports para overdose-deaths
 	import OverdoseDeaths from './odGUI/OverdoseDeathsTable.svelte';
 	import EditOverdoseDeath from './odGUI/EditOverdoseDeath.svelte';
+
 	
 	//Imports para school-dropouts
 	//import XXXXXXXX from './sdGUI/XXXXXXXXXXXXX.svelte';
 
 	//Imports para drug-offences
 	//import YYYYYYYYY from './doGUI/YYYYYYYYYYYYYY.svelte';
+	import DrugOffences from './doGUI/DrugOffencesTable.svelte';
+	import EditDrugOffences from './doGUI/EditDrugOffences.svelte';
 
 	//Aqui se deben de añadir el resto de rutas de la pagina
 
@@ -20,6 +23,9 @@
 		"/": Home,
 		"/overdose-deaths/:country/:year": EditOverdoseDeath,
 		"/overdose-deaths": OverdoseDeaths,
+
+		"/drug-offences/:country/:year": EditDrugOffences,
+		"/drug-offences": DrugOffences,
 		"*": NotFound
 	};
 </script>
