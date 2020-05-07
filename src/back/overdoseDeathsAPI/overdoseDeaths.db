@@ -60,6 +60,7 @@
 {"country":"Slovakia","year":2014,"death_male":11,"death_female":2,"death_total":13,"mean_age":39.2,"_id":"unrDOa0dVJiQb8RF"}
 {"country":"Ireland","year":2011,"death_male":178,"death_female":49,"death_total":227,"mean_age":36.4,"_id":"wZFm47XRI5rcDtwN"}
 {"country":"Norway","year":2015,"death_male":206,"death_female":83,"death_total":289,"mean_age":42.7,"_id":"yuemhiHBd0stALdl"}
+<<<<<<< Updated upstream
 {"$$deleted":true,"_id":"0XYuTkxNnVR9SzgU"}
 {"$$deleted":true,"_id":"0v6g71aXuEpLxNek"}
 {"$$deleted":true,"_id":"1BWopvPAGZCxVcXX"}
@@ -153,3 +154,5 @@
 {"country":"United Kingdom","year":2014,"death_male":1993,"death_female":724,"death_total":2717,"mean_age":41.6,"_id":"p4VwOcjQnuZNTitC"}
 {"country":"United Kingdom","year":2015,"death_male":2313,"death_female":827,"death_total":3140,"mean_age":42.1,"_id":"8CH1ddHO0zbB0VED"}
 {"country":"United Kingdom","year":2016,"death_male":2318,"death_female":938,"death_total":3256,"mean_age":42.2,"_id":"9yRbPsDatknViR2G"}
+=======
+>>>>>>> Stashed changes
