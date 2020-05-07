@@ -108,15 +108,8 @@ module.exports = function (app) {
 			drug_offences.forEach((c) => {
 				delete c._id;
 			});
-
-			if (drug_offences.length < 1) {
-				res.sendStatus(400, "BAD REQUEST(data is empty)");
-				console.log("The requested data is empty");
-			}
-			else {
 				res.send(JSON.stringify(drug_offences, null, 2));
 				console.log("Data sent:" + JSON.stringify(drug_offences, null, 2));
-			}
 		});
 
 	});

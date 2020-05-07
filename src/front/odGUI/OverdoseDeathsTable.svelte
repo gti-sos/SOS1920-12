@@ -4,7 +4,7 @@
 	import Button from "sveltestrap/src/Button.svelte";
 	import { Pagination, PaginationItem, PaginationLink } from 'sveltestrap';
 	import { Form, FormGroup, FormText, Input, Label } from 'sveltestrap';
-	import {Alert} from 'sveltestrap';
+	import { Alert } from 'sveltestrap';
 	import { pop } from "svelte-spa-router";
 
 	let overdose_deaths = [];

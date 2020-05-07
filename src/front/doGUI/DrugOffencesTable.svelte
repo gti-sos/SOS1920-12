@@ -16,7 +16,7 @@
 			offences_supply: ""
     }
     	//Variables de paginacion
-	let limit = 10;
+	let limit = 5;
 	let offset = 0;
 	let moreOffences = true;
 	let currentPage=1; // No la utilizamos pero nos sirve para saber en que pagina estamos (quizas en un futuro)
@@ -32,43 +32,23 @@
     onMount(getDrugOffences);
 
     async function loadDrugOffences(){
-        console.log("loading drug offences...");
+        console.log("Fetching  drug offences...");
 		const res = await fetch("/api/v1/drug_offences/loadInitData").then(function(res){
         if (res.ok) {
             console.log("OK");
             okayMsg= "Datos cargados correctamente.";
-            getDrugOffences;
+            getDrugOffences();
 
         } else if(res.status==409) {
             errorMsg="Ya hay datos cargados, si desea volver a cargarlos deberá primero eliminarlos a través de otra función. Gracias";
             console.log("ALREADY LOADED DATA")
             
         }else{
-            Console.log("ERROR");
+            console.log("ERROR");
         }
         });
     }
 
-   	// async function loadDrugOffences(){
-	
-	// 	console.log("Fetching overdose deaths...");
-	// 	//Awaits lo que hace es esperar la finalización de la solicitud HTTP. El código se reanuda (para la iteración ...) solo después de completar cada solicitud.
-	// 	const res = await fetch("/api/v1/drug_offences/loadInitialData").then(function(res){
-	// 		if (res.ok){
-	// 			console.log("OK");
-	// 			getOverdoseDeaths();
-	// 			okayMsg= "Datos cargados correctamente."
-	// 		}
-	// 		else if(res.status == 409){
-	// 			errorMsg = "Ya hay datos cargados. Esta accion eliminaria los datos existentes. Si quiere cargar los datos iniciales, por favor, elimine todos los disponibles primero."
-	// 			console.log("ERROR ALREADY LOADED DATA");
-	// 		}
-	// 		else{
-	// 			console.log("ERROR");
-	// 		}
-	// 	});
-		
-	// }
 
 	async function getDrugOffences(){
 	
@@ -108,6 +88,34 @@
 			
 		
 	}
+
+async function insertDrugOffence(){
+
+	console.log("Inserting Drug offences...");
+		if (newDrugOffence.country == "" || newDrugOffence.country == null || newDrugOffence.year == "" || newDrugOffence.year == null) {
+		alert("Los campos 'Pais' y 'Año' no pueden estar vacios");
+		}
+		else{
+			const res = await fetch("/api/v1/drug_offences",{
+				method:"POST",
+				body:JSON.stringify(newDrugOffence),
+				headers:{
+					"Content-Type": "application/json"
+				}
+			}).then(function(res){
+				if(res.status ==201){
+					getDrugOffences();
+					console.log("Data Introduced");
+					okayMsg="Entrada introducida correctamente a la base de datos"
+				}
+				else if(res.status == 400){
+					console.log("ERROR Data was not correctly introduced");
+					errorMsg = "Los datos de la entrada no fueron introducidos correctamente";
+				}
+			});
+		}
+}
+
 	async function deleteDrugOffences() {
 		console.log("Deleting drug offences...");
 		if(confirm("¿Está seguro de que desea eliminar todas las entradas?")){
@@ -209,23 +217,24 @@
 					<td><Input type="number" placeholder="XxXxX" bind:value="{newDrugOffence.cannabis_offences}"/></td>
 					<td><Input type="number" placeholder="XxXxX" bind:value="{newDrugOffence.offences_use}"/></td>
 					<td><Input type="number" placeholder="XxXxX" bind:value="{newDrugOffence.offences_supply}"/></td>
+						<td><Button outline color= "primary"  on:click={insertDrugOffence}>Insertar</Button></td>
 				</tr>
 			{#each drug_offences as drug_offence}
 				<tr>
 					<td>
-					<a href = "#/drug_offences/{drug_offence.country}/{drug_offence.year}">{deleteDrugOffence.country}</a>
+					<a href = "#/drug-offences/{drug_offence.country}/{drug_offence.year}">{drug_offence.country}</a>
 					</td>
 					<td>{drug_offence.year}</td>
 					<td>{drug_offence.cannabis_offences}</td>
 					<td>{drug_offence.offences_use}</td>
 					<td>{drug_offence.offences_supply}</td>
-					<td><Button outline color="danget" on:click="{deleteDrugOffence(drug_offence.country,drug_offences.year)}">Eliminar</Button></td>
+					<td><Button outline color="danger" on:click="{deleteDrugOffence(drug_offence.country,drug_offences.year)}">Eliminar</Button></td>
 				</tr>
 			{/each}
 			</tbody>
 		</Table>
 		{/await}
-		<Pagination>
+		<Pagination ariaLabel ="Web Pagination">
 		<PaginationItem class="{currentPage===1? 'disabled' : ''}">
 			<PaginationLink previous href="#/drug-offences" on:click="{() =>changePage(-1)}" />
 		</PaginationItem>
