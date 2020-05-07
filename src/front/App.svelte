@@ -2,7 +2,8 @@
 	import Router from 'svelte-spa-router';
 	import NotFound from './NotFound.svelte' ;  
 	import Home from './Home.svelte'
-
+	import { Jumbotron } from "sveltestrap";
+	import { Collapse,Navbar,NavbarToggler,NavbarBrand,Nav,NavItem,NavLink,UncontrolledDropdown,DropdownToggle,DropdownMenu,DropdownItem } from 'sveltestrap';
 	//Imports para overdose-deaths
 	import OverdoseDeaths from './odGUI/OverdoseDeathsTable.svelte';
 	import EditOverdoseDeath from './odGUI/EditOverdoseDeath.svelte';
@@ -27,25 +28,25 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
 <body>
-	<div class="jumbotron text-center display-3">
-	<h1>SOS1920-12</h1>
-	</div>
-	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-		<ul class="navbar-nav navbar-expand-sm ">
-		  <li class="nav-item">
-			<a class="nav-link" href="#/">Inicio</a>
-		  </li>
-		  <li class="nav-item">
-			<a class="nav-link" href="#/overdose-deaths">Fallecimientos por sobredosis</a>
-		  </li>
-		  <li class="nav-item">
-			<a class="nav-link" href="#/school-dropouts">Abandono escolar</a>
-		  </li>
-		  <li class="nav-item">
-			<a class="nav-link" href="#/drug-offences">Delitos vinculados con drogas</a>
-		  </li>
-		</ul>
-	</nav>
+	<Jumbotron class="p-"  >
+		<h1 style="text-align:center;" class="display-3">SOS1920-12</h1>
+	</Jumbotron>
+	<Navbar color="dark" dark expand="md" >
+		<Nav navbar >
+		  <NavItem active >
+			<NavLink href="#/">Inicio</NavLink>
+		  </NavItem>
+		  <NavItem>
+			<NavLink href="#/overdose-deaths">Fallecimientos por sobredosis</NavLink>
+		  </NavItem>
+		  <NavItem>
+			<NavLink href="#/school-dropouts">Abandono escolar</NavLink>
+		  </NavItem>
+		  <NavItem>
+			<NavLink href="#/drug-offences">Delitos vinculados con drogas</NavLink>
+		  </NavItem>
+		</Nav>
+	</Navbar>
 
 </body>
 <Router {routes}> </Router>
