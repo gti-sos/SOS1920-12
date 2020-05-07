@@ -32,7 +32,7 @@
     onMount(getDrugOffences);
 
     async function loadDrugOffences(){
-        console.log("loading drug offences...");
+        console.log("Fetching  drug offences...");
 		const res = await fetch("/api/v1/drug_offences/loadInitData").then(function(res){
         if (res.ok) {
             console.log("OK");
@@ -49,26 +49,6 @@
         });
     }
 
-   	// async function loadDrugOffences(){
-	
-	// 	console.log("Fetching overdose deaths...");
-	// 	//Awaits lo que hace es esperar la finalización de la solicitud HTTP. El código se reanuda (para la iteración ...) solo después de completar cada solicitud.
-	// 	const res = await fetch("/api/v1/drug_offences/loadInitialData").then(function(res){
-	// 		if (res.ok){
-	// 			console.log("OK");
-	// 			getOverdoseDeaths();
-	// 			okayMsg= "Datos cargados correctamente."
-	// 		}
-	// 		else if(res.status == 409){
-	// 			errorMsg = "Ya hay datos cargados. Esta accion eliminaria los datos existentes. Si quiere cargar los datos iniciales, por favor, elimine todos los disponibles primero."
-	// 			console.log("ERROR ALREADY LOADED DATA");
-	// 		}
-	// 		else{
-	// 			console.log("ERROR");
-	// 		}
-	// 	});
-		
-	// }
 
 	async function getDrugOffences(){
 	
@@ -108,6 +88,20 @@
 			
 		
 	}
+
+async function insertDrugOffence(){
+
+	console.log("Inserting Drug offences...");
+		if (newOverdoseDeath.country == "" || newOverdoseDeath.country == null || newOverdoseDeath.year == "" || newOverdoseDeath.year == null) {
+		alert("Los campos 'Pais' y 'Año' no pueden estar vacios");
+		}
+		else{
+			const res = await fetch("/api/v1/drug_offences",{
+
+			})
+		}
+}
+
 	async function deleteDrugOffences() {
 		console.log("Deleting drug offences...");
 		if(confirm("¿Está seguro de que desea eliminar todas las entradas?")){
@@ -225,13 +219,13 @@
 			</tbody>
 		</Table>
 		{/await}
-		<Pagination>
+		<Pagination ariaLabel ="Web Pagination">
 		<PaginationItem class="{currentPage===1? 'disabled' : ''}">
-			<PaginationLink previous href="#/drug-offences" on:click="{() =>changePage(-1)}" />
+			<PaginationLink previous href="#/drug_offences" on:click="{() =>changePage(-1)}" />
 		</PaginationItem>
 		{#if moreOffences}
 		<PaginationItem>
-			<PaginationLink next href="#/drug-offences" on:click="{() => changePage(1)}"/>
+			<PaginationLink next href="#/drug_offences" on:click="{() => changePage(1)}"/>
 		</PaginationItem>
 		{/if}
 		</Pagination>
