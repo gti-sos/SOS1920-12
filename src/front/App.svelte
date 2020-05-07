@@ -27,8 +27,8 @@
 <main>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
-<body>
-	<Jumbotron class="p-"  >
+<body >
+	<Jumbotron class="p-5" >
 		<h1 style="text-align:center;" class="display-3">SOS1920-12</h1>
 	</Jumbotron>
 	<Navbar color="dark" dark expand="md" >
