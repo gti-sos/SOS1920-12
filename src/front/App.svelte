@@ -3,7 +3,7 @@
 	import NotFound from './NotFound.svelte' ;  
 	import Home from './Home.svelte'
 	import { Jumbotron } from "sveltestrap";
-	import { Collapse,Navbar,NavbarToggler,NavbarBrand,Nav,NavItem,NavLink,UncontrolledDropdown,DropdownToggle,DropdownMenu,DropdownItem } from 'sveltestrap';
+	import { Collapse,Navbar,NavbarToggler,NavbarBrand,Nav,NavItem,NavLink,Dropdown,UncontrolledDropdown,DropdownToggle,DropdownMenu,DropdownItem } from 'sveltestrap';
 	//Imports para overdose-deaths
 	import OverdoseDeaths from './odGUI/OverdoseDeathsTable.svelte';
 	import EditOverdoseDeath from './odGUI/EditOverdoseDeath.svelte';
@@ -14,11 +14,16 @@
 	import EditSchoolDropout from './sdGUI/EditSchoolDropout.svelte';
 
 	//Imports para drug-offences
-	//import YYYYYYYYY from './doGUI/YYYYYYYYYYYYYY.svelte';
 	import DrugOffences from './doGUI/DrugOffencesTable.svelte';
 	import EditDrugOffences from './doGUI/EditDrugOffences.svelte';
 
-	//Aqui se deben de añadir el resto de rutas de la pagina
+	//Imports para analytics
+	import AnalyticsOverdoseDeaths from "./analytics/od/OverdoseDeathsAnalytics.svelte";
+
+	/* A INTRODUCIR 
+	import sdAnalytics from "./analytics/sd/XXXXXXXXXXXXXXX";
+	import doAnalytics from "./analytics/do/YYYYYYYYYYYYYYY";
+	*/
 
 	const routes = {
 		"/": Home,
@@ -30,13 +35,19 @@
 		
 		"/school-dropouts/:country/:year": EditSchoolDropout,
 		"/school-dropouts": SchoolDropouts,
+
+		"/analytics/overdose-deaths": AnalyticsOverdoseDeaths,
+		/*
+		"/analytics/drug-offences": AnalyticsDrugOffences,
+		"/analytics/school-dropouts" AnalyticsSchoolDropouts,
+		*/
 		
 		"*": NotFound
 	};
+	let isOpen=false;
 </script>
 
 <main>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
 <body >
 	<Jumbotron class="p-5" >
@@ -44,8 +55,8 @@
 	</Jumbotron>
 	<Navbar color="dark" dark expand="md" >
 		<Nav navbar >
-		  <NavItem active >
-			<NavLink href="#/">Inicio</NavLink>
+		  <NavItem  >
+			<NavLink  active href="#/">Inicio</NavLink>
 		  </NavItem>
 		  <NavItem>
 			<NavLink href="#/overdose-deaths">Fallecimientos por sobredosis</NavLink>
@@ -56,6 +67,17 @@
 		  <NavItem>
 			<NavLink href="#/drug-offences">Delitos vinculados con drogas</NavLink>
 		  </NavItem>
+		  <Dropdown  nav {isOpen} toggle="{() => isOpen = !isOpen}" >
+			<DropdownToggle nav caret>
+			  Analíticas
+			</DropdownToggle>
+			<DropdownMenu>
+			  <DropdownItem header>Recursos</DropdownItem>
+			  <DropdownItem href="#/analytics/overdose-deaths">Fallecimientos por sobredosis</DropdownItem>
+			  <DropdownItem disabled>Abandono escolar</DropdownItem>
+			  <DropdownItem disabled>Delitos vinculados con drogas</DropdownItem>
+			</DropdownMenu>
+		</Dropdown>
 		</Nav>
 	</Navbar>
 
