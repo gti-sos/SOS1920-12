@@ -2,6 +2,6 @@
 import MyGraph from "./MyGraph.svelte";
 </script>
 <main>
-    <h1> Graficas</h1>
+    <h1> Gráficas</h1>
     <MyGraph> </MyGraph>
 </main>

@@ -16,6 +16,14 @@ module.exports = function (app) {
 var initialOverdose_deaths = [
 	{
 		country: "Austria",
+		year: 2016,
+		death_male: 127,
+		death_female: 38,
+		death_total: 165,
+		mean_age: 36.1
+	},
+	{
+		country: "Austria",
 		year: 2017,
 		death_male: 125,
 		death_female: 29,
@@ -47,6 +55,14 @@ var initialOverdose_deaths = [
 		mean_age: 32.3
 	},
 	{
+		country: "Czechia",
+		year: 2016,
+		death_male: 23,
+		death_female: 9,
+		death_total: 32,
+		mean_age: 41.2
+	},
+	{
 		country: "Denmark",
 		year: 2011,
 		death_male: 219,
@@ -55,12 +71,28 @@ var initialOverdose_deaths = [
 		mean_age: 44.4
 	},
 	{
+		country: "Denmark",
+		year: 2016,
+		death_male: 178,
+		death_female: 59,
+		death_total: 237,
+		mean_age: 47
+	},
+	{
 		country: "Finland",
 		year: 2009,
 		death_male: 130,
 		death_female: 45,
 		death_total: 175,
 		mean_age: 38.7
+	},
+	{
+		country: "Finland",
+		year: 2016,
+		death_male: 152,
+		death_female: 42,
+		death_total: 194,
+		mean_age: 38.6
 	},
 	{
 		country: "France",
@@ -85,6 +117,14 @@ var initialOverdose_deaths = [
 		death_female: 78,
 		death_total: 264,
 		mean_age: 44.8
+	},
+	{
+		country: "Germany",
+		year: 2013,
+		death_male: 797,
+		death_female: 161,
+		death_total: 1002,
+		mean_age: 38
 	},
 	{
 		country: "Germany",
@@ -127,12 +167,44 @@ var initialOverdose_deaths = [
 		mean_age: 30.1
 	},
 	{
+		country: "Hungary",
+		year: 2016,
+		death_male: 26,
+		death_female: 3,
+		death_total: 29,
+		mean_age: 35.8
+	},
+	{
 		country: "Ireland",
 		year: 2011,
 		death_male: 178,
 		death_female: 49,
 		death_total: 227,
 		mean_age: 36.4
+	},
+	{
+		country: "Italy",
+		year: 2013,
+		death_male: 313,
+		death_female: 36,
+		death_total: 349,
+		mean_age: 38.2
+	},
+	{
+		country: "Italy",
+		year: 2014,
+		death_male: 294,
+		death_female: 19,
+		death_total: 313,
+		mean_age: 39.7
+	},
+	{
+		country: "Italy",
+		year: 2015,
+		death_male: 266,
+		death_female: 42,
+		death_total: 308,
+		mean_age: 39.2
 	},
 	{
 		country: "Italy",
@@ -152,6 +224,14 @@ var initialOverdose_deaths = [
 	},
 	{
 		country: "Latvia",
+		year: 2016,
+		death_male: 11,
+		death_female: 7,
+		death_total: 18,
+		mean_age: 33.7
+	},
+	{
+		country: "Latvia",
 		year: 2017,
 		death_male: 20,
 		death_female: 2,
@@ -165,6 +245,22 @@ var initialOverdose_deaths = [
 		death_female: 52,
 		death_total: 197,
 		mean_age: 42.8
+	},
+	{
+		country: "Netherlands",
+		year: 2016,
+		death_male: 182,
+		death_female: 53,
+		death_total: 235,
+		mean_age: 41.5
+	},
+	{
+		country: "Norway",
+		year: 2013,
+		death_male: 179,
+		death_female: 55,
+		death_total: 234,
+		mean_age: 41
 	},
 	{
 		country: "Norway",
@@ -200,11 +296,27 @@ var initialOverdose_deaths = [
 	},
 	{
 		country: "Portugal",
+		year: 2013,
+		death_male: 24,
+		death_female: 4,
+		death_total: 28,
+		mean_age: 42
+	},
+	{
+		country: "Portugal",
 		year: 2014,
 		death_male: 33,
 		death_female: 4,
 		death_total: 37,
 		mean_age: 42
+	},
+	{
+		country: "Portugal",
+		year: 2015,
+		death_male: 43,
+		death_female: 11,
+		death_total: 54,
+		mean_age: 44.8
 	},
 	{
 		country: "Portugal",
@@ -223,12 +335,36 @@ var initialOverdose_deaths = [
 		mean_age: 39.2
 	},
 	{
+		country: "Slovakia",
+		year: 2016,
+		death_male: 14,
+		death_female: 6,
+		death_total: 20,
+		mean_age: 45.1
+	},
+	{
+		country: "Slovenia",
+		year: 2016,
+		death_male: 35,
+		death_female: 5	,
+		death_total: 40,
+		mean_age: 37.1
+	},
+	{
 		country: "Slovenia",
 		year: 2017,
 		death_male: 37,
 		death_female: 10,
 		death_total: 47,
 		mean_age: 40.5
+	},
+	{
+		country: "Turkey",
+		year: 2016,
+		death_male: 876,
+		death_female: 44,
+		death_total: 920,
+		mean_age: 31
 	},
 	{
 		country: "Turkey",
@@ -239,7 +375,15 @@ var initialOverdose_deaths = [
 		mean_age: 32
 	},
 	{
-		country: "United Kingdom",
+		country: "United_Kingdom",
+		year: 2013,
+		death_male: 1869,
+		death_female: 660,
+		death_total: 2529,
+		mean_age: 41.5	
+	},
+	{
+		country: "United_Kingdom",
 		year: 2014,
 		death_male: 1993,
 		death_female: 724,
@@ -247,7 +391,7 @@ var initialOverdose_deaths = [
 		mean_age: 41.6
 	},
 	{
-		country: "United Kingdom",
+		country: "United_Kingdom",
 		year: 2015,
 		death_male: 2313,
 		death_female: 827,
@@ -255,13 +399,13 @@ var initialOverdose_deaths = [
 		mean_age: 42.1
 	},
 	{
-		country: "United Kingdom",
+		country: "United_Kingdom",
 		year: 2016,
 		death_male: 2318,
 		death_female: 938,
 		death_total: 3256,
 		mean_age: 42.2
-	}
+	},
 ];
 
 

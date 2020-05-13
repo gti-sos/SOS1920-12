@@ -7,6 +7,8 @@ async function loadGraph(){
     const resData = await fetch("/api/v2/overdose-deaths");
     MyData = await resData.json();
 
+    
+
     Highcharts.chart('container', {
 
         title: {
