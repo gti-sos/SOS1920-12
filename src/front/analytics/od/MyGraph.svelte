@@ -2,102 +2,80 @@
 
 async function loadGraph(){
 
+function random_rgba() {
+    var o = Math.round, r = Math.random, s = 255;
+    return 'rgba(' + o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s) + ',' + r().toFixed(1) + ')';
+}
+    //Data> [{ id: 'Germany', name: 'Germany',color: '#EC9800'}, {name: 'Men',parent: 'Germany',value: death_male}]
     let MyData =[];
 
-    const resData = await fetch("/api/v2/overdose-deaths");
+    const resData = await fetch("/api/v2/overdose-deaths?year=2016");
     MyData = await resData.json();
-
+    let DataStacked = [];
+    MyData.forEach((v) => {
+        DataStacked.push(
+            {id:v.country,
+            name:v.country,
+            color:random_rgba()},
+            {name:'Hombres',
+            parent:v.country,
+            value: v.death_male},
+            {name:'Mujeres',
+            parent:v.country,
+            value: v.death_female}
+            );
+    });
+    console.log(DataStacked);
     
-
-    Highcharts.chart('container', {
-
-        title: {
-            text: 'Solar Employment Growth by Sector, 2010-2016'
-        },
-
-        subtitle: {
-            text: 'Source: thesolarfoundation.com'
-        },
-
-        yAxis: {
-            title: {
-                text: 'Number of Employees'
-            }
-        },
-
-        xAxis: {
-            accessibility: {
-                rangeDescription: 'Range: 2010 to 2017'
-            }
-        },
-
-        legend: {
-            layout: 'vertical',
-            align: 'right',
-            verticalAlign: 'middle'
-        },
-
-        plotOptions: {
-            series: {
-                label: {
-                    connectorAllowed: false
-                },
-                pointStart: 2010
-            }
-        },
-
-        //No funciona porque solo coge atributos name y data, la gracia es saber coger un grafico que nos vaya a ser util para lo que queremos hacer, en mi caso por ejemplo puedo
-        //utilizar lo de hombres y mujeres cosa que otros no lo tienen
-        //series:MyData,
+     Highcharts.chart('container', {
         series: [{
-        name: 'Installation',
-        data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175]
-        }, {
-        name: 'Manufacturing',
-        data: [24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434]
-        }, {
-        name: 'Sales & Distribution',
-        data: [11744, 17722, 16005, 19771, 20185, 24377, 32147, 39387]
-         }, {
-        name: 'Project Development',
-        data: [null, null, 7988, 12169, 15112, 22452, 34400, 34227]
-         }, {
-        name: 'Other',
-        data: [12908, 5948, 8105, 11248, 8989, 11816, 18274, 18111]
-         }],         
-
-        responsive: {
-            rules: [{
-                condition: {
-                    maxWidth: 500
-                },
-                chartOptions: {
-                    legend: {
-                        layout: 'horizontal',
-                        align: 'center',
-                        verticalAlign: 'bottom'
+            type: "treemap",
+            layoutAlgorithm: 'stripes',
+            alternateStartingDirection: true,
+            levels: [{
+                level: 1,
+                layoutAlgorithm: 'sliceAndDice',
+                dataLabels: {
+                    enabled: true,
+                    align: 'left',
+                    verticalAlign: 'top',
+                    style: {
+                        fontSize: '15px',
+                        fontWeight: 'bold'
                     }
                 }
-            }]
+            }],
+            data: DataStacked
+        }],
+        title: {
+            text: 'Fallecimientos por sobredosis en 2016'
         }
-    
     });
 }
+
+function getRandomColor() {
+  var letters = '0123456789ABCDEF';
+  var color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
 </script>
+
 <svelte:head>
     <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/modules/series-label.js"></script>
+    <script src="https://code.highcharts.com/modules/treemap.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <script src="https://code.highcharts.com/modules/export-data.js"></script>
     <script src="https://code.highcharts.com/modules/accessibility.js" on:load="{loadGraph}"></script>
 </svelte:head>
 <main>
     <figure class="highcharts-figure">
         <div id="container"></div>
         <p class="highcharts-description">
-            Basic line chart showing trends in a dataset. This chart includes the
-            <code>series-label</code> module, which adds a label to each line for
-            enhanced readability.
+            Esta gráfica muestra los países europeos en los que hubieron mayor número de fallecimientos por sobredosis en el año 2016. 
         </p>
     </figure>
+   
 </main>
