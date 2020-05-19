@@ -28,7 +28,7 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": "http://localhost:8080/api/v2/overdose-deaths"
+				"url": "localhost:8080/api/v2/overdose-deaths"
 			},
 			"response": []
 		},
@@ -56,9 +56,9 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/api/v2/overdose-deaths?country=Austria&year=2017",
+					"raw": "localhost:8080/api/v2/overdose-deaths?country=Austria&year=2017",
 					"host": [
-						"http://localhost:8080"
+						"localhost:8080"
 					],
 					"path": [
 						"api",
@@ -103,9 +103,9 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/api/v2/overdose-deaths?country=Austria&year=2017&death_male=125&death_female=29*death_total=154&mean_age=36.7",
+					"raw": "localhost:8080/api/v2/overdose-deaths?country=Austria&year=2017&death_male=125&death_female=29*death_total=154&mean_age=36.7",
 					"host": [
-						"http://localhost:8080"
+						"localhost:8080"
 					],
 					"path": [
 						"api",
@@ -162,9 +162,9 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/api/v2/overdose-deaths?limit=1&offset=0&year=2017",
+					"raw": "localhost:8080/api/v2/overdose-deaths?limit=1&offset=0&year=2017",
 					"host": [
-						"http://localhost:8080"
+						"localhost:8080"
 					],
 					"path": [
 						"api",
@@ -224,7 +224,7 @@
 						}
 					}
 				},
-				"url": "http://localhost:8080/api/v2/overdose-deaths"
+				"url": "localhost:8080/api/v2/overdose-deaths"
 			},
 			"response": []
 		},
@@ -263,7 +263,7 @@
 						}
 					}
 				},
-				"url": "http://localhost:8080/api/v2/overdose-deaths"
+				"url": "localhost:8080/api/v2/overdose-deaths"
 			},
 			"response": []
 		},
@@ -309,7 +309,7 @@
 						}
 					}
 				},
-				"url": "http://localhost:8080/api/v2/overdose-deaths/Spain"
+				"url": "localhost:8080/api/v2/overdose-deaths/Spain"
 			},
 			"response": []
 		},
@@ -355,7 +355,7 @@
 						}
 					}
 				},
-				"url": "http://localhost:8080/api/v2/overdose-deaths/Spain/2016"
+				"url": "localhost:8080/api/v2/overdose-deaths/Spain/2016"
 			},
 			"response": []
 		},
@@ -394,7 +394,7 @@
 						}
 					}
 				},
-				"url": "http://localhost:8080/api/v2/overdose-deaths/Spain/2016"
+				"url": "localhost:8080/api/v2/overdose-deaths/Spain/2016"
 			},
 			"response": []
 		},
@@ -433,7 +433,7 @@
 						}
 					}
 				},
-				"url": "http://localhost:8080/api/v2/overdose-deaths/Almonte/2015"
+				"url": "localhost:8080/api/v2/overdose-deaths/Almonte/2015"
 			},
 			"response": []
 		},
@@ -473,7 +473,7 @@
 						}
 					}
 				},
-				"url": "http://localhost:8080/api/v2/overdose-deaths/Italy/2017"
+				"url": "localhost:8080/api/v2/overdose-deaths/Italy/2017"
 			},
 			"response": []
 		},
@@ -513,7 +513,7 @@
 						}
 					}
 				},
-				"url": "http://localhost:8080/api/v2/overdose-deaths/Italy/2004"
+				"url": "localhost:8080/api/v2/overdose-deaths/Italy/2004"
 			},
 			"response": []
 		},
@@ -553,7 +553,7 @@
 						}
 					}
 				},
-				"url": "http://localhost:8080/api/v2/overdose-deaths/Italy/2004"
+				"url": "localhost:8080/api/v2/overdose-deaths/Italy/2004"
 			},
 			"response": []
 		},
@@ -592,7 +592,7 @@
 						}
 					}
 				},
-				"url": "http://localhost:8080/api/v2/overdose-deaths/Spain"
+				"url": "localhost:8080/api/v2/overdose-deaths/Spain"
 			},
 			"response": []
 		},
@@ -631,7 +631,7 @@
 						}
 					}
 				},
-				"url": "http://localhost:8080/api/v2/overdose-deaths/Spain/2016"
+				"url": "localhost:8080/api/v2/overdose-deaths/Spain/2016"
 			},
 			"response": []
 		},
@@ -671,7 +671,7 @@
 						}
 					}
 				},
-				"url": "http://localhost:8080/api/v2/overdose-deaths/"
+				"url": "localhost:8080/api/v2/overdose-deaths/"
 			},
 			"response": []
 		},
@@ -710,7 +710,7 @@
 						}
 					}
 				},
-				"url": "http://localhost:8080/api/v2/overdose-deaths/"
+				"url": "localhost:8080/api/v2/overdose-deaths/"
 			},
 			"response": []
 		},
@@ -737,7 +737,7 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": "http://localhost:8080/api/v2/overdose-deaths/loadInitialData"
+				"url": "localhost:8080/api/v2/overdose-deaths/loadInitialData"
 			},
 			"response": []
 		}
