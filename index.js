@@ -1,6 +1,6 @@
 const express = require("express");
 const back = require("./src/back");
-const port = process.env.PORT || 80;
+const port = process.env.PORT || 8080;
 
 var app = express();
 
