@@ -1,0 +1,746 @@
+{
+	"info": {
+		"_postman_id": "75aee9b3-3f43-472a-b83b-f101ca9cd478",
+		"name": "SOS1920-12-overdose-deaths v2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET overdose-deaths",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6a1bd1d6-3a00-4efc-9f43-33e2c5c79136",
+						"exec": [
+							"pm.test(\"Status code is 200\", function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Data is not empty\", function () {",
+							"    var jsonData = pm.response.json();   ",
+							"    pm.expect(jsonData).to.have.lengthOf.above(0);  ",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost/api/v2/overdose-deaths"
+			},
+			"response": []
+		},
+		{
+			"name": "GET overdose-deaths with searchs",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6a1bd1d6-3a00-4efc-9f43-33e2c5c79136",
+						"exec": [
+							"pm.test(\"Status code is 200\", function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Data is not empty\", function () {",
+							"    var jsonData = pm.response.json();   ",
+							"    pm.expect(jsonData).to.have.lengthOf.above(0);  ",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost/api/v2/overdose-deaths?country=Austria&year=2017",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"v2",
+						"overdose-deaths"
+					],
+					"query": [
+						{
+							"key": "country",
+							"value": "Austria"
+						},
+						{
+							"key": "year",
+							"value": "2017"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET overdose-deaths with searchs ALL FIELDS",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6a1bd1d6-3a00-4efc-9f43-33e2c5c79136",
+						"exec": [
+							"pm.test(\"Status code is 200\", function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Data is not empty\", function () {",
+							"    var jsonData = pm.response.json();   ",
+							"    pm.expect(jsonData).to.have.lengthOf.above(0);  ",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost/api/v2/overdose-deaths?country=Austria&year=2017&death_male=125&death_female=29*death_total=154&mean_age=36.7",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"v2",
+						"overdose-deaths"
+					],
+					"query": [
+						{
+							"key": "country",
+							"value": "Austria"
+						},
+						{
+							"key": "year",
+							"value": "2017"
+						},
+						{
+							"key": "death_male",
+							"value": "125"
+						},
+						{
+							"key": "death_female",
+							"value": "29*death_total=154"
+						},
+						{
+							"key": "mean_age",
+							"value": "36.7"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET overdose-deaths with searchs and pagination",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6a1bd1d6-3a00-4efc-9f43-33e2c5c79136",
+						"exec": [
+							"pm.test(\"Status code is 200\", function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Data is not empty\", function () {",
+							"    var jsonData = pm.response.json();   ",
+							"    pm.expect(jsonData).to.have.lengthOf.above(0);  ",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost/api/v2/overdose-deaths?limit=1&offset=0&year=2017",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"v2",
+						"overdose-deaths"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "1"
+						},
+						{
+							"key": "offset",
+							"value": "0"
+						},
+						{
+							"key": "year",
+							"value": "2017"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST overdose-deaths",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9ddb4068-f1f0-48e8-8f98-18c948517b87",
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"country\": \"Spain\",\r\n\"year\": 2016,\r\n\"death_male\": 403,\r\n\"death_female\": 80,\r\n\"death_total\": 483,\r\n\"mean_age\": 42.8\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost/api/v2/overdose-deaths"
+			},
+			"response": []
+		},
+		{
+			"name": "POST overdose-deaths with null values",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9ddb4068-f1f0-48e8-8f98-18c948517b87",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"country\": \"Spain\",\r\n\"year\": null,\r\n\"death_male\": 403,\r\n\"death_female\": 80,\r\n\"death_total\": 483,\r\n\"mean_age\": 42.8\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost/api/v2/overdose-deaths"
+			},
+			"response": []
+		},
+		{
+			"name": "GET overdose-deaths/Spain",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "17c3f3a8-32a7-4089-9928-6c1b29802eb0",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"It has property country\", function () {",
+							"    var jsonData = pm.response.json();   ",
+							"    pm.expect(jsonData).to.have.property('country');  ",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost/api/v2/overdose-deaths/Spain"
+			},
+			"response": []
+		},
+		{
+			"name": "GET overdose-deaths/Spain/2016",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "17c3f3a8-32a7-4089-9928-6c1b29802eb0",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"It has property country\", function () {",
+							"    var jsonData = pm.response.json();   ",
+							"    pm.expect(jsonData).to.have.property('country');  ",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost/api/v2/overdose-deaths/Spain/2016"
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE overdose-deaths/Spain/2016",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "838553f1-6840-46ce-9abc-b669c238016d",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost/api/v2/overdose-deaths/Spain/2016"
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE overdose-deaths/Almonte/2015  no such data in database",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "838553f1-6840-46ce-9abc-b669c238016d",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost/api/v2/overdose-deaths/Almonte/2015"
+			},
+			"response": []
+		},
+		{
+			"name": "PUT overdose-deaths/Italy/2017",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "17c3f3a8-32a7-4089-9928-6c1b29802eb0",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"country\": \"Italy\",\r\n\"year\": 2017,\r\n\"death_male\": 5,\r\n\"death_female\": 3,\r\n\"death_total\": 8,\r\n\"mean_age\": 30\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost/api/v2/overdose-deaths/Italy/2017"
+			},
+			"response": []
+		},
+		{
+			"name": "PUT overdose-deaths/Italy/2016 query and body dont match",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "17c3f3a8-32a7-4089-9928-6c1b29802eb0",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"country\": \"Italy\",\r\n\"year\": 2004,\r\n\"death_male\": 5,\r\n\"death_female\": 3,\r\n\"death_total\": 8,\r\n\"mean_age\": 30\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost/api/v2/overdose-deaths/Italy/2004"
+			},
+			"response": []
+		},
+		{
+			"name": "PUT overdose-deaths/Italy/2016 no such data in database",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "17c3f3a8-32a7-4089-9928-6c1b29802eb0",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"country\": \"Italy\",\r\n\"year\": 2004,\r\n\"death_male\": 5,\r\n\"death_female\": 3,\r\n\"death_total\": 8,\r\n\"mean_age\": 30\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost/api/v2/overdose-deaths/Italy/2004"
+			},
+			"response": []
+		},
+		{
+			"name": "POST overdose-deaths/Spain",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9ddb4068-f1f0-48e8-8f98-18c948517b87",
+						"exec": [
+							"pm.test(\"Status code is 405\", function () {",
+							"    pm.response.to.have.status(405);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"country\": \"Spain\",\r\n\"year\": 2016,\r\n\"death_male\": 403,\r\n\"death_female\": 80,\r\n\"death_total\": 483,\r\n\"mean_age\": 42.8\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost/api/v2/overdose-deaths/Spain"
+			},
+			"response": []
+		},
+		{
+			"name": "POST overdose-deaths/Spain/2016",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9ddb4068-f1f0-48e8-8f98-18c948517b87",
+						"exec": [
+							"pm.test(\"Status code is 405\", function () {",
+							"    pm.response.to.have.status(405);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"country\": \"Spain\",\r\n\"year\": 2016,\r\n\"death_male\": 403,\r\n\"death_female\": 80,\r\n\"death_total\": 483,\r\n\"mean_age\": 42.8\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost/api/v2/overdose-deaths/Spain/2016"
+			},
+			"response": []
+		},
+		{
+			"name": "PUT overdose-deaths/",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "17c3f3a8-32a7-4089-9928-6c1b29802eb0",
+						"exec": [
+							"pm.test(\"Status code is 405\", function () {",
+							"    pm.response.to.have.status(405);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\t\r\n\"country\": \"Spain\",\r\n\"year\": 2016,\r\n\"death_male\": 1,\r\n\"death_female\": 0,\r\n\"death_total\": 1,\r\n\"mean_age\": 20\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost/api/v2/overdose-deaths/"
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE overdose-deaths/",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "838553f1-6840-46ce-9abc-b669c238016d",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost/api/v2/overdose-deaths/"
+			},
+			"response": []
+		},
+		{
+			"name": "GET loadInitialData",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3fd00df4-2ddd-43cc-8f71-13fd0b71334c",
+						"exec": [
+							"pm.test(\"Status code is 200\", function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Data is not empty\", function () {",
+							"    var jsonData = pm.response.json();   ",
+							"    pm.expect(jsonData).to.have.lengthOf.above(0);  ",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost/api/v2/overdose-deaths/loadInitialData"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

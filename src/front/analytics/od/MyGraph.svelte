@@ -1,5 +1,4 @@
 <script>
-
 async function loadGraph(){
 
 function random_rgba() {
@@ -16,7 +15,7 @@ function random_rgba() {
         DataStacked.push(
             {id:v.country,
             name:v.country,
-            color:random_rgba()},
+            color:getRandomColor()},
             {name:'Hombres',
             parent:v.country,
             value: v.death_male},
@@ -75,7 +74,9 @@ function getRandomColor() {
         <div id="container"></div>
         <p class="highcharts-description">
             Esta gráfica muestra los países europeos en los que hubieron mayor número de fallecimientos por sobredosis en el año 2016. 
+            
         </p>
+        
     </figure>
    
 </main>
