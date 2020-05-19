@@ -1,21 +1,25 @@
 <script>
+let colorInicial = rand(1, 360);
+let numeroAureoReciproco = 0.618033988749895;
 async function loadGraph(){
 
-function random_rgba() {
-    var o = Math.round, r = Math.random, s = 255;
-    return 'rgba(' + o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s) + ',' + r().toFixed(1) + ')';
-}
     //Data> [{ id: 'Germany', name: 'Germany',color: '#EC9800'}, {name: 'Men',parent: 'Germany',value: death_male}]
-    let MyData =[];
+    var DataStacked = [];
+    var contador = 0;
+    var numeroDePaises = 0;
+    var colors= [];
 
     const resData = await fetch("/api/v2/overdose-deaths?year=2016");
-    MyData = await resData.json();
-    let DataStacked = [];
+    const MyData = await resData.json();  
+
+    numeroDePaises = MyData.length;
+    colors = generarColores(numeroDePaises,95,45);
+
     MyData.forEach((v) => {
         DataStacked.push(
             {id:v.country,
             name:v.country,
-            color:getRandomColor()},
+            color:colors[contador]},
             {name:'Hombres',
             parent:v.country,
             value: v.death_male},
@@ -23,7 +27,10 @@ function random_rgba() {
             parent:v.country,
             value: v.death_female}
             );
+
+        contador++;
     });
+    
     console.log(DataStacked);
     
      Highcharts.chart('container', {
@@ -52,13 +59,21 @@ function random_rgba() {
     });
 }
 
-function getRandomColor() {
-  var letters = '0123456789ABCDEF';
-  var color = '#';
-  for (var i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)];
-  }
-  return color;
+function rand(min, max) {
+    return min + Math.random() * (max - min);
+}
+
+function generarColores(cantidad,saturacion,luminosidad){
+    var s = saturacion;
+    var l = luminosidad;
+    var colores = [];
+    var huedelta = Math.trunc(360/cantidad);
+
+    for (var i=0;i<cantidad;i++){
+        var hue = i* huedelta;
+        colores.push('hsl(' + hue + ',' + s + '%,' + l + '%)');
+    }
+    return colores;
 }
 
 </script>
