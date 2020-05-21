@@ -1,6 +1,4 @@
 <script>
-let colorInicial = rand(1, 360);
-let numeroAureoReciproco = 0.618033988749895;
 async function loadGraph(){
 
     //Data> [{ id: 'Germany', name: 'Germany',color: '#EC9800'}, {name: 'Men',parent: 'Germany',value: death_male}]
@@ -11,6 +9,10 @@ async function loadGraph(){
 
     const resData = await fetch("/api/v2/overdose-deaths?year=2016");
     const MyData = await resData.json();  
+    
+    MyData.sort(GetSortOrder("death_total"));
+
+    console.log(MyData);
 
     numeroDePaises = MyData.length;
     colors = generarColores(numeroDePaises,95,45);
@@ -75,6 +77,17 @@ function generarColores(cantidad,saturacion,luminosidad){
     }
     return colores;
 }
+function GetSortOrder(prop) {    
+    return function(a, b) {    
+        if (a[prop] > b[prop]) {    
+            return 1;    
+        } else if (a[prop] < b[prop]) {    
+            return -1;    
+        }    
+        return 0;    
+    }    
+}    
+
 
 </script>
 
