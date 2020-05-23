@@ -1,4 +1,5 @@
 <script>
+    
 async function loadGraph(){
 
     //Data> [{ id: 'Germany', name: 'Germany',color: '#EC9800'}, {name: 'Men',parent: 'Germany',value: death_male}]

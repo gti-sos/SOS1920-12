@@ -1,5 +1,5 @@
 <script>
-import MyGraph from "./MyGraph.svelte";
+import MyGraph from "./MyGraph2.svelte";
 </script>
 <main>
     <h1> Gráficas</h1>

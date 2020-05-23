@@ -1,7 +1,7 @@
 {
-  "name": "sos1920-l01",
+  "name": "sos1920-12",
   "version": "0.0.0",
-  "description": "Tarea 13 del backlog",
+  "description": "Aplicacion del grupo 12",
   "main": "index.js",
   "scripts": {
     "build": "rollup -c",
@@ -30,6 +30,7 @@
   "homepage": "https://github.com/gti-sos/SOS1920-12-sandbox#readme",
   "dependencies": {
     "cool-ascii-faces": "^1.3.4",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "nedb": "^1.8.0",
     "svelte-spa-router": "^2.1.0",
