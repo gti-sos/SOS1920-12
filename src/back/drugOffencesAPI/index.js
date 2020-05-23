@@ -14,6 +14,124 @@ module.exports = function (app) {
 
 	var origdata_drug_offences = [
 		{
+			country: "Portugal",
+			year: 2014,
+			cannabis_offences: 11836,
+			offences_use: 7417,
+			offences_supply:4419
+		},
+		{
+			country: "Portugal",
+			year: 2015,
+			cannabis_offences: 7964,
+			offences_use: 14315,
+			offences_supply:5140
+		},
+		{
+			country: "Portugal",
+			year: 2016,
+			cannabis_offences: 7964,
+			offences_use: 15387,
+			offences_supply:5605
+		},
+		{
+			country: "Portugal",
+			year: 2017,
+			cannabis_offences: 7964,
+			offences_use: 15271,
+			offences_supply:4300
+		},
+		{
+			country: "Croatia",
+			year: 2017,
+			cannabis_offences: 7964,
+			offences_use: 6253,
+			offences_supply:1711
+		},
+		{
+			country: "Croatia",
+			year: 2016,
+			cannabis_offences: 7212,
+			offences_use: 5493,
+			offences_supply: 1719
+		},
+		{
+			country: "Croatia",
+			year: 2015,
+			cannabis_offences: 5888,
+			offences_use: 4268,
+			offences_supply: 1620
+		},
+		{
+			country: "Croatia",
+			year: 2014,
+			cannabis_offences:6849,
+			offences_use: 4866,
+			offences_supply: 1399
+		},
+		{
+			country: "Bulgaria",
+			year: 2014,
+			cannabis_offences: 5922,
+			offences_use: 3465,
+			offences_supply: 790
+		},
+		{
+			country: "Belgium",
+			year: 2017,
+			cannabis_offences: 37500,
+			offences_use: 29916,
+			offences_supply: 6561
+		},
+		{
+			country: "Belgium",
+			year: 2016,
+			cannabis_offences: 31349,
+			offences_use: 27080,
+			offences_supply: 6316
+		},
+		{
+			country: "Belgium",
+			year: 2015,
+			cannabis_offences: 36092,
+			offences_use: 28237,
+			offences_supply:6460
+		},
+		{
+			country: "Belgium",
+			year: 2014,
+			cannabis_offences: 27977,
+			offences_use: 29825,
+			offences_supply: 6637
+		},
+		{
+			country: "Austria",
+			year: 2017,
+			cannabis_offences: 37751,
+			offences_use: 28890,
+			offences_supply: 8861
+		},
+		{
+			country: "Austria",
+			year: 2016,
+			cannabis_offences: 31349,
+			offences_use: 23977,
+			offences_supply: 7372
+		},
+		{
+			country: "Austria",
+			year: 2015,
+			cannabis_offences: 27542,
+			offences_use: 20456,
+			offences_supply: 7086
+		},
+		{
+			country: "Austria",
+			year: 2014,
+			cannabis_offences: 27977,
+			offences_use: 21272,
+			offences_supply: 6705
+		},{
 			country: "Spain",
 			year: 2015,
 			cannabis_offences: 331587,

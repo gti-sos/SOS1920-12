@@ -16,7 +16,7 @@
 			offences_supply: ""
     }
     	//Variables de paginacion
-	let limit = 5;
+	let limit = 10;
 	let offset = 0;
 	let moreOffences = true;
 	let currentPage=1; // No la utilizamos pero nos sirve para saber en que pagina estamos (quizas en un futuro)
@@ -193,9 +193,9 @@ async function insertDrugOffence(){
 	<Label for="year" class="mb-2 mr-sm-2">y Año:</Label>
 	<Input type="number" class="form-control mb-2 mr-sm-2" id="year" placeholder="Introduzca un año" name="year" bind:value="{searchYear}"/>   
 	</form>
-	<Button class="button-search" on:click="{getDrugOffences}">Buscar Datos</Button>
+	<Button class="button-search" on:click="{getDrugOffences}">Buscar</Button>
 
-	<Button outline Color= "primary" on:click="{loadDrugOffences}">Cargar Datos</Button>
+	<Button outline Color= "primary" on:click="{loadDrugOffences}">Cargar</Button>
 	{#if errorMsg}
 	<p style="color: red">ERROR: {errorMsg}</p>
 	{/if}
@@ -247,3 +247,11 @@ async function insertDrugOffence(){
 	<Button outline color="secondary" on:click="{pop}">Atrás</Button>
 	<Button block outline on:click="{deleteDrugOffences}" color="danger"> Eliminar Todos los datos</Button>
 </main>
+
+<style>
+    main{
+        margin-left: 2.5%;
+		margin-right: 2.5%;
+    }
+
+</style>
