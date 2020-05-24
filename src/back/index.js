@@ -4,6 +4,10 @@ const overdoseDeathsAPI = require(path.join(__dirname,"overdoseDeathsAPI"));
 const drugOffencesAPI = require(path.join(__dirname,"drugOffencesAPI"));
 const schoolDropoutsAPI = require(path.join(__dirname,"schoolDropoutsAPI"));
 const bodyParser = require("body-parser");
+const request = require("request");
+
+var remoteAPI1 = 'https://sos1920-05.herokuapp.com/api/v1/life_expectancies';
+
 
 
 module.exports = function (app){
@@ -28,6 +32,10 @@ module.exports = function (app){
 
         response.send("<html>" + dateTime + "</html>");
     });
+    app.use('/proxyLifeExpectancy', function(req, res) {
+        console.log('piped: '+req.baseUrl + req.url);
+        req.pipe(request(remoteAPI1)).pipe(res);
+      });
 }
 
     

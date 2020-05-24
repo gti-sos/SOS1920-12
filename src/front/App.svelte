@@ -20,30 +20,30 @@
 
 	//Imports para analytics
 	import AnalyticsOverdoseDeaths from "./analytics/od/OverdoseDeathsAnalytics.svelte";
-
+	
+	//Imports para integrations
+	import Integrations from "./integrations/allIntegrations.svelte";
+	import IntegrationExample from "./integrations/od/integracionejemplo.svelte";
 	/* A INTRODUCIR 
 	import sdAnalytics from "./analytics/sd/XXXXXXXXXXXXXXX";
 	import doAnalytics from "./analytics/do/YYYYYYYYYYYYYYY";
 	*/
 	let isOpen=false;
-	let isOpenInt=false;
 
 	const routes = {
 		"/": Home,
 		"/overdose-deaths/:country/:year": EditOverdoseDeath,
 		"/overdose-deaths": OverdoseDeaths,
+		"/analytics/overdose-deaths": AnalyticsOverdoseDeaths,
+		"/integrations/ejemplo":IntegrationExample,
 
 		"/drug-offences/:country/:year": EditDrugOffences,
 		"/drug-offences": DrugOffences,
 		
 		"/school-dropouts/:country/:year": EditSchoolDropout,
 		"/school-dropouts": SchoolDropouts,
-
-		"/analytics/overdose-deaths": AnalyticsOverdoseDeaths,
-		/*
-		"/analytics/drug-offences": AnalyticsDrugOffences,
-		"/analytics/school-dropouts" AnalyticsSchoolDropouts,
-		*/
+		"/integrations":Integrations,
+		
 		
 		"*": NotFound
 	};
@@ -85,18 +85,10 @@
 			  <DropdownItem disabled href="#/analytics">Todos</DropdownItem>
 			</DropdownMenu>
 		</Dropdown>
+		<NavItem>
+			<NavLink  href="#/integrations">Integraciones</NavLink>
+		  </NavItem>
 
-		<Dropdown  nav isOpen={isOpenInt} toggle="{() => isOpenInt = !isOpenInt}" >
-			<DropdownToggle nav caret>
-			  Integraciones
-			</DropdownToggle>
-			<DropdownMenu>
-			  <DropdownItem header>Integraciones</DropdownItem>
-			  <DropdownItem disabled href="#/analytics">Fallecimientos por sobredosis</DropdownItem>
-			  <DropdownItem disabled>Abandono escolar</DropdownItem>
-			  <DropdownItem disabled>Delitos vinculados con drogas</DropdownItem>
-			</DropdownMenu>
-		</Dropdown>
 		<NavItem>
 			<NavLink disabled href="#/drug-offences">Videos</NavLink>
 		  </NavItem>
