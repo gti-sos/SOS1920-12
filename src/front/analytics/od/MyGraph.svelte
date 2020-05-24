@@ -1,5 +1,7 @@
 <script>
-    
+    import { onMount } from "svelte";
+
+    onMount(loadGraph);
 async function loadGraph(){
 
     //Data> [{ id: 'Germany', name: 'Germany',color: '#EC9800'}, {name: 'Men',parent: 'Germany',value: death_male}]
@@ -92,12 +94,6 @@ function GetSortOrder(prop) {
 
 </script>
 
-<svelte:head>
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/modules/treemap.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <script src="https://code.highcharts.com/modules/accessibility.js" on:load="{loadGraph}"></script>
-</svelte:head>
 <main>
     <figure class="highcharts-figure">
         <div id="container"></div>

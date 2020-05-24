@@ -42,7 +42,7 @@
     
 
     var data = [trace1];
-    var layout = { title:'Muertes por sobredosis en toda Europa registradas en los ultimos años'};
+    var layout = { title:'Fallecimientos por sobredosis registrados en los últimos años en toda Europa '};
   
     Plotly.newPlot('myDiv', data, layout)
 

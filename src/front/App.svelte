@@ -25,6 +25,8 @@
 	import sdAnalytics from "./analytics/sd/XXXXXXXXXXXXXXX";
 	import doAnalytics from "./analytics/do/YYYYYYYYYYYYYYY";
 	*/
+	let isOpen=false;
+	let isOpenInt=false;
 
 	const routes = {
 		"/": Home,
@@ -45,7 +47,8 @@
 		
 		"*": NotFound
 	};
-	let isOpen=false;
+	
+
 </script>
 
 <main>
@@ -73,15 +76,35 @@
 			  Analíticas
 			</DropdownToggle>
 			<DropdownMenu>
+			  
 			  <DropdownItem header>Recursos</DropdownItem>
 			  <DropdownItem href="#/analytics/overdose-deaths">Fallecimientos por sobredosis</DropdownItem>
 			  <DropdownItem disabled>Abandono escolar</DropdownItem>
 			  <DropdownItem disabled>Delitos vinculados con drogas</DropdownItem>
+			  <DropdownItem divider />
+			  <DropdownItem disabled href="#/analytics">Todos</DropdownItem>
 			</DropdownMenu>
 		</Dropdown>
+
+		<Dropdown  nav isOpen={isOpenInt} toggle="{() => isOpenInt = !isOpenInt}" >
+			<DropdownToggle nav caret>
+			  Integraciones
+			</DropdownToggle>
+			<DropdownMenu>
+			  <DropdownItem header>Integraciones</DropdownItem>
+			  <DropdownItem disabled href="#/analytics">Fallecimientos por sobredosis</DropdownItem>
+			  <DropdownItem disabled>Abandono escolar</DropdownItem>
+			  <DropdownItem disabled>Delitos vinculados con drogas</DropdownItem>
+			</DropdownMenu>
+		</Dropdown>
+		<NavItem>
+			<NavLink disabled href="#/drug-offences">Videos</NavLink>
+		  </NavItem>
+		
 		</Nav>
 	</Navbar>
 
 </body>
+
 <Router {routes}> </Router>
 </main>
