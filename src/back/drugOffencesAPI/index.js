@@ -243,6 +243,7 @@ module.exports = function (app) {
 			console.log("The data wasnt correctly provided");
 		}
 		else {
+			db.remove({}, { multi: true }, function (err, numRemoved) {});
 			db.insert(newDrug_offences);
 			res.sendStatus(201, "CREATED");
 			console.log("Data input:" + JSON.stringify(drug_offences, null, 2));

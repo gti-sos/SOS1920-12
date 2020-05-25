@@ -5,6 +5,7 @@
 	import Home from './Home.svelte'
 	import { Jumbotron } from "sveltestrap";
 	import { Collapse,Navbar,NavbarToggler,NavbarBrand,Nav,NavItem,NavLink,Dropdown,UncontrolledDropdown,DropdownToggle,DropdownMenu,DropdownItem } from 'sveltestrap';
+
 	//Imports para overdose-deaths
 	import OverdoseDeaths from './odGUI/OverdoseDeathsTable.svelte';
 	import EditOverdoseDeath from './odGUI/EditOverdoseDeath.svelte';
@@ -20,6 +21,7 @@
 
 	//Imports para analytics
 	import AnalyticsOverdoseDeaths from "./analytics/od/OverdoseDeathsAnalytics.svelte";
+	import AnalyticsDrugOffences from "./analytics/do/DrugOffencesAnalytics.svelte";
 	
 	//Imports para integrations
 	import Integrations from "./integrations/allIntegrations.svelte";
@@ -39,6 +41,7 @@
 
 		"/drug-offences/:country/:year": EditDrugOffences,
 		"/drug-offences": DrugOffences,
+		"/analytics/drug-offences": AnalyticsDrugOffences,
 		
 		"/school-dropouts/:country/:year": EditSchoolDropout,
 		"/school-dropouts": SchoolDropouts,
@@ -80,7 +83,7 @@
 			  <DropdownItem header>Recursos</DropdownItem>
 			  <DropdownItem href="#/analytics/overdose-deaths">Fallecimientos por sobredosis</DropdownItem>
 			  <DropdownItem disabled>Abandono escolar</DropdownItem>
-			  <DropdownItem disabled>Delitos vinculados con drogas</DropdownItem>
+			  <DropdownItem href= "#/analytics/drug-offences">Delitos vinculados con drogas</DropdownItem>
 			  <DropdownItem divider />
 			  <DropdownItem disabled href="#/analytics">Todos</DropdownItem>
 			</DropdownMenu>
