@@ -12,6 +12,10 @@
     - [https://sos1920-12.herokuapp.com/#/overdose-deaths](https://sos1920-12.herokuapp.com/#/overdose-deaths) (developed by [Juan José Requena Lama](https://github.com/wuaho))
     - [https://sos1920-12.herokuapp.com/#/school-dropouts](https://sos1920-12.herokuapp.com/#/school-dropouts) (developed by [Pascual Requena Lama](https://github.com/Requena115))
     - [https://sos1920-12.herokuapp.com/#/drug_offences](https://sos1920-12.herokuapp.com/#/drug_offences) (developed by [Adrià León García](https://github.com/Adrleogar))
+ **APIs en github**:
+    - [https://gti-sos.github.io/SOS1920-12/#/overdose-deaths](https://gti-sos.github.io/SOS1920-12/#/overdose-deaths) (developed by [Juan José Requena Lama](https://github.com/wuaho))
+    - [https://gti-sos.github.io/SOS1920-12/#/school-dropouts](https://gti-sos.github.io/SOS1920-12/#/school-dropouts) (developed by [Pascual Requena Lama](https://github.com/Requena115))
+    - [https://gti-sos.github.io/SOS1920-12/#/drug_offences](https://gti-sos.github.io/SOS1920-12/#/drug_offences) (developed by [Adrià León García](https://github.com/Adrleogar))
 
 -  **Links Postman**:
 	  - V1 [overdose-deaths/v1](https://documenter.getpostman.com/view/10637417/SzmcbeQ7)  V2 [overdose-deaths/v2](https://documenter.getpostman.com/view/10637417/SzYT6hqp) (developed by [Juan José Requena Lama](https://github.com/wuaho))  
