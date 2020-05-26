@@ -26,18 +26,20 @@
 	//Imports para integrations
 	import Integrations from "./integrations/allIntegrations.svelte";
 	import IntegrationExample from "./integrations/od/integracionejemplo.svelte";
+	import IntegrationGeoDb from "./integrations/od/integracionejemploGeoDb.svelte";
 	/* A INTRODUCIR 
 	import sdAnalytics from "./analytics/sd/XXXXXXXXXXXXXXX";
 	import doAnalytics from "./analytics/do/YYYYYYYYYYYYYYY";
 	*/
 	let isOpen=false;
-
+	
 	const routes = {
 		"/": Home,
 		"/overdose-deaths/:country/:year": EditOverdoseDeath,
 		"/overdose-deaths": OverdoseDeaths,
 		"/analytics/overdose-deaths": AnalyticsOverdoseDeaths,
 		"/integrations/ejemplo":IntegrationExample,
+		"/integrations/GeoDb":IntegrationGeoDb,
 
 		"/drug-offences/:country/:year": EditDrugOffences,
 		"/drug-offences": DrugOffences,
