@@ -26,7 +26,9 @@
 	//Imports para integrations
 	import Integrations from "./integrations/allIntegrations.svelte";
 	import IntegrationExample from "./integrations/od/integracionejemplo.svelte";
-	import IntegrationGeoDb from "./integrations/od/integracionejemploGeoDb.svelte";
+	import IntegrationGeoDb from "./integrations/od/integracionGeoDb.svelte";
+	import IntegrationQuote from "./integrations/od/integracionQuote.svelte";
+	import IntegrationWikihow from "./integrations/od/integracionWikihow.svelte";
 	/* A INTRODUCIR 
 	import sdAnalytics from "./analytics/sd/XXXXXXXXXXXXXXX";
 	import doAnalytics from "./analytics/do/YYYYYYYYYYYYYYY";
@@ -40,6 +42,8 @@
 		"/analytics/overdose-deaths": AnalyticsOverdoseDeaths,
 		"/integrations/ejemplo":IntegrationExample,
 		"/integrations/GeoDb":IntegrationGeoDb,
+		"/integrations/Quote":IntegrationQuote,
+		"/integrations/Wikihow":IntegrationWikihow,
 
 		"/drug-offences/:country/:year": EditDrugOffences,
 		"/drug-offences": DrugOffences,

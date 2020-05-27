@@ -490,18 +490,28 @@ app.get(BASE_API_URL + "/overdose-deaths", (req, res) => {
 app.post(BASE_API_URL + "/overdose-deaths", (req, res) => {
 	console.log("New POST .../overdose-deaths");
 	//Aqui estaria bien conseguir que no se puedan meter parametros extras 
+	var country = req.body.country;
+	var year =req.body.year;
 
 	var newOverdoseDeaths = req.body;
+	
 
-	if ((newOverdoseDeaths == null) || (newOverdoseDeaths.country == null) || (newOverdoseDeaths.year == null) || (newOverdoseDeaths.death_total == null)) {
-		res.sendStatus(400, "BAD REQUEST(data not correctly provided )");
-		console.log("The data wasnt correctly provided");
-	}
-	else {
-		db.insert(newOverdoseDeaths);
-		res.sendStatus(201, "CREATED");
-		console.log("Data input:"+JSON.stringify(newOverdoseDeaths, null, 2));
-	}
+	db.find({"country":country, "year":year}).exec((err,overdose_deaths) => {
+		if(overdose_deaths.length >0) {
+			console.log
+			res.sendStatus(409, "There is already a data with that country and year in the database");
+			console.log("There is already a data with that country and year in the database");
+		} 
+		else if((newOverdoseDeaths == null) || (newOverdoseDeaths.country == null) || (newOverdoseDeaths.year == null) || (newOverdoseDeaths.death_total == null)) {
+			res.sendStatus(400, "BAD REQUEST(data not correctly provided )");
+			console.log("The data wasnt correctly provided");
+		}
+		else {
+			db.insert(newOverdoseDeaths);
+			res.sendStatus(201, "CREATED");
+			console.log("Data input:"+JSON.stringify(newOverdoseDeaths, null, 2));
+		}
+	});	
 });
 
 //PUT overdose-deaths
