@@ -170,8 +170,9 @@ module.exports = function (app) {
 	//LOADinitialData
 	app.get(BASE_API_URL + "/drug_offences/loadInitData", (request, response) => {
 
-		drug_offences = [];
-
+		console.log("New GET .../loadInitialData");
+		var drug_offences = db.getAllData();
+		
 		if (drug_offences.length >= 1) {
 			response.sendStatus(409, "CONFLICT(this action would remove the existing data)");
 		} else {
@@ -242,7 +243,6 @@ module.exports = function (app) {
 
 		db.find({"country":country, "year":year}).exec((err,Drug_offences) => {
 			if(Drug_offences.length >0) {
-				console.log
 				res.sendStatus(409, "There is already a data with that country and year in the database");
 				console.log("There is already a data with that country and year in the database");
 			} 
