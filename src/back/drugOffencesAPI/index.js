@@ -236,18 +236,26 @@ module.exports = function (app) {
 	app.post(BASE_API_URL + "/drug_offences", (req, res) => {
 		console.log("New POST .../drug_offences");
 
+		var country = req.body.country;
+		var year =req.body.year;
 		var newDrug_offences = req.body;
 
-		if ((newDrug_offences == null) || (newDrug_offences.country == null) || (newDrug_offences.year == null) || (newDrug_offences.cannabis_offences == null || newDrug_offences.offences_supply == null)) {
-			res.sendStatus(400, "BAD REQUEST(data not correctly provided )");
-			console.log("The data wasnt correctly provided");
-		}
-		else {
-			db.remove({}, { multi: true }, function (err, numRemoved) {});
-			db.insert(newDrug_offences);
-			res.sendStatus(201, "CREATED");
-			console.log("Data input:" + JSON.stringify(drug_offences, null, 2));
-		}
+		db.find({"country":country, "year":year}).exec((err,Drug_offences) => {
+			if(Drug_offences.length >0) {
+				console.log
+				res.sendStatus(409, "There is already a data with that country and year in the database");
+				console.log("There is already a data with that country and year in the database");
+			} 
+			else if((newDrug_offences == null) || (newDrug_offences.country == null) || (newDrug_offences.year == null) || (newDrug_offences.cannabis_offences == null)) {
+				res.sendStatus(400, "BAD REQUEST(data not correctly provided )");
+				console.log("The data wasnt correctly provided");
+			}
+			else {
+				db.insert(newDrug_offences);
+				res.sendStatus(201, "CREATED");
+				console.log("Data input:"+JSON.stringify(newDrug_offences, null, 2));
+			}
+		});	
 	});
 
 	//PUT drug_offences

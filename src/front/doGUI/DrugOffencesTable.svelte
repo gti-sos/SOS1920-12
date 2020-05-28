@@ -112,6 +112,10 @@ async function insertDrugOffence(){
 					console.log("ERROR Data was not correctly introduced");
 					errorMsg = "Los datos de la entrada no fueron introducidos correctamente";
 				}
+				else if(res.status ==409){
+					console.log("ERROR, There is already an entrance in the database with this country and year");
+					errorMsg="Ya existe una entrada en la base de datos con la fecha y el país introducido";
+				}
 			});
 		}
 }
