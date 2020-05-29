@@ -10,7 +10,7 @@ async function loadGraph(){
     var numeroDePaises = 0;
     var colors= [];
 
-    const resData = await fetch("/api/v2/overdose-deaths?year=2016");
+    const resData = await fetch("/api/v3/overdose-deaths?year=2016");
     const MyData = await resData.json();  
     
     MyData.sort(GetSortOrder("death_total"));

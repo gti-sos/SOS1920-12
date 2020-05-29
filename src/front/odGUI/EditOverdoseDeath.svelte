@@ -2,7 +2,7 @@
     import { onMount } from "svelte";
     import { pop } from "svelte-spa-router";
     import Table from "sveltestrap/src/Table.svelte"; 
-    import Button from "sveltestrap/src/Button.svelte";
+	import Button from "sveltestrap/src/Button.svelte";
     
     export let params = {};
 
@@ -24,7 +24,7 @@
 	
 		console.log("Fetching overdose deaths...");
 		//Awaits lo que hace es esperar la finalización de la solicitud HTTP. El código se reanuda (para la iteración ...) solo después de completar cada solicitud.
-		const res = await fetch("/api/v2/overdose-deaths/"+params.country+"/"+params.year);
+		const res = await fetch("/api/v3/overdose-deaths/"+params.country+"/"+params.year);
 		if(res.ok){
 			console.log("OK");
 			const json = await res.json();
@@ -47,7 +47,7 @@
     async function updateOverdoseDeath(){
 		if(confirm("¿Está seguro de que desea actualizar esta entrada?")){
 			console.log("Updating overdose death..." + params.country +" "+params.year);
-			const res = await fetch("/api/v2/overdose-deaths/"+ params.country +"/"+params.year,{
+			const res = await fetch("/api/v3/overdose-deaths/"+ params.country +"/"+params.year,{
 				method:"PUT",
 				body:JSON.stringify({
 					country: params.country,

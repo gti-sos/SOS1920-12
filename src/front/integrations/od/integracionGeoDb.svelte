@@ -11,7 +11,7 @@
                 "x-rapidapi-key": "15f4056b92mshce2e627ff99101dp16fe2ajsn4bc9dff05513"
             }
         })
-        const miApi = await fetch("/api/v2/overdose-deaths?year=2017");
+        const miApi = await fetch("/api/v3/overdose-deaths?year=2017");
         
         const countryData = await resData.json(); 
         const myData = await miApi.json(); 
