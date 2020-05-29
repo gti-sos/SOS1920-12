@@ -51,12 +51,15 @@ async function loadGraph(){
     Series: [{
         name: 'Paises',
         colorByPoint: true,
-      data: MyData
+      data: DataStacked
     }]
     
 });
 }
 </script>
+<svelte:head>
+	<script src="https://code.highcharts.com/modules/export-data.js"defer on:load="{loadGraph}"></script>
+</svelte:head>
 
 
 <main>
