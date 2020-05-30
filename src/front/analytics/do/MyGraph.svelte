@@ -57,10 +57,6 @@ async function loadGraph(){
 });
 }
 </script>
-<svelte:head>
-	<script src="https://code.highcharts.com/modules/export-data.js"defer on:load="{loadGraph}"></script>
-</svelte:head>
-
 
 <main>
   <figure class="highcharts-figure">
@@ -72,3 +68,5 @@ async function loadGraph(){
   </figure>
 
 </main>
+
+
