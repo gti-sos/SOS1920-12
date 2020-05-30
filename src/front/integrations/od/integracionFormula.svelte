@@ -25,21 +25,22 @@
 
         MyData.forEach((v) => {
         myDataTrans['data'].push(
-            {name:v.country,
+            {name:v.country  + " " +v.year,
             value: v.death_total
             }
             );
         });
         extData.forEach((v) => {
         extDataTrans['data'].push(
-            {name: v.country,
+            {name: v.country + " " + v.year,
             value: v.totalpointnumber
             }
             );
         });
         
 
-        allData.push(myDataTrans,extDataTrans);
+        allData.push(myDataTrans);
+        allData.push(extDataTrans);
 
         Highcharts.chart('container', {
         chart: {

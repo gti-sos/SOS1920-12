@@ -7,20 +7,20 @@
     async function loadEjemplo(){
 
         var myDataTrans={
-            name: 'Fallecimientos por sobredosis',
+            name: 'Fallecimientos por sobredosis en 2017',
             data: []
         };
         var extDataTrans={
-            name: 'Puntos Formula 1',
+            name: 'Numero total de motos en 2018',
             data: []
         };
 
         var allData =[];
 
-        const resData = await fetch("/api/v3/overdose-deaths");
+        const resData = await fetch("/api/v3/overdose-deaths?year=2017");
         const MyData = await resData.json();  
 
-        const res2Data = await fetch("https://sos1920-22.herokuapp.com/api/v2/formula-stats");
+        const res2Data = await fetch("https://sos1920-04.herokuapp.com/api/v1/vehicles?year=2018");
         const extData = await res2Data.json();  
 
         MyData.forEach((v) => {
@@ -32,8 +32,8 @@
         });
         extData.forEach((v) => {
         extDataTrans['data'].push(
-            {name: v.country,
-            value: v.totalpointnumber
+            {name: v.province,
+            value: v.total
             }
             );
         });
@@ -47,7 +47,7 @@
             height: '100%'
         },
         title: {
-            text: 'Fallecidos por sobredosis y puntos en Formula 1'
+            text: 'Motos en Andalucía y fallecidos por sobredosis'
         },
         tooltip: {
             useHTML: true
@@ -55,7 +55,7 @@
         plotOptions: {
             packedbubble: {
                 minSize: '20%',
-                maxSize: '100%',
+                maxSize: '60%',
                 zMin: 0,
                 zMax: 1000,
                 layoutAlgorithm: {
@@ -92,7 +92,7 @@
     <figure class="highcharts-figure">
         <div id="container"></div>
         <p class="highcharts-description">
-            Esta grafica muestra los fallecidos y los puntos obtenidos en Formula 1 en los diferentes paises en los ultimos años.
+            Relacion entre los fallecidos por sobredosis en 2017 en diferentes paises y la cantidad de motos en diferentes provincias de Andalucía en 2018
         </p>
     </figure>
     
