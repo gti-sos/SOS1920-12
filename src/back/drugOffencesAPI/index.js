@@ -13,6 +13,27 @@ module.exports = function (app) {
 	var drug_offences = [];
 
 	var origdata_drug_offences = [
+			{
+			country: "Italy",
+			year: 2015,
+			cannabis_offences: 39763,
+			offences_use: 26403,
+			offences_supply:13360
+		},
+		{
+			country: "Germany",
+			year: 2015,
+			cannabis_offences: 172724,
+			offences_use: 132745,
+			offences_supply:39979
+		},
+		{
+			country: "Austria",
+			year: 2015,
+			cannabis_offences: 27542,
+			offences_use: 20456,
+			offences_supply:7086
+		},
 		{
 			country: "Portugal",
 			year: 2014,

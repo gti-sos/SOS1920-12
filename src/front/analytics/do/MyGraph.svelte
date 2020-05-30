@@ -51,13 +51,12 @@ async function loadGraph(){
     Series: [{
         name: 'Paises',
         colorByPoint: true,
-      data: MyData
+      data: DataStacked
     }]
     
 });
 }
 </script>
-
 
 <main>
   <figure class="highcharts-figure">
@@ -69,3 +68,5 @@ async function loadGraph(){
   </figure>
 
 </main>
+
+
