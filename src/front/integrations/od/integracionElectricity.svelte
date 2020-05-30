@@ -22,6 +22,7 @@
 
         const res2Data = await fetch("https://sos1920-08.herokuapp.com/api/v2/electricity-produced-stats");
         const extData = await res2Data.json();  
+        console.log(extData);
 
         MyData.forEach((v) => {
         myDataTrans['data'].push(
