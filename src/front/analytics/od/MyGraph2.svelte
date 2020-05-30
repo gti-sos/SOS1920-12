@@ -3,7 +3,7 @@
   
   async function loadGraph(){
 
-    const resData = await fetch("/api/v2/overdose-deaths");
+    const resData = await fetch("/api/v3/overdose-deaths");
     const MyData = await resData.json();  
     console.log(MyData);
     var deathsPerYear = {};

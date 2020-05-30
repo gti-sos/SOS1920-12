@@ -37,7 +37,7 @@
 	
 		console.log("Fetching overdose deaths...");
 		//Awaits lo que hace es esperar la finalización de la solicitud HTTP. El código se reanuda (para la iteración ...) solo después de completar cada solicitud.
-		const res = await fetch("/api/v2/overdose-deaths/loadInitialData").then(function(res){
+		const res = await fetch("/api/v3/overdose-deaths/loadInitialData").then(function(res){
 			if (res.ok){
 				console.log("OK");
 				getOverdoseDeaths();
@@ -57,8 +57,8 @@
 	async function getOverdoseDeaths(){
 	
 		console.log("Fetching overdose deaths...");
-		var url = "/api/v2/overdose-deaths?limit="+limit+"&offset="+(offset*limit);
-		var urlAfter = "/api/v2/overdose-deaths?limit="+limit+"&offset="+(limit*(offset+1));
+		var url = "/api/v3/overdose-deaths?limit="+limit+"&offset="+(offset*limit);
+		var urlAfter = "/api/v3/overdose-deaths?limit="+limit+"&offset="+(limit*(offset+1));
 		//Pero mira que bonico quedan asi los IF pero quieron poner dos cosas en la misma condicion asi que F
 		//url= (country!="") ? url+"&country="+country : url;
 		//url= (year!="") ? url+"&year="+year : url;
@@ -74,7 +74,7 @@
 		}
 		//Awaits lo que hace es esperar la finalización de la solicitud HTTP. El código se reanuda (para la iteración ...) solo después de completar cada solicitud.
 		const res = await fetch(url);
-		//const res = await fetch("/api/v2/overdose-deaths?limit="+limit+"&offset="+(offset*limit)+"&country="+country);
+		//const res = await fetch("/api/v3/overdose-deaths?limit="+limit+"&offset="+(offset*limit)+"&country="+country);
 		//Tenemos que preguntar tambien si hay mas datos, ya que, si no los hay, pasando de pagina estariamos haciendo una peticion a la api que nos devolveria un error, un 400 BAD REQUEST
 		//data is empty
 		const after =  await fetch(urlAfter);
@@ -109,7 +109,7 @@
 			alert("Los campos 'Pais' y 'Año' no pueden estar vacios");
 		}
 		else{
-			const res = await fetch("/api/v2/overdose-deaths",{
+			const res = await fetch("/api/v3/overdose-deaths",{
 			method:"POST",
 			body:JSON.stringify(newOverdoseDeath),
 			headers:{
@@ -137,7 +137,7 @@
 		console.log("Deleting overdose deaths...");
 		if(confirm("¿Está seguro de que desea eliminar todas las entradas?")){
 			console.log("Deleting all overdose deaths...");
-			const res = await fetch("/api/v2/overdose-deaths/", {
+			const res = await fetch("/api/v3/overdose-deaths/", {
 				method: "DELETE"
 			}).then(function (res) {
 				if(res.ok){
@@ -159,7 +159,7 @@
 		console.log("Inserting overdose death...");
 		if(confirm("¿Está seguro de que desea eliminar esta entrada?")){
 			console.log("Deleting overdose death...");
-			const res = await fetch("/api/v2/overdose-deaths/" + country + "/"+year,{
+			const res = await fetch("/api/v3/overdose-deaths/" + country + "/"+year,{
 				method:"DELETE"
 			}).then(function (res) {
 				if(res.ok){

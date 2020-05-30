@@ -1,6 +1,7 @@
 const cool = require("cool-ascii-faces");
 const path = require("path");
-const overdoseDeathsAPI = require(path.join(__dirname,"overdoseDeathsAPI"));
+const overdoseDeathsAPIv2 = require(path.join(__dirname,"overdoseDeathsAPI/v2"));
+const overdoseDeathsAPIv3 = require(path.join(__dirname,"overdoseDeathsAPI/v3"));
 const drugOffencesAPI = require(path.join(__dirname,"drugOffencesAPI"));
 const schoolDropoutsAPI = require(path.join(__dirname,"schoolDropoutsAPI"));
 const bodyParser = require("body-parser");
@@ -14,7 +15,8 @@ module.exports = function (app){
     //La siguiente linea hace que cada vez que detecte un json, te lo transforme en una variable( necesario para insertar o actualizar en la base de datos )
     app.use(bodyParser.json());
 
-    overdoseDeathsAPI(app);
+    overdoseDeathsAPIv2(app);
+    overdoseDeathsAPIv3(app);
     drugOffencesAPI(app);
     schoolDropoutsAPI(app);
 
