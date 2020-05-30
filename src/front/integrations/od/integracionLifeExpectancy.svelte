@@ -85,7 +85,7 @@
                     filter: {
                         property: 'y',
                         operator: '>',
-                        value: 250
+                        value: 80
                     },
                     style: {
                         color: 'black',
