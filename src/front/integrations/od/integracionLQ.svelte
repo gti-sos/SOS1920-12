@@ -7,33 +7,33 @@
     async function loadEjemplo(){
 
         var myDataTrans={
-            name: 'Fallecimientos por sobredosis',
+            name: 'Fallecimientos por sobredosis en Portugal',
             data: []
         };
         var extDataTrans={
-            name: 'Puntos Formula 1',
+            name: 'Calidad de vida total en Portugal ',
             data: []
         };
 
         var allData =[];
 
-        const resData = await fetch("/api/v3/overdose-deaths");
+        const resData = await fetch("/api/v3/overdose-deaths?country=Portugal");
         const MyData = await resData.json();  
 
-        const res2Data = await fetch("https://sos1920-22.herokuapp.com/api/v2/formula-stats");
+        const res2Data = await fetch("https://sos1920-27.herokuapp.com/api/v2/lq-stats?country=portugal");
         const extData = await res2Data.json();  
 
         MyData.forEach((v) => {
         myDataTrans['data'].push(
-            {name:v.country,
+            {name:v.country + " "+ v.year,
             value: v.death_total
             }
             );
         });
         extData.forEach((v) => {
         extDataTrans['data'].push(
-            {name: v.country,
-            value: v.totalpointnumber
+            {name: v.country + " "+ v.year,
+            value: v.total
             }
             );
         });
@@ -47,7 +47,7 @@
             height: '100%'
         },
         title: {
-            text: 'Fallecidos por sobredosis y puntos en Formula 1'
+            text: 'Calidad de vida y fallecidos por sobredosis'
         },
         tooltip: {
             useHTML: true
@@ -71,7 +71,7 @@
                     filter: {
                         property: 'y',
                         operator: '>',
-                        value: 250
+                        value: 0
                     },
                     style: {
                         color: 'black',
@@ -92,7 +92,7 @@
     <figure class="highcharts-figure">
         <div id="container"></div>
         <p class="highcharts-description">
-            Esta grafica muestra los fallecidos y los puntos obtenidos en Formula 1 en los diferentes paises en los ultimos años.
+            Gráfica sobre datos de Portugal de diferentes años de los fallecidos por sobredosis  y la puntuación de calidad de vida total en el país.
         </p>
     </figure>
     

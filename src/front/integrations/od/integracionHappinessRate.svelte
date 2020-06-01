@@ -7,21 +7,22 @@
     async function loadEjemplo(){
 
         var myDataTrans={
-            name: 'Fallecimientos por sobredosis',
+            name: 'Fallecimientos por sobredosis en 2016',
             data: []
         };
         var extDataTrans={
-            name: 'Puntos Formula 1',
+            name: 'Indice de felicidad en 2019',
             data: []
         };
 
         var allData =[];
 
-        const resData = await fetch("/api/v3/overdose-deaths");
+        const resData = await fetch("/api/v3/overdose-deaths?year=2016");
         const MyData = await resData.json();  
 
-        const res2Data = await fetch("https://sos1920-22.herokuapp.com/api/v2/formula-stats");
+        const res2Data = await fetch("https://sos1920-25.herokuapp.com/api/v2/happiness_rate?year=2019");
         const extData = await res2Data.json();  
+        console.log(extData);
 
         MyData.forEach((v) => {
         myDataTrans['data'].push(
@@ -33,7 +34,7 @@
         extData.forEach((v) => {
         extDataTrans['data'].push(
             {name: v.country,
-            value: v.totalpointnumber
+            value: v.happinessRate
             }
             );
         });
@@ -47,7 +48,7 @@
             height: '100%'
         },
         title: {
-            text: 'Fallecidos por sobredosis y puntos en Formula 1'
+            text: 'Indice de felicidad y fallecimientos por sobredosis'
         },
         tooltip: {
             useHTML: true
@@ -71,7 +72,7 @@
                     filter: {
                         property: 'y',
                         operator: '>',
-                        value: 250
+                        value: 0
                     },
                     style: {
                         color: 'black',
@@ -92,7 +93,7 @@
     <figure class="highcharts-figure">
         <div id="container"></div>
         <p class="highcharts-description">
-            Esta grafica muestra los fallecidos y los puntos obtenidos en Formula 1 en los diferentes paises en los ultimos años.
+            Gráfica sobre el el indice de felicidad en diferentes países en 2019 y los fallecimientos de sobredosis también en países europeos pero en el año 2016.
         </p>
     </figure>
     

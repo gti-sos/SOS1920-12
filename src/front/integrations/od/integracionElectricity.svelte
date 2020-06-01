@@ -11,17 +11,18 @@
             data: []
         };
         var extDataTrans={
-            name: 'Puntos Formula 1',
+            name: 'Cantidad de energia producida con carbon ',
             data: []
         };
 
         var allData =[];
 
-        const resData = await fetch("/api/v3/overdose-deaths");
+        const resData = await fetch("/api/v3/overdose-deaths?year=2017");
         const MyData = await resData.json();  
 
-        const res2Data = await fetch("https://sos1920-22.herokuapp.com/api/v2/formula-stats");
+        const res2Data = await fetch("https://sos1920-08.herokuapp.com/api/v2/electricity-produced-stats");
         const extData = await res2Data.json();  
+        console.log(extData);
 
         MyData.forEach((v) => {
         myDataTrans['data'].push(
@@ -32,8 +33,8 @@
         });
         extData.forEach((v) => {
         extDataTrans['data'].push(
-            {name: v.country,
-            value: v.totalpointnumber
+            {name: v.state,
+            value: v.coal
             }
             );
         });
@@ -47,7 +48,7 @@
             height: '100%'
         },
         title: {
-            text: 'Fallecidos por sobredosis y puntos en Formula 1'
+            text: 'Cantidad de energia producida con carbon y fallecidos por sobredosis'
         },
         tooltip: {
             useHTML: true
@@ -55,7 +56,7 @@
         plotOptions: {
             packedbubble: {
                 minSize: '20%',
-                maxSize: '100%',
+                maxSize: '50%',
                 zMin: 0,
                 zMax: 1000,
                 layoutAlgorithm: {
@@ -71,7 +72,7 @@
                     filter: {
                         property: 'y',
                         operator: '>',
-                        value: 250
+                        value: 0
                     },
                     style: {
                         color: 'black',
@@ -92,7 +93,7 @@
     <figure class="highcharts-figure">
         <div id="container"></div>
         <p class="highcharts-description">
-            Esta grafica muestra los fallecidos y los puntos obtenidos en Formula 1 en los diferentes paises en los ultimos años.
+            Gráfica sobre datos de diferentes estados de EEUU en cuanto a la cantidad de energia producida con carbon en 2018 y fallecimientos por sobredosis en 2017.
         </p>
     </figure>
     

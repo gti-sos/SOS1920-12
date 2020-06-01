@@ -6,12 +6,20 @@
     
     async function loadEjemplo(){
 
-        var myDataTrans={
-            name: 'Fallecimientos por sobredosis',
+        var myDataMen={
+            name: 'Edad media de hombres fallecidos por sobredosis en años',
             data: []
         };
-        var extDataTrans={
-            name: 'Puntos Formula 1',
+        var myDataWomen={
+            name: 'Edad media de mujeres fallecidas por sobredosis en años',
+            data: []
+        };
+        var extDataMen={
+            name: 'Esperanza de vida de hombres en años',
+            data: []
+        };
+        var extDataWomen={
+            name: 'Esperanza de vida de mujeres en años',
             data: []
         };
 
@@ -20,26 +28,32 @@
         const resData = await fetch("/api/v3/overdose-deaths");
         const MyData = await resData.json();  
 
-        const res2Data = await fetch("https://sos1920-22.herokuapp.com/api/v2/formula-stats");
+        const res2Data = await fetch("https://sos1920-05.herokuapp.com/api/v1/life_expectancies");
         const extData = await res2Data.json();  
 
         MyData.forEach((v) => {
-        myDataTrans['data'].push(
-            {name:v.country,
-            value: v.death_total
-            }
-            );
+            myDataMen['data'].push(
+                {name:v.country +" " + v.year,
+                value: v.death_male
+                });
+            myDataWomen['data'].push(
+                {name:v.country +" " + v.year,
+                value: v.death_female
+                });
         });
         extData.forEach((v) => {
-        extDataTrans['data'].push(
-            {name: v.country,
-            value: v.totalpointnumber
-            }
-            );
+            extDataMen['data'].push(
+                {name: v.country +" " + v.year,
+                value: v.men_life_expectancy
+                });
+            extDataWomen['data'].push(
+                {name: v.country +" " + v.year,
+                value: v.women_life_expectancy
+                });
         });
         
 
-        allData.push(myDataTrans,extDataTrans);
+        allData.push(myDataMen,myDataWomen,extDataMen,extDataWomen);
 
         Highcharts.chart('container', {
         chart: {
@@ -47,7 +61,7 @@
             height: '100%'
         },
         title: {
-            text: 'Fallecidos por sobredosis y puntos en Formula 1'
+            text: 'Fallecidos por sobredosis y esperanza de vida en hombres y mujeres'
         },
         tooltip: {
             useHTML: true
@@ -71,7 +85,7 @@
                     filter: {
                         property: 'y',
                         operator: '>',
-                        value: 250
+                        value: 80
                     },
                     style: {
                         color: 'black',
@@ -92,7 +106,7 @@
     <figure class="highcharts-figure">
         <div id="container"></div>
         <p class="highcharts-description">
-            Esta grafica muestra los fallecidos y los puntos obtenidos en Formula 1 en los diferentes paises en los ultimos años.
+            Esta grafica muestra la edad media la esperanza de vida y edad media de fallecimientos por sobredosis divididos en hombres y mujeres.
         </p>
     </figure>
     

@@ -6,40 +6,60 @@
     
     async function loadEjemplo(){
 
-        var myDataTrans={
-            name: 'Fallecimientos por sobredosis',
+        var myDataTransMen={
+            name: 'Hombres fallecidos por sobredosis en Italia',
             data: []
         };
-        var extDataTrans={
-            name: 'Puntos Formula 1',
+        var myDataTransWomen={
+            name: 'Mujeres fallecidas por sobredosis en Italia',
+            data: []
+        };
+        var extDataTransMen={
+            name: 'Numero de hombres que emigraron en Italia',
+            data: []
+        };
+        var extDataTransWomen={
+            name: 'Numero de mujeres que emigraron en Italia',
             data: []
         };
 
         var allData =[];
 
-        const resData = await fetch("/api/v3/overdose-deaths");
+        const resData = await fetch("/api/v3/overdose-deaths?country=Italy");
         const MyData = await resData.json();  
 
-        const res2Data = await fetch("https://sos1920-22.herokuapp.com/api/v2/formula-stats");
+        const res2Data = await fetch("https://sos1920-01.herokuapp.com/api/v2/emigrants-stats?country=italy");
         const extData = await res2Data.json();  
+        console.log(extData);
 
         MyData.forEach((v) => {
-        myDataTrans['data'].push(
-            {name:v.country,
-            value: v.death_total
+        myDataTransMen['data'].push(
+            {name:v.year,
+            value: v.death_male
+            }
+            );
+        myDataTransWomen['data'].push(
+            {name:v.year,
+            value: v.death_female
             }
             );
         });
+
         extData.forEach((v) => {
-        extDataTrans['data'].push(
-            {name: v.country,
-            value: v.totalpointnumber
+        extDataTransMen['data'].push(
+            {name: v.year,
+            value: v.em_man
+            }
+            );
+        extDataTransWomen['data'].push(
+            {name: v.year,
+            value: v.em_woman
             }
             );
         });
         
 
-        allData.push(myDataTrans,extDataTrans);
+        allData.push(myDataTransMen,myDataTransWomen,extDataTransMen,extDataTransMen);
 
         Highcharts.chart('container', {
         chart: {
@@ -47,7 +67,7 @@
             height: '100%'
         },
         title: {
-            text: 'Fallecidos por sobredosis y puntos en Formula 1'
+            text: 'Emigraciones y fallecimientos por sobredosis en Italia'
         },
         tooltip: {
             useHTML: true
@@ -55,7 +75,7 @@
         plotOptions: {
             packedbubble: {
                 minSize: '20%',
-                maxSize: '100%',
+                maxSize: '70%',
                 zMin: 0,
                 zMax: 1000,
                 layoutAlgorithm: {
@@ -71,7 +91,7 @@
                     filter: {
                         property: 'y',
                         operator: '>',
-                        value: 250
+                        value: 0
                     },
                     style: {
                         color: 'black',
@@ -92,7 +112,7 @@
     <figure class="highcharts-figure">
         <div id="container"></div>
         <p class="highcharts-description">
-            Esta grafica muestra los fallecidos y los puntos obtenidos en Formula 1 en los diferentes paises en los ultimos años.
+            Gráfica que muestra los datos de numeros de emigrantes y muertes por sobredosis durante los últimos años en Italia. Estos datos estan divididos en hombres y mujeres. 
         </p>
     </figure>
     

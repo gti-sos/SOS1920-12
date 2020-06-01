@@ -31,6 +31,19 @@
 	import IntegrationGeoDb from "./integrations/od/integracionGeoDb.svelte";
 	import IntegrationQuote from "./integrations/od/integracionQuote.svelte";
 	import IntegrationWikihow from "./integrations/od/integracionWikihow.svelte";
+
+	//De compis
+	import IntegrationFormula from "./integrations/od/integracionFormula.svelte";
+	import IntegrationLifeExpectancy from "./integrations/od/integracionLifeExpectancy.svelte";
+	import IntegrationVehicles from "./integrations/od/integracionVehicles.svelte";
+	import IntegrationVehicleStats from "./integrations/od/integracionVehicleStats.svelte";
+	import IntegrationCyclingRoutes from "./integrations/od/integracionCyclingRoutes.svelte";
+	import IntegrationLQ from "./integrations/od/integracionLQ.svelte";
+	import IntegrationElectricity from "./integrations/od/integracionElectricity.svelte";
+	import IntegrationEmigrants from "./integrations/od/integracionEmigrants.svelte";
+	import IntegrationNotHospitalized from "./integrations/od/integracionNotHospitalized.svelte";
+	import IntegrationHappinessRate from "./integrations/od/integracionHappinessRate.svelte";
+	
 	/* A INTRODUCIR 
 	import sdAnalytics from "./analytics/sd/XXXXXXXXXXXXXXX";
 	import doAnalytics from "./analytics/do/YYYYYYYYYYYYYYY";
@@ -46,6 +59,16 @@
 		"/integrations/GeoDb":IntegrationGeoDb,
 		"/integrations/Quote":IntegrationQuote,
 		"/integrations/Wikihow":IntegrationWikihow,
+		"/integrations/Formula":IntegrationFormula,
+		"/integrations/LifeExpectancy":IntegrationLifeExpectancy,
+		"/integrations/Vehicles":IntegrationVehicles,
+		"/integrations/VehicleStats":IntegrationVehicleStats,
+		"/integrations/CyclingRoutes":IntegrationCyclingRoutes,
+		"/integrations/LQ":IntegrationLQ,
+		"/integrations/Electricity":IntegrationElectricity,
+		"/integrations/Emigrants":IntegrationEmigrants,
+		"/integrations/NotHospitalized":IntegrationNotHospitalized,
+		"/integrations/HappinessRate":IntegrationHappinessRate,
 
 		"/drug-offences/:country/:year": EditDrugOffences,
 		"/drug-offences": DrugOffences,

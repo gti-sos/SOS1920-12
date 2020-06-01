@@ -7,20 +7,20 @@
     async function loadEjemplo(){
 
         var myDataTrans={
-            name: 'Fallecimientos por sobredosis',
+            name: 'Fallecimientos por sobredosis en 2016',
             data: []
         };
         var extDataTrans={
-            name: 'Puntos Formula 1',
+            name: 'Numero total de carriles bicis en 2016 ',
             data: []
         };
 
         var allData =[];
 
-        const resData = await fetch("/api/v3/overdose-deaths");
+        const resData = await fetch("/api/v3/overdose-deaths?year=2016");
         const MyData = await resData.json();  
 
-        const res2Data = await fetch("https://sos1920-22.herokuapp.com/api/v2/formula-stats");
+        const res2Data = await fetch("https://sos1920-02.herokuapp.com/api/v2/evolution-of-cycling-routes?year=2016");
         const extData = await res2Data.json();  
 
         MyData.forEach((v) => {
@@ -32,8 +32,8 @@
         });
         extData.forEach((v) => {
         extDataTrans['data'].push(
-            {name: v.country,
-            value: v.totalpointnumber
+            {name: v.province,
+            value: (v.metropolitan + v.urban + v.rest)
             }
             );
         });
@@ -47,7 +47,7 @@
             height: '100%'
         },
         title: {
-            text: 'Fallecidos por sobredosis y puntos en Formula 1'
+            text: 'Carriles bici y fallecidos por sobredosis'
         },
         tooltip: {
             useHTML: true
@@ -55,7 +55,7 @@
         plotOptions: {
             packedbubble: {
                 minSize: '20%',
-                maxSize: '100%',
+                maxSize: '80%',
                 zMin: 0,
                 zMax: 1000,
                 layoutAlgorithm: {
@@ -71,7 +71,7 @@
                     filter: {
                         property: 'y',
                         operator: '>',
-                        value: 250
+                        value: 100
                     },
                     style: {
                         color: 'black',
@@ -92,7 +92,7 @@
     <figure class="highcharts-figure">
         <div id="container"></div>
         <p class="highcharts-description">
-            Esta grafica muestra los fallecidos y los puntos obtenidos en Formula 1 en los diferentes paises en los ultimos años.
+            Gráfica sobre datos de 2016 de los fallecidos por sobredosis en diferentes paises y la cantidad de carriles bicis de todo tipo en provincias de Andalucía.
         </p>
     </figure>
     
