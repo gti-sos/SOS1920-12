@@ -1,5 +1,5 @@
 <script>
-import AllGraph from "./Allgraph.svelte";
+import AllGraph from "./AllGraph.svelte";
 </script>
 <main>
     <h1> Gráficas</h1>
