@@ -23,8 +23,8 @@ function myFunction() {
               <a href="#/integrations/Quote" class="list-group-item list-group-item-action list-group-item-success"> Integracion con Random Quotes</a>
               <a href="#/integrations/Wikihow" class="list-group-item list-group-item-action list-group-item-success"> Integracion con WikiHow</a>
 
+              <a href="#/integrations/LifeExpectancy" class="list-group-item list-group-item-action list-group-item-warning"> Integracion con LifeExpectancy (G05) </a>
               <a href="#/integrations/Formula" class="list-group-item list-group-item-action list-group-item-primary"> Integracion con Formula (G22)</a>
-              <a href="#/integrations/LifeExpectancy" class="list-group-item list-group-item-action list-group-item-primary"> Integracion con LifeExpectancy (G05) </a>
               <a href="#/integrations/Vehicles" class="list-group-item list-group-item-action list-group-item-primary"> Integracion con Vehicles (G04)</a>
               <a href="#/integrations/VehicleStats" class="list-group-item list-group-item-action list-group-item-primary"> Integracion con VehicleStats (G09)</a>
               <a href="#/integrations/CyclingRoutes" class="list-group-item list-group-item-action list-group-item-primary"> Integracion con CyclingRoutes (G02)</a>

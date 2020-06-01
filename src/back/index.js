@@ -7,7 +7,7 @@ const schoolDropoutsAPI = require(path.join(__dirname,"schoolDropoutsAPI"));
 const bodyParser = require("body-parser");
 const request = require("request");
 
-var remoteAPI1 = 'https://sos1920-05.herokuapp.com/api/v1/life_expectancies';
+var remoteAPI1 = "https://sos1920-05.herokuapp.com/api/v1/life_expectancies";
 
 
 
