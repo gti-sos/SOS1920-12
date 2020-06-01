@@ -7,6 +7,7 @@ onMount(loadGraph);
 async function loadGraph(){
   var DataStacked = [];
   var Paises = [];
+  var CannabiOffence=[]
 
   const resdData = await fetch("/api/v1/drug_offences?year=2015");
   const MyData = await resdData.json();

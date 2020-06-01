@@ -22,6 +22,8 @@
 	//Imports para analytics
 	import AnalyticsOverdoseDeaths from "./analytics/od/OverdoseDeathsAnalytics.svelte";
 	import AnalyticsDrugOffences from "./analytics/do/DrugOffencesAnalytics.svelte";
+
+	import AnalyticsAll from "./analytics/AnalyticsAll.svelte";
 	
 	//Imports para integrations
 	import Integrations from "./integrations/allIntegrations.svelte";
@@ -53,7 +55,8 @@
 		"/school-dropouts": SchoolDropouts,
 		"/integrations":Integrations,
 		
-		
+		"/analytics": AnalyticsAll,
+
 		"*": NotFound
 	};
 	
@@ -91,7 +94,7 @@
 			  <DropdownItem disabled>Abandono escolar</DropdownItem>
 			  <DropdownItem href= "#/analytics/drug-offences">Delitos vinculados con drogas</DropdownItem>
 			  <DropdownItem divider />
-			  <DropdownItem disabled href="#/analytics">Todos</DropdownItem>
+			  <DropdownItem href="#/analytics">Todos</DropdownItem>
 			</DropdownMenu>
 		</Dropdown>
 		<NavItem>
