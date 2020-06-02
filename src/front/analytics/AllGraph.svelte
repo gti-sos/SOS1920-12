@@ -118,7 +118,7 @@
       options: {}
     });
   }
+  renderChart();
 </script>
 
-<button on:click={renderChart}>Cargar la gráfica de Awesome Charting    </button>
 <canvas id="myChart"></canvas>
