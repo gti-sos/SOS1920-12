@@ -55,6 +55,7 @@ function displaySchoolDropouts() {
 
        <div id="divDrugOffences" style="display: none;" class="list-group"><br>
         <a href="#/integrations/Covid19"  class="list-group-item list-group-item-action list-group-item-success"> Integracion con Covid19 api 2</a>
+        <a href="#/integrations/ChuckNorris"  class="list-group-item list-group-item-action list-group-item-success"> Integracion con random Chuck Norris Jokes</a>
         <br>
         <a href="#/integrations/EnergiaNuclear"  class="list-group-item list-group-item-action list-group-item-success"> Integracion con Energia Nuclear</a>
         <a href="#/integrations/PovertyStats"  class="list-group-item list-group-item-action list-group-item-warning"> Integracion con Estadisticas de Pobreza</a>

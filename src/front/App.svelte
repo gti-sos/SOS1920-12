@@ -55,6 +55,7 @@
 
 	//De gente de fuera
 	import IntegrationCovid from "./integrations/do/integracionCOVID19.svelte";
+	import IntegrationChuckNorris from "./integrations/do/integracionChuckNorris.svelte";
 
 	//No me acuerdo de tu nombre hermano de Juanjo
 
@@ -89,6 +90,8 @@
 		"/Integrations/FireStats":IntegrationFireStats,
 		"/Integrations/TrafficInjuries":IntegrationTrafficInjuries,
 		"/Integrations/Covid19":IntegrationCovid,
+		"/Integrations/ChuckNorris":IntegrationChuckNorris,
+		
 		
 
 		"/drug-offences/:country/:year": EditDrugOffences,

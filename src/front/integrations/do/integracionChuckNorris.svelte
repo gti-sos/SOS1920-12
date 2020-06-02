@@ -9,33 +9,37 @@
 
         let DatosInternos=[];
         let labelInterno = "";
-        let DatosExternos=[];
-        let labelExterno = "";
         let Paises=[];
 
         const resdDataInt = await fetch("/api/v1/drug_offences?year=2017");
         const intData = await resdDataInt.json();  
         console.log(intData)
 
-        const resDataExt = await fetch("https://coronavirus-19-api.herokuapp.com/countries");
-        const extData = await resDataExt.json();  
+// api externa:
 
-        console.log(extData)
+
+        const chisterandomjson = await fetch("https://matchilling-chuck-norris-jokes-v1.p.rapidapi.com/jokes/random", {
+            "method": "GET",
+            "headers": {
+                "x-rapidapi-host": "matchilling-chuck-norris-jokes-v1.p.rapidapi.com",
+	            "x-rapidapi-key": "dc25779935mshdcfd03590081056p1ba35fjsn8f7c2d9eae2a"
+            }
+        });
+        console.log(chisterandomjson)
+        const extData = await chisterandomjson.json(); 
+        const varDef = extData.value;
+        
+        
+       console.log(extData)
+       console.log(varDef)
+       
         intData.forEach((v) => {
             Paises.push(v.country);
-        DatosInternos.push((v.cannabis_offences));
+        DatosInternos.push((v.cannabis_offences)/1000);
         });
 
 console.log(DatosInternos)
 
-//      cambiar la v
-   extData.forEach((v) => {
-       if(Paises.includes(v.country)){
-           console.log("uaregay")
-   DatosExternos.push(v.cases)
-   }});
-
-console.log(DatosExternos)
 
         var ctx = document.getElementById("myChart").getContext("2d");
         var chart = new Chart(ctx, {
@@ -48,15 +52,15 @@ console.log(DatosExternos)
                         backgroundColor: '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6),
                         borderColor: "rgb(255, 99, 132)",
                         data: DatosInternos
-                    },{
-                        label: labelExterno,
-                        backgroundColor: '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6),
-                        borderColor: "rgb(255, 99, 132)",
-                        data: DatosExternos
                     }
                 ]
             },
-            options: {}
+            options: {
+                title:{
+                    display: true,
+                    text: varDef
+                }
+            }
         });
     }
     renderChart();
