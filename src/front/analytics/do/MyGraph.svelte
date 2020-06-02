@@ -7,23 +7,28 @@ onMount(loadGraph);
 async function loadGraph(){
   var DataStacked = [];
   var Paises = [];
-  var CannabiOffence=[]
+  var CannabisOffence=[]
+  var DatoEspaña = [];
+  var DatoAlemania = [];
 
   const resdData = await fetch("/api/v1/drug_offences?year=2015");
   const MyData = await resdData.json();
 
-  console.log(MyData);
-
   MyData.forEach((v)=>{
-    DataStacked.push(
-      {name:v.country, y: v.cannabis_offences}
-    );
+
+    if(v.country=='Spain'){
+      DatoEspaña.push(v.cannabis_offences);
+    }else if(v.country=='Germany'){
+      DatoAlemania.push(v.cannabis_offences);
+    }
     })
 
-  console.log(DataStacked);
+
+  console.log(Paises);
+  console.log(CannabisOffence);
   
-  Highcharts.chart('container', {
-    
+
+Highcharts.chart('container', {
     chart: {
         plotBackgroundColor: null,
         plotBorderWidth: null,
@@ -31,31 +36,46 @@ async function loadGraph(){
         type: 'pie'
     },
     title: {
-        text: 'Drug Offences in the year 2015 in the EU'
+        text: 'Comparativa entre España y Alemania en el año 2015 de delitos relacionados con el cannabis'
     },
     tooltip: {
-      pointFormat:'{series.name}: <b>{point.percentage:.1f}%</b>'
+        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
     },
-    accesibility: {
-        pint:{valueSuffix:'%'}
+    accessibility: {
+        point: {
+            valueSuffix: '%'
+        }
     },
     plotOptions: {
         pie: {
             allowPointSelect: true,
             cursor: 'pointer',
-            dataLabels:{
-              enabled:false
+            dataLabels: {
+                enabled: false
             },
             showInLegend: true
         }
     },
-    Series: [{
-        name: 'Paises',
+    series: [{
+        name: 'Porcentaje de personas detenidas por el cannabis',
         colorByPoint: true,
-      data: DataStacked
+        data:
+        [{
+            name: 'Spain',
+            y: DatoEspaña[0],
+            sliced: true,
+            selected: true
+        },{
+          
+          name: 'Germany',
+            y: DatoAlemania[0],
+            sliced: true,
+            selected: true
+        }]
     }]
-    
 });
+
+  
 }
 </script>
 
@@ -63,8 +83,6 @@ async function loadGraph(){
   <figure class="highcharts-figure">
   <div id ="container"></div>
   <p class="highcharts-description">
-    Esta gráfica muestra los países europeos con el
-    mayor numero de delitos relacionados con el cannabis
   </p>
   </figure>
 

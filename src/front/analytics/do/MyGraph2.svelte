@@ -11,16 +11,12 @@
       
     const resdData = await fetch("/api/v1/drug_offences?year=2015");
     const MyData = await resdData.json();
-    console.log(MyData);
 
     MyData.forEach( (v) => {
         Paises.push(v.country);
         DelitosConsumo.push((v.offences_use)/10);
         DelitosSuministro.push(v.offences_supply);
     });
-    console.log(Paises)
-    console.log(DelitosSuministro)
-    console.log(DelitosConsumo)
 
  
 

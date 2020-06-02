@@ -33,6 +33,7 @@
 	import IntegrationWikihow from "./integrations/od/integracionWikihow.svelte";
 
 	//De compis
+	//Juanjo
 	import IntegrationFormula from "./integrations/od/integracionFormula.svelte";
 	import IntegrationLifeExpectancy from "./integrations/od/integracionLifeExpectancy.svelte";
 	import IntegrationVehicles from "./integrations/od/integracionVehicles.svelte";
@@ -43,7 +44,20 @@
 	import IntegrationEmigrants from "./integrations/od/integracionEmigrants.svelte";
 	import IntegrationNotHospitalized from "./integrations/od/integracionNotHospitalized.svelte";
 	import IntegrationHappinessRate from "./integrations/od/integracionHappinessRate.svelte";
-	
+
+	//Adria
+	//De compis
+	import IntegrationNuclearEnergy from "./integrations/do/integracionEnergiaNuclear.svelte";
+	import IntegrationPovertyStats from "./integrations/do/integracionPovertyStats.svelte";
+	import IntegrationSwimStats from "./integrations/do/integracionSwimStats.svelte";
+	import IntegrationFireStats from "./integrations/do/integracionFireStats.svelte";
+	import IntegrationTrafficInjuries from "./integrations/do/integracionTrafficInjuries.svelte";
+
+	//De gente de fuera
+	import IntegrationCovid from "./integrations/do/integracionCOVID19.svelte";
+
+	//No me acuerdo de tu nombre hermano de Juanjo
+
 	/* A INTRODUCIR 
 	import sdAnalytics from "./analytics/sd/XXXXXXXXXXXXXXX";
 	import doAnalytics from "./analytics/do/YYYYYYYYYYYYYYY";
@@ -69,6 +83,13 @@
 		"/integrations/Emigrants":IntegrationEmigrants,
 		"/integrations/NotHospitalized":IntegrationNotHospitalized,
 		"/integrations/HappinessRate":IntegrationHappinessRate,
+		"/integrations/EnergiaNuclear":IntegrationNuclearEnergy,
+		"/Integrations/PovertyStats":IntegrationPovertyStats,
+		"/Integrations/SwimStats":IntegrationSwimStats,
+		"/Integrations/FireStats":IntegrationFireStats,
+		"/Integrations/TrafficInjuries":IntegrationTrafficInjuries,
+		"/Integrations/Covid19":IntegrationCovid,
+		
 
 		"/drug-offences/:country/:year": EditDrugOffences,
 		"/drug-offences": DrugOffences,
