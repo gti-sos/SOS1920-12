@@ -28,7 +28,7 @@
         const resData = await fetch("/api/v3/overdose-deaths");
         const MyData = await resData.json();  
 
-        const res2Data = await fetch("https://sos1920-05.herokuapp.com/api/v1/life_expectancies");
+        const res2Data = await fetch("/proxyLifeExpectancy");
         const extData = await res2Data.json();  
 
         MyData.forEach((v) => {

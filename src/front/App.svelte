@@ -27,7 +27,7 @@
 	
 	//Imports para integrations
 	import Integrations from "./integrations/allIntegrations.svelte";
-	import IntegrationExample from "./integrations/od/integracionejemplo.svelte";
+	import IntegrationCorona from "./integrations/od/integracionCorona.svelte";
 	import IntegrationGeoDb from "./integrations/od/integracionGeoDb.svelte";
 	import IntegrationQuote from "./integrations/od/integracionQuote.svelte";
 	import IntegrationWikihow from "./integrations/od/integracionWikihow.svelte";
@@ -55,7 +55,7 @@
 		"/overdose-deaths/:country/:year": EditOverdoseDeath,
 		"/overdose-deaths": OverdoseDeaths,
 		"/analytics/overdose-deaths": AnalyticsOverdoseDeaths,
-		"/integrations/ejemplo":IntegrationExample,
+		"/integrations/Corona":IntegrationCorona,
 		"/integrations/GeoDb":IntegrationGeoDb,
 		"/integrations/Quote":IntegrationQuote,
 		"/integrations/Wikihow":IntegrationWikihow,
