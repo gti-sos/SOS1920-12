@@ -36,8 +36,7 @@ Highcharts.chart('container', {
             type: 'pie',
             options3d: {
                 enabled: true,
-                alpha: 45,
-                beta: 0
+                alpha: 45
             }
         },
         title: {
@@ -53,14 +52,11 @@ Highcharts.chart('container', {
         },
         plotOptions: {
             pie: {
-                allowPointSelect: true,
-                cursor: 'pointer',
-                depth: 35,
-                dataLabels: {
-                    enabled: true,
-                    format: '{point.name}'
-                }
-            }
+            allowPointSelect: true,
+            cursor: 'pointer',
+            innerSize: 100,
+            depth: 45
+        }
         },
         series: [{
             type: 'pie',

@@ -153,7 +153,7 @@
 			  
 			  <DropdownItem header>Recursos</DropdownItem>
 			  <DropdownItem href="#/analytics/overdose-deaths">Fallecimientos por sobredosis</DropdownItem>
-			  <DropdownItem disabled>Abandono escolar</DropdownItem>
+			  <DropdownItem href="#/analytics/school-dropouts">Abandono escolar</DropdownItem>
 			  <DropdownItem href= "#/analytics/drug-offences">Delitos vinculados con drogas</DropdownItem>
 			  <DropdownItem divider />
 			  <DropdownItem href="#/analytics">Todos</DropdownItem>
