@@ -25,7 +25,7 @@
     const resDataOverdose = await fetch("/api/v3/overdose-deaths?year=2015");
     const OverdoseData = await resDataOverdose.json();
     
-    const resDataDropouts = await fetch("/api/v1/school-dropouts?year=2015");
+    const resDataDropouts = await fetch("/api/v2/school-dropouts?year=2015");
     const DropoutsData = await resDataDropouts.json();
 
 //    const resDataDropouts ;

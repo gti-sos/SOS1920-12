@@ -29,13 +29,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/api/v1/school-dropouts",
+					"raw": "localhost:8080/api/v2/school-dropouts",
 					"host": [
 						"localhost:8080"
 					],
 					"path": [
 						"api",
-						"v1",
+						"v2",
 						"school-dropouts"
 					]
 				}
@@ -66,13 +66,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/api/v1/school-dropouts?country=Spain&year=2016",
+					"raw": "localhost:8080/api/v2/school-dropouts?country=Spain&year=2016",
 					"host": [
 						"localhost:8080"
 					],
 					"path": [
 						"api",
-						"v1",
+						"v2",
 						"school-dropouts"
 					],
 					"query": [
@@ -113,13 +113,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/api/v1/school-dropouts?country=Spain&year=2016&sd_all=19&sd_mas=22.7&sd_fem=15.1",
+					"raw": "localhost:8080/api/v2/school-dropouts?country=Spain&year=2016&sd_all=19&sd_mas=22.7&sd_fem=15.1",
 					"host": [
 						"localhost:8080"
 					],
 					"path": [
 						"api",
-						"v1",
+						"v2",
 						"school-dropouts"
 					],
 					"query": [
@@ -172,13 +172,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/api/v1/school-dropouts?limit=1&offset=0&year=2016",
+					"raw": "localhost:8080/api/v2/school-dropouts?limit=1&offset=0&year=2016",
 					"host": [
 						"localhost:8080"
 					],
 					"path": [
 						"api",
-						"v1",
+						"v2",
 						"school-dropouts"
 					],
 					"query": [
@@ -235,13 +235,13 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/api/v1/school-dropouts",
+					"raw": "localhost:8080/api/v2/school-dropouts",
 					"host": [
 						"localhost:8080"
 					],
 					"path": [
 						"api",
-						"v1",
+						"v2",
 						"school-dropouts"
 					]
 				}
@@ -284,13 +284,13 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/api/v1/school-dropouts",
+					"raw": "localhost:8080/api/v2/school-dropouts",
 					"host": [
 						"localhost:8080"
 					],
 					"path": [
 						"api",
-						"v1",
+						"v2",
 						"school-dropouts"
 					]
 				}
@@ -340,13 +340,13 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/api/v1/school-dropouts/Spain",
+					"raw": "localhost:8080/api/v2/school-dropouts/Spain",
 					"host": [
 						"localhost:8080"
 					],
 					"path": [
 						"api",
-						"v1",
+						"v2",
 						"school-dropouts",
 						"Spain"
 					]
@@ -397,13 +397,13 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/api/v1/school-dropouts/Spain/2016",
+					"raw": "localhost:8080/api/v2/school-dropouts/Spain/2016",
 					"host": [
 						"localhost:8080"
 					],
 					"path": [
 						"api",
-						"v1",
+						"v2",
 						"school-dropouts",
 						"Spain",
 						"2016"
@@ -448,13 +448,13 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/api/v1/school-dropouts/Spain/2016",
+					"raw": "localhost:8080/api/v2/school-dropouts/Spain/2016",
 					"host": [
 						"localhost:8080"
 					],
 					"path": [
 						"api",
-						"v1",
+						"v2",
 						"school-dropouts",
 						"Spain",
 						"2016"
@@ -499,13 +499,13 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/api/v1/school-dropouts/Mairena/2013",
+					"raw": "localhost:8080/api/v2/school-dropouts/Mairena/2013",
 					"host": [
 						"localhost:8080"
 					],
 					"path": [
 						"api",
-						"v1",
+						"v2",
 						"school-dropouts",
 						"Mairena",
 						"2013"
@@ -551,13 +551,13 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/api/v1/school-dropouts/Italy/2003",
+					"raw": "localhost:8080/api/v2/school-dropouts/Italy/2003",
 					"host": [
 						"localhost:8080"
 					],
 					"path": [
 						"api",
-						"v1",
+						"v2",
 						"school-dropouts",
 						"Italy",
 						"2003"
@@ -603,13 +603,13 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/api/v1/school-dropouts/Italy/2017",
+					"raw": "localhost:8080/api/v2/school-dropouts/Italy/2017",
 					"host": [
 						"localhost:8080"
 					],
 					"path": [
 						"api",
-						"v1",
+						"v2",
 						"school-dropouts",
 						"Italy",
 						"2017"
@@ -655,13 +655,13 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/api/v1/school-dropouts/Italy/2017",
+					"raw": "localhost:8080/api/v2/school-dropouts/Italy/2017",
 					"host": [
 						"localhost:8080"
 					],
 					"path": [
 						"api",
-						"v1",
+						"v2",
 						"school-dropouts",
 						"Italy",
 						"2017"
@@ -706,13 +706,13 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/api/v1/school-dropouts/Spain",
+					"raw": "localhost:8080/api/v2/school-dropouts/Spain",
 					"host": [
 						"localhost:8080"
 					],
 					"path": [
 						"api",
-						"v1",
+						"v2",
 						"school-dropouts",
 						"Spain"
 					]
@@ -756,13 +756,13 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/api/v1/school-dropouts/Spain/1997",
+					"raw": "localhost:8080/api/v2/school-dropouts/Spain/1997",
 					"host": [
 						"localhost:8080"
 					],
 					"path": [
 						"api",
-						"v1",
+						"v2",
 						"school-dropouts",
 						"Spain",
 						"1997"
@@ -808,13 +808,13 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/api/v1/school-dropouts/",
+					"raw": "localhost:8080/api/v2/school-dropouts/",
 					"host": [
 						"localhost:8080"
 					],
 					"path": [
 						"api",
-						"v1",
+						"v2",
 						"school-dropouts",
 						""
 					]
@@ -858,13 +858,13 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/api/v1/school-dropouts/",
+					"raw": "localhost:8080/api/v2/school-dropouts/",
 					"host": [
 						"localhost:8080"
 					],
 					"path": [
 						"api",
-						"v1",
+						"v2",
 						"school-dropouts",
 						""
 					]
@@ -896,13 +896,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/api/v1/school-dropouts/loadInitialData",
+					"raw": "localhost:8080/api/v2/school-dropouts/loadInitialData",
 					"host": [
 						"localhost:8080"
 					],
 					"path": [
 						"api",
-						"v1",
+						"v2",
 						"school-dropouts",
 						"loadInitialData"
 					]
