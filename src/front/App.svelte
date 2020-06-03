@@ -23,6 +23,7 @@
 	//Imports para analytics
 	import AnalyticsOverdoseDeaths from "./analytics/od/OverdoseDeathsAnalytics.svelte";
 	import AnalyticsDrugOffences from "./analytics/do/DrugOffencesAnalytics.svelte";
+	import AnalyticsSchoolDropouts from "./analytics/sd/SchoolDropoutsAnalytics.svelte";
 
 	import AnalyticsAll from "./analytics/AnalyticsAll.svelte";
 	import analiticad3js from "./analytics/od/MyGraph3.svelte"
@@ -60,7 +61,12 @@
 	import IntegrationCovid from "./integrations/do/integracionCOVID19.svelte";
 	import IntegrationChuckNorris from "./integrations/do/integracionChuckNorris.svelte";
 
-	//No me acuerdo de tu nombre hermano de Juanjo
+	//Pascual
+	//De compis
+	import IntegrationRuralTourismStats from "./integrations/sd/integracionRuralTourismStats.svelte";
+	import IntegrationCountriesForEqualityStats from "./integrations/sd/integracionCountriesForEqualityStats.svelte";
+	import IntegrationNatalityStats from "./integrations/sd/integracionNatalityStats.svelte";
+	import IntegrationCigarretesSales from "./integrations/sd/integracionCigarretesSales.svelte";
 
 	/* A INTRODUCIR 
 	import sdAnalytics from "./analytics/sd/XXXXXXXXXXXXXXX";
@@ -105,6 +111,12 @@
 		
 		"/school-dropouts/:country/:year": EditSchoolDropout,
 		"/school-dropouts": SchoolDropouts,
+		"/analytics/school-dropouts": AnalyticsSchoolDropouts,
+		"/integrations/RuralTourismStats":IntegrationRuralTourismStats,
+		"/integrations/CountriesForEqualityStats":IntegrationCountriesForEqualityStats,
+		"/integrations/NatalityStats":IntegrationNatalityStats,
+		"/integrations/CigarretesSales":IntegrationCigarretesSales,
+
 		"/integrations":Integrations,
 		"/d3js":analiticad3js,
 		"/analytics": AnalyticsAll,

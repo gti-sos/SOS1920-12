@@ -1,0 +1,661 @@
+{
+	"info": {
+		"_postman_id": "67e1ca44-39e6-44ee-b1ef-c395c34172d6",
+		"name": "sos1920-12-drug_offences",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "DELETE Drug_offences/ Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "694bc901-ff83-48d8-ad73-5118fbeecf7c",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/drug_offences/",
+					"host": [
+						"localhost:8080"
+					],
+					"path": [
+						"api",
+						"v1",
+						"drug_offences",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET loadinidata",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9ab6b67a-9188-45bc-b880-b63cd99cbe4d",
+						"exec": [
+							"pm.test(\"Status code is 200\", function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Data is not empty\", function () {",
+							"    var jsonData = pm.response.json();   ",
+							"    pm.expect(jsonData).to.have.lengthOf.above(1);  ",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/drug_offences/loadInitData",
+					"host": [
+						"localhost:8080"
+					],
+					"path": [
+						"api",
+						"v1",
+						"drug_offences",
+						"loadInitData"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET drug_offences",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "15ccada0-43b6-408f-8b89-1be0e7dfd393",
+						"exec": [
+							"pm.test(\"Status code is 200\", function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Data is not empty\", function () {",
+							"    var jsonData = pm.response.json();   ",
+							"    pm.expect(jsonData).to.have.lengthOf.above(1);  ",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/drug_offences",
+					"host": [
+						"localhost:8080"
+					],
+					"path": [
+						"api",
+						"v1",
+						"drug_offences"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET drug_offences with searchs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/drug_offences?country=Spain&year=2015",
+					"host": [
+						"localhost:8080"
+					],
+					"path": [
+						"api",
+						"v1",
+						"drug_offences"
+					],
+					"query": [
+						{
+							"key": "country",
+							"value": "Spain"
+						},
+						{
+							"key": "year",
+							"value": "2015"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET drug_offences wth ALL FIELDS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/drug_offences?country=UK&year=2016&cannabis_offences=51402&offences_use=39159&offences_supply=12228",
+					"host": [
+						"localhost:8080"
+					],
+					"path": [
+						"api",
+						"v1",
+						"drug_offences"
+					],
+					"query": [
+						{
+							"key": "country",
+							"value": "UK"
+						},
+						{
+							"key": "year",
+							"value": "2016"
+						},
+						{
+							"key": "cannabis_offences",
+							"value": "51402"
+						},
+						{
+							"key": "offences_use",
+							"value": "39159"
+						},
+						{
+							"key": "offences_supply",
+							"value": "12228"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET drug_offences with search and pagination",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/drug_offences?limit=1&offset=0&year=2017",
+					"host": [
+						"localhost:8080"
+					],
+					"path": [
+						"api",
+						"v1",
+						"drug_offences"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "1"
+						},
+						{
+							"key": "offset",
+							"value": "0"
+						},
+						{
+							"key": "year",
+							"value": "2017"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST drug_offences",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4e199a33-b337-4466-b6f3-25233bfd3f13",
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"country\":\"Italy\",\r\n\"year\":20150,\r\n\"cannabis_offences\":331587,\r\n\"offences_use\":317041,\r\n\"offences_supply\":14546\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/drug_offences",
+					"host": [
+						"localhost:8080"
+					],
+					"path": [
+						"api",
+						"v1",
+						"drug_offences"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST drug_offences with null values",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "27f6a3c6-d08c-4fb5-b73f-4638c3882626",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"country\":\"Italy\",\r\n\"year\":null,\r\n\"cannabis_offences\":331587,\r\n\"offences_use\":317041,\r\n\"offences_supply\":14546\r\n}",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/drug_offences",
+					"host": [
+						"localhost:8080"
+					],
+					"path": [
+						"api",
+						"v1",
+						"drug_offences"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Drug_offences/Italy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "07522264-03da-4b11-b785-859ee69b380a",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"It has property country\", function () {",
+							"    var jsonData = pm.response.json();   ",
+							"    pm.expect(jsonData).to.have.property('country');  ",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/drug_offences/Italy",
+					"host": [
+						"localhost:8080"
+					],
+					"path": [
+						"api",
+						"v1",
+						"drug_offences",
+						"Italy"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Drug_Offences/Italy/2015",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/drug_offences/Italy/20150",
+					"host": [
+						"localhost:8080"
+					],
+					"path": [
+						"api",
+						"v1",
+						"drug_offences",
+						"Italy",
+						"20150"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE Drug_Offences/Italy/2015",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cf839182-eb6d-4cd4-ab47-b9a1d1d8eee7",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/drug_offences/Italy/20150",
+					"host": [
+						"localhost:8080"
+					],
+					"path": [
+						"api",
+						"v1",
+						"drug_offences",
+						"Italy",
+						"20150"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE drug_offences/Bangladesh/2018 non existing data in db",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c77feca4-02cf-4e6b-8f06-682219dfb2cb",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/overdose-deaths/Bangladesh/2018",
+					"host": [
+						"localhost:8080"
+					],
+					"path": [
+						"api",
+						"v1",
+						"overdose-deaths",
+						"Bangladesh",
+						"2018"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Drug_offences/Germany/2017 non matching query nd body",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"country\": \"Germany\",\r\n\"year\": 2016,\r\n\"cannabis_offences\": 204905,\r\n\"offences_use\": 166236,\r\n\"offences_supply\": 38668\r\n}",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/drug_offences/Germany/2017",
+					"host": [
+						"localhost:8080"
+					],
+					"path": [
+						"api",
+						"v1",
+						"drug_offences",
+						"Germany",
+						"2017"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT drug_offences/USA/2017 no usch data in db",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c3276132-9604-49f5-b04c-8612765b80f9",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/drug_offences/USA/2017",
+					"host": [
+						"localhost:8080"
+					],
+					"path": [
+						"api",
+						"v1",
+						"drug_offences",
+						"USA",
+						"2017"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST drug_offences/Poland",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c26c5247-0f0c-4892-9074-ed65df2c8ae0",
+						"exec": [
+							"pm.test(\"Status code is 405\", function () {",
+							"    pm.response.to.have.status(405);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"country\": \"Poland\",\r\n    \"year\": 2007,\r\n    \"cannabis_offences\": 34662,\r\n    \"offences_use\": 23818,\r\n    \"offences_supply\": 10844\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/drug_offences/Poland",
+					"host": [
+						"localhost:8080"
+					],
+					"path": [
+						"api",
+						"v1",
+						"drug_offences",
+						"Poland"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST drug_offences/Poland/2016",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8ab61deb-17c9-445a-b92b-d9c0da017c47",
+						"exec": [
+							"pm.test(\"Status code is 405\", function () {\r",
+							"    pm.response.to.have.status(405);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/drug_offences/Poland/2016",
+					"host": [
+						"localhost:8080"
+					],
+					"path": [
+						"api",
+						"v1",
+						"drug_offences",
+						"Poland",
+						"2016"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT drug_offences",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fbe72008-3f17-416d-a030-5bff6eb66756",
+						"exec": [
+							"pm.test(\"Status code is 405\", function () {",
+							"    pm.response.to.have.status(405);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"country\": \"Belgium\",\r\n    \"year\": 2005,\r\n    \"cannabis_offences\": 22640,\r\n    \"offences_use\": 14334,\r\n    \"offences_supply\": 8277\r\n}",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/drug_offences/",
+					"host": [
+						"localhost:8080"
+					],
+					"path": [
+						"api",
+						"v1",
+						"drug_offences",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE Drug_offences/",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "524f57bb-b20a-42d9-af90-9a4cca1a9606",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/drug_offences/",
+					"host": [
+						"localhost:8080"
+					],
+					"path": [
+						"api",
+						"v1",
+						"drug_offences",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
