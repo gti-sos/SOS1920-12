@@ -2,7 +2,8 @@
 	import Router from 'svelte-spa-router';
 
 	import NotFound from './NotFound.svelte' ;  
-	import Home from './Home.svelte'
+	import Home from './Home.svelte';
+	import About from './About.svelte';
 	import { Jumbotron } from "sveltestrap";
 	import { Collapse,Navbar,NavbarToggler,NavbarBrand,Nav,NavItem,NavLink,Dropdown,UncontrolledDropdown,DropdownToggle,DropdownMenu,DropdownItem } from 'sveltestrap';
 
@@ -26,6 +27,7 @@
 
 	import AnalyticsAll from "./analytics/AnalyticsAll.svelte";
 	
+	//Juanjo
 	//Imports para integrations
 	import Integrations from "./integrations/allIntegrations.svelte";
 	import IntegrationCorona from "./integrations/od/integracionCorona.svelte";
@@ -34,7 +36,7 @@
 	import IntegrationWikihow from "./integrations/od/integracionWikihow.svelte";
 
 	//De compis
-	//Juanjo
+	
 	import IntegrationFormula from "./integrations/od/integracionFormula.svelte";
 	import IntegrationLifeExpectancy from "./integrations/od/integracionLifeExpectancy.svelte";
 	import IntegrationVehicles from "./integrations/od/integracionVehicles.svelte";
@@ -56,6 +58,7 @@
 
 	//De gente de fuera
 	import IntegrationCovid from "./integrations/do/integracionCOVID19.svelte";
+	import IntegrationChuckNorris from "./integrations/do/integracionChuckNorris.svelte";
 
 	//Pascual
 	//De compis
@@ -72,6 +75,7 @@
 	
 	const routes = {
 		"/": Home,
+		"/about":About,
 		"/overdose-deaths/:country/:year": EditOverdoseDeath,
 		"/overdose-deaths": OverdoseDeaths,
 		"/analytics/overdose-deaths": AnalyticsOverdoseDeaths,
@@ -95,6 +99,8 @@
 		"/Integrations/FireStats":IntegrationFireStats,
 		"/Integrations/TrafficInjuries":IntegrationTrafficInjuries,
 		"/Integrations/Covid19":IntegrationCovid,
+		"/Integrations/ChuckNorris":IntegrationChuckNorris,
+		
 		
 
 		"/drug-offences/:country/:year": EditDrugOffences,
@@ -158,7 +164,7 @@
 		  </NavItem>
 
 		<NavItem>
-			<NavLink disabled href="#/drug-offences">Videos</NavLink>
+			<NavLink href="#/about">Videos</NavLink>
 		  </NavItem>
 		
 		</Nav>

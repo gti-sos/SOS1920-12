@@ -8,6 +8,7 @@ const bodyParser = require("body-parser");
 const request = require("request");
 
 var remoteAPI1 = "https://sos1920-05.herokuapp.com/api/v1/life_expectancies";
+var remoteAPI2 = "https://sos1920-27.herokuapp.com/api/v2/poverty-stats";
 
 
 
@@ -38,6 +39,10 @@ module.exports = function (app){
         console.log('piped: '+req.baseUrl + req.url);
         req.pipe(request(remoteAPI1)).pipe(res);
       });
+    app.use('/proxyPovertyStats',function(req, res){
+        console.log('piped: ' + req.baseUrl + req.url);
+        req.pipe(request(remoteAPI2)).pipe(res);
+    });
 }
 
     
