@@ -38,6 +38,7 @@ function displaySchoolDropouts() {
               <a href="#/integrations/GeoDb" class="list-group-item list-group-item-action list-group-item-success"> Integracion con GeoDb</a>
               <a href="#/integrations/Quote" class="list-group-item list-group-item-action list-group-item-success"> Integracion con Random Quotes</a>
               <a href="#/integrations/Wikihow" class="list-group-item list-group-item-action list-group-item-success"> Integracion con WikiHow</a>
+              <a href="#/integrations/Digimon" class="list-group-item list-group-item-action list-group-item-success"> Integracion con Digimon</a>
 
               <a href="#/integrations/LifeExpectancy" class="list-group-item list-group-item-action list-group-item-warning"> Integracion con LifeExpectancy (G05) </a>
               <a href="#/integrations/Formula" class="list-group-item list-group-item-action list-group-item-primary"> Integracion con Formula (G22)</a>

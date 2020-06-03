@@ -25,7 +25,7 @@
 	import AnalyticsDrugOffences from "./analytics/do/DrugOffencesAnalytics.svelte";
 
 	import AnalyticsAll from "./analytics/AnalyticsAll.svelte";
-	
+	import analiticad3js from "./analytics/od/MyGraph3.svelte"
 	//Juanjo
 	//Imports para integrations
 	import Integrations from "./integrations/allIntegrations.svelte";
@@ -33,6 +33,7 @@
 	import IntegrationGeoDb from "./integrations/od/integracionGeoDb.svelte";
 	import IntegrationQuote from "./integrations/od/integracionQuote.svelte";
 	import IntegrationWikihow from "./integrations/od/integracionWikihow.svelte";
+	import IntegrationDigimon from "./integrations/od/integracionDigimon.svelte";
 
 	//De compis
 	
@@ -88,6 +89,7 @@
 		"/integrations/NotHospitalized":IntegrationNotHospitalized,
 		"/integrations/HappinessRate":IntegrationHappinessRate,
 		"/integrations/EnergiaNuclear":IntegrationNuclearEnergy,
+		"/integrations/Digimon":IntegrationDigimon,
 		"/Integrations/PovertyStats":IntegrationPovertyStats,
 		"/Integrations/SwimStats":IntegrationSwimStats,
 		"/Integrations/FireStats":IntegrationFireStats,
@@ -104,7 +106,7 @@
 		"/school-dropouts/:country/:year": EditSchoolDropout,
 		"/school-dropouts": SchoolDropouts,
 		"/integrations":Integrations,
-		
+		"/d3js":analiticad3js,
 		"/analytics": AnalyticsAll,
 
 		"*": NotFound
