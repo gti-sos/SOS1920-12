@@ -12,7 +12,7 @@ async function loadGraph(){
     var franceData = [];
     var netherlandsData = [];
 
-    const resData = await fetch("/api/v3/school-dropouts?year=2018");
+    const resData = await fetch("/api/v1/school-dropouts?year=2018");
     const MyData = await resData.json();  
     
     MyData.forEach((c) =>{

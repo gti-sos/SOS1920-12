@@ -23,7 +23,7 @@
 	
 		console.log("Fetching school dropouts...");
 		//Awaits lo que hace es esperar la finalización de la solicitud HTTP. El código se reanuda (para la iteración ...) solo después de completar cada solicitud.
-		const res = await fetch("/api/v3/school-dropouts/"+params.country+"/"+params.year);
+		const res = await fetch("/api/v1/school-dropouts/"+params.country+"/"+params.year);
 		if(res.ok){
 			console.log("OK");
 			const json = await res.json();
@@ -45,7 +45,7 @@
     async function updateSchoolDropout(){
 		if(confirm("¿Está seguro de que desea actualizar esta entrada?")){
 			console.log("Updating school dropouts..." + params.country +" "+params.year);
-			const res = await fetch("/api/v3/school-dropouts/"+ params.country +"/"+params.year,{
+			const res = await fetch("/api/v1/school-dropouts/"+ params.country +"/"+params.year,{
 				method:"PUT",
 				body:JSON.stringify({
 					country: params.country,
