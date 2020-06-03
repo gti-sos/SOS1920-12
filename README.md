@@ -1,5 +1,5 @@
 [![Build Status](https://api.travis-ci.org/gti-sos/SOS1920-12.svg?branch=master)](https://travis-ci.org/gti-sos/SOS1920-12)
-[![Known Vulnerabilities](https://snyk.io/test/github/gti-sos/SOS1920-12/badge.svg?targetFile=package.json)](https://snyk.io/test/github/gti-sos/SOS1920-12?
+[![Known Vulnerabilities](https://snyk.io/test/github/gti-sos/SOS1920-12/badge.svg?targetFile=package.json)](https://snyk.io/test/github/gti-sos/SOS1920-12?)
 [![Coverage Status](https://coveralls.io/repos/github/gti-sos/SOS1920-12/badge.svg?branch=master)](https://coveralls.io/github/gti-sos/SOS1920-12?branch=master)targetFile=package.json)
 ## SOS1920-12
 
