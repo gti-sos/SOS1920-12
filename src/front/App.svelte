@@ -63,7 +63,7 @@
 	//Pascual
 	//De compis
 	import IntegrationRuralTourismStats from "./integrations/sd/integracionRuralTourismStats.svelte";
-	import IntegrationCountriesForEqualityStats from "./integrations/sd/IntegracionCountriesForEqualityStats.svelte";
+	import IntegrationCountriesForEqualityStats from "./integrations/sd/integracionCountriesForEqualityStats.svelte";
 	import IntegrationNatalityStats from "./integrations/sd/IntegracionNatalityStats.svelte";
 	import IntegrationCigarretesSales from "./integrations/sd/IntegracionCigarretesSales.svelte";
 
