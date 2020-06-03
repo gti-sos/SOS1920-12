@@ -1,6 +1,7 @@
 <script>
     import { onMount } from "svelte";
-
+    import Button from "sveltestrap/src/Button.svelte";
+    import { pop } from "svelte-spa-router";
 
     onMount(loadEjemplo);
     
@@ -96,7 +97,7 @@
             Gráfica sobre el el indice de felicidad en diferentes países en 2019 y los fallecimientos de sobredosis también en países europeos pero en el año 2016.
         </p>
     </figure>
-    
+    <Button outline color="secondary" on:click="{pop}"> Atrás</Button>
 
 </main>
 

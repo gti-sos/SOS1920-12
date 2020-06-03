@@ -1,6 +1,7 @@
 <script>
 import { onMount } from "svelte";
-    
+import Button from "sveltestrap/src/Button.svelte";
+import { pop } from "svelte-spa-router";
     let imagen1;
     let imagen2;
     let imagen3;
@@ -54,6 +55,7 @@ import { onMount } from "svelte";
     <img src={imagen3} class="figure-img img-fluid rounded" alt="...">
     <figcaption class="figure-caption text-center">{cita3}</figcaption>
   </figure>
+  <Button outline color="secondary" on:click="{pop}"> Atrás</Button>
 
 
 

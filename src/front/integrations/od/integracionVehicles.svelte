@@ -1,6 +1,7 @@
 <script>
     import { onMount } from "svelte";
-
+    import Button from "sveltestrap/src/Button.svelte";
+    import { pop } from "svelte-spa-router";
 
     onMount(loadEjemplo);
     
@@ -95,6 +96,7 @@
             Relacion entre los fallecidos por sobredosis en 2017 en diferentes paises y la cantidad de motos en diferentes provincias de Andalucía en 2018
         </p>
     </figure>
+    <Button outline color="secondary" on:click="{pop}"> Atrás</Button>
     
 
 </main>

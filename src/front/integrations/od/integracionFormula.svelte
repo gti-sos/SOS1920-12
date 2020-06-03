@@ -1,6 +1,7 @@
 <script>
     import { onMount } from "svelte";
-
+    import Button from "sveltestrap/src/Button.svelte";
+    import { pop } from "svelte-spa-router";
 
     onMount(loadEjemplo);
     
@@ -96,6 +97,7 @@
             Esta grafica muestra los fallecidos y los puntos obtenidos en Formula 1 en los diferentes paises en los ultimos años.
         </p>
     </figure>
+    <Button outline color="secondary" on:click="{pop}"> Atrás</Button>
     
 
 </main>

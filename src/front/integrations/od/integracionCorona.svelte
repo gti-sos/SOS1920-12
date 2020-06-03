@@ -1,6 +1,7 @@
 <script>
     import { onMount } from "svelte";
-    
+    import Button from "sveltestrap/src/Button.svelte";
+    import { pop } from "svelte-spa-router";
     onMount(loadCovid19);
 
     async function loadCovid19(){
@@ -96,4 +97,5 @@
            Un grafico basico que compara los fallecimientos por sobredosis registrados en 2017 del pais indicado y los ultimos datos obtenidos sobre coronavirus de ese mismo pais.
         </p>
     </figure>
+    <Button outline color="secondary" on:click="{pop}"> Atrás</Button>
 </main>

@@ -1,6 +1,7 @@
 <script>
     import { onMount } from "svelte";
-
+    import Button from "sveltestrap/src/Button.svelte";
+    import { pop } from "svelte-spa-router";
 
     onMount(loadEjemplo);
     
@@ -95,7 +96,7 @@
             La gráfica muestra datos de Noruega: las ventas acumuladas de coches eléctricos en 2018 y el número de muertes por sobredosis en 2016.
         </p>
     </figure>
-    
+    <Button outline color="secondary" on:click="{pop}"> Atrás</Button>
 
 </main>
 

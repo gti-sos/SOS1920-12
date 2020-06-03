@@ -1,6 +1,7 @@
 <script>
     import { onMount } from "svelte";
-    
+    import Button from "sveltestrap/src/Button.svelte";
+    import { pop } from "svelte-spa-router";
     onMount(loadGeoDB);
 
     async function loadGeoDB(){
@@ -84,4 +85,5 @@ Plotly.newPlot('myDiv', data, layout);
 
 <main>
     <div id='myDiv'><!-- Plotly chart will be drawn inside this DIV --></div>
+    <Button outline color="secondary" on:click="{pop}"> Atrás</Button>
 </main>

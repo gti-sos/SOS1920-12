@@ -1,6 +1,7 @@
 <script>
     import { onMount } from "svelte";
-
+    import Button from "sveltestrap/src/Button.svelte";
+    import { pop } from "svelte-spa-router";
 
     onMount(loadEjemplo);
     
@@ -96,6 +97,7 @@
             Gráfica sobre el número de victimas de diferentes provincias que no fueron hospitalizadas y los fallecimientos por sobredosis en 2014. 
         </p>
     </figure>
+    <Button outline color="secondary" on:click="{pop}"> Atrás</Button>
     
 
 </main>

@@ -1,6 +1,7 @@
 <script>
     import { onMount } from "svelte";
-
+    import Button from "sveltestrap/src/Button.svelte";
+    import { pop } from "svelte-spa-router";
 
     onMount(loadEjemplo);
     
@@ -95,7 +96,7 @@
             Gráfica sobre datos de 2016 de los fallecidos por sobredosis en diferentes paises y la cantidad de carriles bicis de todo tipo en provincias de Andalucía.
         </p>
     </figure>
-    
+    <Button outline color="secondary" on:click="{pop}"> Atrás</Button>
 
 </main>
 

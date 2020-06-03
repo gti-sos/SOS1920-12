@@ -1,6 +1,7 @@
 <script>
     import { onMount } from "svelte";
-
+    import Button from "sveltestrap/src/Button.svelte";
+    import { pop } from "svelte-spa-router";
 
     onMount(loadEjemplo);
     
@@ -109,6 +110,7 @@
             Esta grafica muestra la edad media la esperanza de vida y edad media de fallecimientos por sobredosis divididos en hombres y mujeres.
         </p>
     </figure>
+    <Button outline color="secondary" on:click="{pop}"> Atrás</Button>
     
 
 </main>

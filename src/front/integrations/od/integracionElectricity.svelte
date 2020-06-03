@@ -1,6 +1,7 @@
 <script>
     import { onMount } from "svelte";
-
+    import Button from "sveltestrap/src/Button.svelte";
+    import { pop } from "svelte-spa-router";
 
     onMount(loadEjemplo);
     
@@ -96,6 +97,7 @@
             Gráfica sobre datos de diferentes estados de EEUU en cuanto a la cantidad de energia producida con carbon en 2018 y fallecimientos por sobredosis en 2017.
         </p>
     </figure>
+    <Button outline color="secondary" on:click="{pop}"> Atrás</Button>
     
 
 </main>

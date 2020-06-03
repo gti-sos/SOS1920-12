@@ -1,6 +1,7 @@
 <script>
     import { onMount } from "svelte";
-
+    import Button from "sveltestrap/src/Button.svelte";
+    import { pop } from "svelte-spa-router";
 
     onMount(loadEjemplo);
     
@@ -115,6 +116,7 @@
             Gráfica que muestra los datos de numeros de emigrantes y muertes por sobredosis durante los últimos años en Italia. Estos datos estan divididos en hombres y mujeres. 
         </p>
     </figure>
+    <Button outline color="secondary" on:click="{pop}"> Atrás</Button>
     
 
 </main>

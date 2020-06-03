@@ -1,6 +1,7 @@
 <script>
     import { onMount } from "svelte";
-
+    import Button from "sveltestrap/src/Button.svelte";
+    import { pop } from "svelte-spa-router";
 
     onMount(loadEjemplo);
     
@@ -95,7 +96,7 @@
             Gráfica sobre datos de Portugal de diferentes años de los fallecidos por sobredosis  y la puntuación de calidad de vida total en el país.
         </p>
     </figure>
-    
+    <Button outline color="secondary" on:click="{pop}"> Atrás</Button>
 
 </main>
 

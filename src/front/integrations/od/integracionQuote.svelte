@@ -1,6 +1,7 @@
 <script>
 import { onMount } from "svelte";
-    
+import Button from "sveltestrap/src/Button.svelte";
+import { pop } from "svelte-spa-router";
 let cita;
 let autor;
     onMount(loadQuote);
@@ -29,5 +30,6 @@ let autor;
     <h1 class="display-4">{cita}</h1>
     <footer class="blockquote-footer"> <cite title="Source Title">{autor}</cite></footer>
   </blockquote>
+  <Button outline color="secondary" on:click="{pop}"> Atrás</Button>
 
 </main>
