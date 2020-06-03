@@ -1,0 +1,915 @@
+{
+	"info": {
+		"_postman_id": "f79a1c34-0ab3-42cd-bdd7-07d4a4118289",
+		"name": "SOS1920-12-school-dropouts",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET loadInitialData",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3fd00df4-2ddd-43cc-8f71-13fd0b71334c",
+						"exec": [
+							"pm.test(\"Status code is 200\", function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Data is not empty\", function () {",
+							"    var jsonData = pm.response.json();   ",
+							"    pm.expect(jsonData).to.have.lengthOf.above(0);  ",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v3/school-dropouts/loadInitialData",
+					"host": [
+						"localhost:8080"
+					],
+					"path": [
+						"api",
+						"v3",
+						"school-dropouts",
+						"loadInitialData"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET school-dropouts",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6a1bd1d6-3a00-4efc-9f43-33e2c5c79136",
+						"exec": [
+							"pm.test(\"Status code is 200\", function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Data is not empty\", function () {",
+							"    var jsonData = pm.response.json();   ",
+							"    pm.expect(jsonData).to.have.lengthOf.above(0);  ",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v3/school-dropouts",
+					"host": [
+						"localhost:8080"
+					],
+					"path": [
+						"api",
+						"v3",
+						"school-dropouts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET school-dropouts with searchs",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6a1bd1d6-3a00-4efc-9f43-33e2c5c79136",
+						"exec": [
+							"pm.test(\"Status code is 200\", function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Data is not empty\", function () {",
+							"    var jsonData = pm.response.json();   ",
+							"    pm.expect(jsonData).to.have.lengthOf.above(0);  ",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v3/school-dropouts?country=Spain&year=2016",
+					"host": [
+						"localhost:8080"
+					],
+					"path": [
+						"api",
+						"v3",
+						"school-dropouts"
+					],
+					"query": [
+						{
+							"key": "country",
+							"value": "Spain"
+						},
+						{
+							"key": "year",
+							"value": "2016"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET school-dropouts with searchs ALL FIELDS",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6a1bd1d6-3a00-4efc-9f43-33e2c5c79136",
+						"exec": [
+							"pm.test(\"Status code is 200\", function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Data is not empty\", function () {",
+							"    var jsonData = pm.response.json();   ",
+							"    pm.expect(jsonData).to.have.lengthOf.above(0);  ",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v3/school-dropouts?country=Spain&year=2016&sd_all=19&sd_mas=22.7&sd_fem=15.1",
+					"host": [
+						"localhost:8080"
+					],
+					"path": [
+						"api",
+						"v3",
+						"school-dropouts"
+					],
+					"query": [
+						{
+							"key": "country",
+							"value": "Spain"
+						},
+						{
+							"key": "year",
+							"value": "2016"
+						},
+						{
+							"key": "sd_all",
+							"value": "19"
+						},
+						{
+							"key": "sd_mas",
+							"value": "22.7"
+						},
+						{
+							"key": "sd_fem",
+							"value": "15.1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET school-dropouts with searchs and pagination",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6a1bd1d6-3a00-4efc-9f43-33e2c5c79136",
+						"exec": [
+							"pm.test(\"Status code is 200\", function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Data is not empty\", function () {",
+							"    var jsonData = pm.response.json();   ",
+							"    pm.expect(jsonData).to.have.lengthOf.above(0);  ",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v3/school-dropouts?limit=1&offset=0&year=2016",
+					"host": [
+						"localhost:8080"
+					],
+					"path": [
+						"api",
+						"v3",
+						"school-dropouts"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "1"
+						},
+						{
+							"key": "offset",
+							"value": "0"
+						},
+						{
+							"key": "year",
+							"value": "2016"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST school-dropouts",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9ddb4068-f1f0-48e8-8f98-18c948517b87",
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"country\": \"Spain\",\r\n\"year\": 1997,\r\n\"sd_all\": 21,\r\n\"sd_mas\": 17.1,\r\n\"sd_fem\": 12.5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v3/school-dropouts",
+					"host": [
+						"localhost:8080"
+					],
+					"path": [
+						"api",
+						"v3",
+						"school-dropouts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST school-dropouts with null values",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9ddb4068-f1f0-48e8-8f98-18c948517b87",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"country\": \"Spain\",\r\n\"year\": null,\r\n\"sd_all\": 21,\r\n\"sd_mas\": 17.1,\r\n\"sd_fem\": 12.5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v3/school-dropouts",
+					"host": [
+						"localhost:8080"
+					],
+					"path": [
+						"api",
+						"v3",
+						"school-dropouts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET school-dropouts/Spain",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "17c3f3a8-32a7-4089-9928-6c1b29802eb0",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"It has property country\", function () {",
+							"    var jsonData = pm.response.json();   ",
+							"    pm.expect(jsonData).to.have.property('country');  ",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v3/school-dropouts/Spain",
+					"host": [
+						"localhost:8080"
+					],
+					"path": [
+						"api",
+						"v3",
+						"school-dropouts",
+						"Spain"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET school-dropouts/Spain/2016",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "17c3f3a8-32a7-4089-9928-6c1b29802eb0",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"It has property country\", function () {",
+							"    var jsonData = pm.response.json();   ",
+							"    pm.expect(jsonData).to.have.property('country');  ",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v3/school-dropouts/Spain/2016",
+					"host": [
+						"localhost:8080"
+					],
+					"path": [
+						"api",
+						"v3",
+						"school-dropouts",
+						"Spain",
+						"2016"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE school-dropouts/Spain/2016",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "838553f1-6840-46ce-9abc-b669c238016d",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v3/school-dropouts/Spain/2016",
+					"host": [
+						"localhost:8080"
+					],
+					"path": [
+						"api",
+						"v3",
+						"school-dropouts",
+						"Spain",
+						"2016"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE school-dropouts/Mairena/2013  no such data in database",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "838553f1-6840-46ce-9abc-b669c238016d",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v3/school-dropouts/Mairena/2013",
+					"host": [
+						"localhost:8080"
+					],
+					"path": [
+						"api",
+						"v3",
+						"school-dropouts",
+						"Mairena",
+						"2013"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT school-dropouts/Italy/1997",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "17c3f3a8-32a7-4089-9928-6c1b29802eb0",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"country\": \"Italy\",\r\n\"year\": 2003,\r\n\"sd_all\": 17,\r\n\"sd_mas\": 13.1,\r\n\"sd_fem\": 8.3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v3/school-dropouts/Italy/2003",
+					"host": [
+						"localhost:8080"
+					],
+					"path": [
+						"api",
+						"v3",
+						"school-dropouts",
+						"Italy",
+						"2003"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT school-dropouts/Italy/2017 query and body dont match",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "17c3f3a8-32a7-4089-9928-6c1b29802eb0",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"country\": \"Italy\",\r\n\"year\": 2003,\r\n\"sd_all\": 17,\r\n\"sd_mas\": 13.1,\r\n\"sd_fem\": 8.3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v3/school-dropouts/Italy/2017",
+					"host": [
+						"localhost:8080"
+					],
+					"path": [
+						"api",
+						"v3",
+						"school-dropouts",
+						"Italy",
+						"2017"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT school-dropouts/Italy/2017 no such data in database",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "17c3f3a8-32a7-4089-9928-6c1b29802eb0",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"country\": \"Italy\",\r\n\"year\": 2003,\r\n\"sd_all\": 17,\r\n\"sd_mas\": 13.1,\r\n\"sd_fem\": 8.3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v3/school-dropouts/Italy/2017",
+					"host": [
+						"localhost:8080"
+					],
+					"path": [
+						"api",
+						"v3",
+						"school-dropouts",
+						"Italy",
+						"2017"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST school-dropouts/Spain",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9ddb4068-f1f0-48e8-8f98-18c948517b87",
+						"exec": [
+							"pm.test(\"Status code is 405\", function () {",
+							"    pm.response.to.have.status(405);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"country\": \"Spain\",\r\n\"year\": 1997,\r\n\"sd_all\": 21,\r\n\"sd_mas\": 17.1,\r\n\"sd_fem\": 12.5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v3/school-dropouts/Spain",
+					"host": [
+						"localhost:8080"
+					],
+					"path": [
+						"api",
+						"v3",
+						"school-dropouts",
+						"Spain"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST school-dropouts/Spain/2016",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9ddb4068-f1f0-48e8-8f98-18c948517b87",
+						"exec": [
+							"pm.test(\"Status code is 405\", function () {",
+							"    pm.response.to.have.status(405);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"country\": \"Spain\",\r\n\"year\": 1997,\r\n\"sd_all\": 21,\r\n\"sd_mas\": 17.1,\r\n\"sd_fem\": 12.5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v3/school-dropouts/Spain/1997",
+					"host": [
+						"localhost:8080"
+					],
+					"path": [
+						"api",
+						"v3",
+						"school-dropouts",
+						"Spain",
+						"1997"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT school-dropouts/",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "17c3f3a8-32a7-4089-9928-6c1b29802eb0",
+						"exec": [
+							"pm.test(\"Status code is 405\", function () {",
+							"    pm.response.to.have.status(405);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"country\": \"Spain\",\r\n\"year\": 1997,\r\n\"sd_all\": 21,\r\n\"sd_mas\": 17.1,\r\n\"sd_fem\": 12.5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v3/school-dropouts/",
+					"host": [
+						"localhost:8080"
+					],
+					"path": [
+						"api",
+						"v3",
+						"school-dropouts",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE school-dropouts/",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "838553f1-6840-46ce-9abc-b669c238016d",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v3/school-dropouts/",
+					"host": [
+						"localhost:8080"
+					],
+					"path": [
+						"api",
+						"v3",
+						"school-dropouts",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
