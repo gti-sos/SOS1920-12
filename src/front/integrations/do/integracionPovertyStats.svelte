@@ -16,7 +16,7 @@
         const resdDataInt = await fetch("/api/v1/drug_offences?year=2017");
         const intData = await resdDataInt.json();  
 
-        const resDataExt = await fetch("proxyPovertyStats");
+        const resDataExt = await fetch("/proxyPovertyStats");
         const extData = await resDataExt.json();  
         console.log("se ve?")
         console.log(extData)
