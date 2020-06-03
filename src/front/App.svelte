@@ -64,8 +64,8 @@
 	//De compis
 	import IntegrationRuralTourismStats from "./integrations/sd/integracionRuralTourismStats.svelte";
 	import IntegrationCountriesForEqualityStats from "./integrations/sd/integracionCountriesForEqualityStats.svelte";
-	import IntegrationNatalityStats from "./integrations/sd/IntegracionNatalityStats.svelte";
-	import IntegrationCigarretesSales from "./integrations/sd/IntegracionCigarretesSales.svelte";
+	import IntegrationNatalityStats from "./integrations/sd/integracionNatalityStats.svelte";
+	import IntegrationCigarretesSales from "./integrations/sd/integracionCigarretesSales.svelte";
 
 	/* A INTRODUCIR 
 	import sdAnalytics from "./analytics/sd/XXXXXXXXXXXXXXX";
