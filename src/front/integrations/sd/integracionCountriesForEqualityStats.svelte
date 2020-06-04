@@ -1,150 +1,108 @@
 <script>
     import { onMount } from "svelte";
 
-
-    onMount(loadEjemplo);
+    onMount(loadGraph);
     
-    async function loadEjemplo(){
+async function loadGraph(){
 
-        var myDataMen={
-            name: 'Edad media de hombres fallecidos por sobredosis en años',
-            data: []
-        };
-        var myDataWomen={
-            name: 'Edad media de mujeres fallecidas por sobredosis en años',
-            data: []
-        };
-        var extDataMen={
-            name: 'Esperanza de vida de hombres en años',
-            data: []
-        };
-        var extDataWomen={
-            name: 'Esperanza de vida de mujeres en años',
-            data: []
-        };
+    var DataStacked = [];
+    var spainData = [];
+    var germanyData = [];
+    var italyData = [];
+    var franceData = [];
+    var unitedKingdomData = [];
 
-        var allData =[];
+    const resData = await fetch("https://sos1920-25.herokuapp.com/api/v2/countries_for_equality_stats?year=2019");
+    const MyData = await resData.json();  
+    
+    MyData.forEach((c) =>{
+        if(c.country == 'spain'){
+            spainData.push(c.global_peace_index);
+        }else if(c.country == 'france'){
+            franceData.push(c.global_peace_index);
+        }else if(c.country == 'germany'){
+            germanyData.push(c.global_peace_index);
+        }else if(c.country == 'italy'){
+            italyData.push(c.global_peace_index);
+        }else if(c.country == 'united_kingdom'){
+            unitedKingdomData.push(c.global_peace_index);
+        }
+    })
 
-        const resData = await fetch("/api/v3/overdose-deaths");
-        const MyData = await resData.json();  
-
-        const res2Data = await fetch("/proxyLifeExpectancy");
-        const extData = await res2Data.json();  
-
-        MyData.forEach((v) => {
-            myDataMen['data'].push(
-                {name:v.country +" " + v.year,
-                value: v.death_male
-                });
-            myDataWomen['data'].push(
-                {name:v.country +" " + v.year,
-                value: v.death_female
-                });
-        });
-        extData.forEach((v) => {
-            extDataMen['data'].push(
-                {name: v.country +" " + v.year,
-                value: v.men_life_expectancy
-                });
-            extDataWomen['data'].push(
-                {name: v.country +" " + v.year,
-                value: v.women_life_expectancy
-                });
-        });
-        
-
-        allData.push(myDataMen,myDataWomen,extDataMen,extDataWomen);
-
-        Highcharts.chart('container', {
-        chart: {
-            type: 'packedbubble',
-            height: '100%'
-        },
+    console.log(MyData);
+    
+Highcharts.chart('container', {
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: 'Indice de paz mundial por País principal de la UE. Año 2019'
+    },
+    accessibility: {
+        announceNewData: {
+            enabled: true
+        }
+    },
+    xAxis: {
+        type: 'category'
+    },
+    yAxis: {
         title: {
-            text: 'Fallecidos por sobredosis y esperanza de vida en hombres y mujeres'
-        },
-        tooltip: {
-            useHTML: true
-        },
-        plotOptions: {
-            packedbubble: {
-                minSize: '20%',
-                maxSize: '100%',
-                zMin: 0,
-                zMax: 1000,
-                layoutAlgorithm: {
-                    gravitationalConstant: 0.05,
-                    splitSeries: true,
-                    seriesInteraction: false,
-                    dragBetweenSeries: true,
-                    parentNodeLimit: true
-                },
-                dataLabels: {
-                    enabled: true,
-                    format: '{point.name}',
-                    filter: {
-                        property: 'y',
-                        operator: '>',
-                        value: 80
-                    },
-                    style: {
-                        color: 'black',
-                        textOutline: 'none',
-                        fontWeight: 'normal'
-                    }
-                }
+            text: 'Indice de paz mundial'
+        }
+
+    },
+    legend: {
+        enabled: false
+    },
+    plotOptions: {
+        series: {
+            borderWidth: 0,
+            dataLabels: {
+                enabled: true,
+                format: '{point.y:.1f}'
             }
-        },
-        series: allData
+        }
+    },
+
+    tooltip: {
+        headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+        pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}</b><br/>'
+    },
+        series: [{
+            name: 'Índice de paz mundial en el año 2019',
+            colorByPoint: true,
+            data: [
+                {
+                    name: 'Spain',
+                    y: spainData[0]
+                },
+                {
+                    name: 'Germany',
+                    y: germanyData[0]
+                },
+                {
+                    name: 'Italy',
+                    y: italyData[0]
+                },
+                {
+                    name: 'France',
+                    y: franceData[0]
+                },
+                {
+                    name: 'United Kingdom',
+                    y: unitedKingdomData[0]
+                }]
+        }]
     });
 }
-
 </script>
 
-
 <main>
-    <figure class="highcharts-figure">
-        <div id="container"></div>
-        <p class="highcharts-description">
-            Esta grafica muestra la edad media la esperanza de vida y edad media de fallecimientos por sobredosis divididos en hombres y mujeres.
-        </p>
-    </figure>
-    
+  <figure class="highcharts-figure">
+  <div id ="container"></div>
+  <p class="highcharts-description">
+  </p>
+  </figure>
 
 </main>
-
-<style>
-    .highcharts-figure, .highcharts-data-table table {
-    min-width: 320px; 
-    max-width: 800px;
-    margin: 1em auto;
-    }
-
-    .highcharts-data-table table {
-        font-family: Verdana, sans-serif;
-        border-collapse: collapse;
-        border: 1px solid #EBEBEB;
-        margin: 10px auto;
-        text-align: center;
-        width: 100%;
-        max-width: 500px;
-    }
-    .highcharts-data-table caption {
-        padding: 1em 0;
-        font-size: 1.2em;
-        color: #555;
-    }
-    .highcharts-data-table th {
-        font-weight: 600;
-        padding: 0.5em;
-    }
-    .highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
-        padding: 0.5em;
-    }
-    .highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
-        background: #f8f8f8;
-    }
-    .highcharts-data-table tr:hover {
-        background: #f1f7ff;
-    }
-</style>
