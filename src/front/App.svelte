@@ -71,6 +71,8 @@
 	//De compis
 	import IntegrationRuralTourismStats from "./integrations/sd/integracionRuralTourismStats.svelte";
 	import IntegrationCountriesForEqualityStats from "./integrations/sd/integracionCountriesForEqualityStats.svelte";
+	import IntegrationGhibli from "./integrations/sd/integracionGhibli.svelte";
+	import IntegrationManga from "./integrations/sd/integracionManga.svelte";
 
 	/* A INTRODUCIR 
 	import sdAnalytics from "./analytics/sd/XXXXXXXXXXXXXXX";
@@ -124,6 +126,8 @@
 		"/analytics/school-dropouts": AnalyticsSchoolDropouts,
 		"/integrations/RuralTourismStats":IntegrationRuralTourismStats,
 		"/integrations/CountriesForEqualityStats":IntegrationCountriesForEqualityStats,
+		"/integrations/Ghibli":IntegrationGhibli,
+		"/integrations/Manga":IntegrationManga,
 
 		"/integrations":Integrations,
 		"/d3js":analiticad3js,
