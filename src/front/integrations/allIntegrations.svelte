@@ -57,7 +57,7 @@ function displaySchoolDropouts() {
        <div id="divDrugOffences" style="display: none;" class="list-group"><br>
         <a href="#/integrations/Covid19"  class="list-group-item list-group-item-action list-group-item-success"> Integracion con Covid19 api 2</a>
         <a href="#/integrations/ChuckNorris"  class="list-group-item list-group-item-action list-group-item-success"> Integracion con random Chuck Norris Jokes</a>
-        <a href="#/integrations/IP"  class="list-group-item list-group-item-action list-group-item-success"> Integracion con IP y tiempo, objetivo sacar el tiempo que hace</a>
+        <a href="#/integrations/IP"  class="list-group-item list-group-item-action list-group-item-success"> Integracion con IP</a>
         <br>
         <a href="#/integrations/ScoresStats"  class="list-group-item list-group-item-action list-group-item-success"> Integracion con Scores Stats</a>
         <a href="#/integrations/SuicideStats"  class="list-group-item list-group-item-action list-group-item-success"> Integracion con Suicide Rates</a>
