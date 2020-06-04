@@ -3,7 +3,7 @@ module.exports = function (app) {
 	console.log("Registering school-dropouts API...");
 	const dataStore = require("nedb");
 	const path = require("path");
-	const BASE_API_URL = "/api/v3";
+	const BASE_API_URL = "/api/v2";
 	const dbFileName = path.join(__dirname,"schoolDroupouts.db");
 	
 	const db = new dataStore({
@@ -449,13 +449,13 @@ app.get(BASE_API_URL + "/school-dropouts", (req, res) => {
 		query.year = parseInt(query.year);	
 	}
 	if(query.hasOwnProperty("sd_all")){
-		query.sd_all = parseInt(query.sd_all);
+		query.sd_all = parseFloat(query.sd_all);
 	}
 	if(query.hasOwnProperty("sd_mas")){
-		query.sd_mas = parseInt(query.sd_mas);
+		query.sd_mas = parseFloat(query.sd_mas);
 	}
 	if(query.hasOwnProperty("sd_fem")){
-		query.sd_fem = parseInt(query.sd_fem);
+		query.sd_fem = parseFloat(query.sd_fem);
 	}
 
 

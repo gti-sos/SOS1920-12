@@ -28,7 +28,7 @@
             <p class="has-line-data" data-line-start="9" data-line-end="10"><strong>APIs</strong>:</p>
             <ul>
             <li class="has-line-data" data-line-start="10" data-line-end="11"><a href="https://sos1920-12.herokuapp.com/api/v2/overdose-deaths">https://sos1920-12.herokuapp.com/api/v2/overdose-deaths</a> (developed by <a href="https://github.com/wuaho">Juan José Requena Lama</a>)</li>
-            <li class="has-line-data" data-line-start="11" data-line-end="12"><a href="https://sos1920-12.herokuapp.com/api/v1/school-dropouts">https://sos1920-12.herokuapp.com/api/v1/school-dropouts</a> (developed by <a href="https://github.com/Requena115">Pascual Requena Lama</a>)</li>
+            <li class="has-line-data" data-line-start="11" data-line-end="12"><a href="https://sos1920-12.herokuapp.com/api/v2/school-dropouts">https://sos1920-12.herokuapp.com/api/v2/school-dropouts</a> (developed by <a href="https://github.com/Requena115">Pascual Requena Lama</a>)</li>
             <li class="has-line-data" data-line-start="12" data-line-end="14"><a href="https://sos1920-12.herokuapp.com/api/v1/drug_offences">https://sos1920-12.herokuapp.com/api/v1/drug_offences</a> (developed by <a href="https://github.com/Adrleogar">Adrià León García</a>)</li>
             </ul>
             </li>

@@ -37,7 +37,7 @@
 	async function loadSchoolDropouts(){
 	
 		console.log("Fetching school dropouts...");
-		const res = await fetch("/api/v3/school-dropouts/loadInitialData").then(function(res){
+		const res = await fetch("/api/v2/school-dropouts/loadInitialData").then(function(res){
 			if (res.ok){
 				console.log("OK");
 				getSchoolDropouts();
@@ -57,8 +57,8 @@
 	async function getSchoolDropouts(){
 	
 		console.log("Fetching school dropouts...");
-		var url = "/api/v3/school-dropouts?limit="+limit+"&offset="+(offset*limit);
-		var urlAfter = "/api/v3/school-dropouts?limit="+limit+"&offset="+(limit*(offset+1));
+		var url = "/api/v2/school-dropouts?limit="+limit+"&offset="+(offset*limit);
+		var urlAfter = "/api/v2/school-dropouts?limit="+limit+"&offset="+(limit*(offset+1));
 		if(searchCountry!="" &&searchCountry!=null){
 			url = url+"&country="+searchCountry;
 			urlAfter= urlAfter+"&country="+searchCountry;
@@ -103,7 +103,7 @@
 			alert("Los campos 'Pais' y 'Año' no pueden estar vacios");
 		}
 		else{
-			const res = await fetch("/api/v3/school-dropouts",{
+			const res = await fetch("/api/v2/school-dropouts",{
 			method:"POST",
 			body:JSON.stringify(newSchoolDropout),
 			headers:{
@@ -128,7 +128,7 @@
 
 		if(confirm("¿Está seguro de que desea eliminar todas las entradas?")){
 			console.log("Deleting all school dropouts...");
-			const res = await fetch("/api/v3/school-dropouts/", {
+			const res = await fetch("/api/v2/school-dropouts/", {
 				method: "DELETE"
 			}).then(function (res) {
 				if(res.ok){
@@ -150,7 +150,7 @@
 		console.log("Inserting school dropout...");
 		if(confirm("¿Está seguro de que desea eliminar esta entrada?")){
 			console.log("Deleting school dropout...");
-			const res = await fetch("/api/v3/school-dropouts/" + country + "/"+year,{
+			const res = await fetch("/api/v2/school-dropouts/" + country + "/"+year,{
 				method:"DELETE"
 			}).then(function (res) {
 				if(res.ok){
