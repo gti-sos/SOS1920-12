@@ -1,5 +1,7 @@
 <script>
     import { onMount } from "svelte";
+    import Button from "sveltestrap/src/Button.svelte";
+    import { pop } from "svelte-spa-router";
 
     onMount(loadGraph);
     
@@ -77,5 +79,5 @@ Highcharts.chart('container', {
   <p class="highcharts-description">
   </p>
   </figure>
-
+    <Button outline color="secondary" on:click="{pop}"> Atrás</Button>
 </main>
