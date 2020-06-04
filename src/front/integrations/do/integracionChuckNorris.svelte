@@ -8,7 +8,7 @@
     async function renderChart(){
 
         let DatosInternos=[];
-        let labelInterno = "";
+        let labelInterno = "Delitos relacionados con el cannabis";
         let Paises=[];
 
         const resdDataInt = await fetch("/api/v1/drug_offences?year=2017");

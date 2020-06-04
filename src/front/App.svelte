@@ -60,6 +60,12 @@
 	//De gente de fuera
 	import IntegrationCovid from "./integrations/do/integracionCOVID19.svelte";
 	import IntegrationChuckNorris from "./integrations/do/integracionChuckNorris.svelte";
+	import IntegracionScoresStats from "./integrations/do/integracionScoresStats.svelte";
+	import IntegracionSuicideStats from "./integrations/do/integracionSuicideStats.svelte";
+	import IntegracionBeerConsume from "./integrations/do/integracionBeerConsume.svelte";
+	import IntegrationPopStats from "./integrations/do/integracionPopStats.svelte";
+	import IntegrationPublicSpending from "./integrations/do/integracionPublicSpending.svelte";
+	import IntegracionIPyTiempo from "./integrations/do/integracionIPyTiempo.svelte";
 
 	//Pascual
 	//De compis
@@ -102,6 +108,12 @@
 		"/Integrations/TrafficInjuries":IntegrationTrafficInjuries,
 		"/Integrations/Covid19":IntegrationCovid,
 		"/Integrations/ChuckNorris":IntegrationChuckNorris,
+		"/Integrations/ScoresStats": IntegracionScoresStats,
+		"/Integrations/SuicideStats": IntegracionSuicideStats,
+		"/Integrations/BeerConsume": IntegracionBeerConsume,
+		"/Integrations/PopStats": IntegrationPopStats,
+		"/integrations/PublicSpending":IntegrationPublicSpending,
+		"/Integrations/IPyTiempo": IntegracionIPyTiempo,
 		
 		
 

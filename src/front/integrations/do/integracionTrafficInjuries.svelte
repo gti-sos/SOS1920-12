@@ -9,9 +9,9 @@
 
         let numeroExtra = 0;
         let DatosInternos=[];
-        let labelInterno = "";
+        let labelInterno = "Delitos relacionados con el cannabis";
         let DatosExternos=[];
-        let labelExterno = "Como esta grafica no tiene sentido pero hay que enseñar algo esto es la suma de todo forest area en España";
+        let labelExterno = "Accidentes en el pais";
         let Paises = [];
         const resdDataInt = await fetch("/api/v1/drug_offences?year=2017");
         const intData = await resdDataInt.json();  

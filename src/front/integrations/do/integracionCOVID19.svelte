@@ -8,9 +8,9 @@
     async function renderChart(){
 
         let DatosInternos=[];
-        let labelInterno = "";
+        let labelInterno = "Delitos relacionados con el cannabis";
         let DatosExternos=[];
-        let labelExterno = "";
+        let labelExterno = "Casos de covid por pais";
         let Paises=[];
 
         const resdDataInt = await fetch("/api/v1/drug_offences?year=2017");
@@ -31,7 +31,7 @@ console.log(DatosInternos)
 //      cambiar la v
    extData.forEach((v) => {
        if(Paises.includes(v.country)){
-           console.log("uaregay")
+
    DatosExternos.push(v.cases)
    }});
 

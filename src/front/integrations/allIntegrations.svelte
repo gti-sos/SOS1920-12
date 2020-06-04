@@ -57,12 +57,22 @@ function displaySchoolDropouts() {
        <div id="divDrugOffences" style="display: none;" class="list-group"><br>
         <a href="#/integrations/Covid19"  class="list-group-item list-group-item-action list-group-item-success"> Integracion con Covid19 api 2</a>
         <a href="#/integrations/ChuckNorris"  class="list-group-item list-group-item-action list-group-item-success"> Integracion con random Chuck Norris Jokes</a>
+    <!--    <a href="#/integrations/IPyTiempo"  class="list-group-item list-group-item-action list-group-item-success"> Integracion con IP y tiempo, objetivo sacar el tiempo que hace</a>-->
+        <br>
+        <a href="#/integrations/ScoresStats"  class="list-group-item list-group-item-action list-group-item-success"> Integracion con Scores Stats</a>
+        <a href="#/integrations/SuicideStats"  class="list-group-item list-group-item-action list-group-item-success"> Integracion con Suicide Rates</a>
+        <a href="#/integrations/BeerConsume"  class="list-group-item list-group-item-action list-group-item-success"> Integracion con Beer Consume</a>
+        <a href="#/integrations/PopStats"  class="list-group-item list-group-item-action list-group-item-success"> Integracion con Population Stats</a>
+        <a href="#/integrations/PublicSpending"  class="list-group-item list-group-item-action list-group-item-success"> Integracion con Public Spending</a>
+        
+
         <br>
         <a href="#/integrations/EnergiaNuclear"  class="list-group-item list-group-item-action list-group-item-success"> Integracion con Energia Nuclear</a>
         <a href="#/integrations/PovertyStats"  class="list-group-item list-group-item-action list-group-item-warning"> Integracion con Estadisticas de Pobreza</a>
         <a href="#/integrations/SwimStats"  class="list-group-item list-group-item-action list-group-item-success"> Integracion con Estadisticas de Nadadores</a>
         <a href="#/integrations/FireStats"  class="list-group-item list-group-item-action list-group-item-warning"> Integracion con Estadisticas de Fuego</a>
         <a href="#/integrations/TrafficInjuries"  class="list-group-item list-group-item-action list-group-item-success"> Integracion con Estadisticas de Accidentes de trafico</a>
+
 
 
       </div>

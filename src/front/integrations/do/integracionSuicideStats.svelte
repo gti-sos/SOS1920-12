@@ -8,29 +8,29 @@
     async function renderChart(){
 
         let DatosInternos=[];
-        let labelInterno = "Delitos relacionados con el cannabis";
+        let labelInterno = "Delitos relacionados con el cannabis /1000";
         let DatosExternos=[];
-        let labelExterno = "Datos de nadadores, año en este caso";
+        let labelExterno = "Estadisticas de suicidios";
         let Paises = [];
-        Paises.push("italy");
+
         const resdDataInt = await fetch("/api/v1/drug_offences?year=2017");
         const intData = await resdDataInt.json();  
 
-        const resDataExt = await fetch("https://sos1920-22.herokuapp.com/api/v1/swim-stats");
+        const resDataExt = await fetch("http://sos1819-04.herokuapp.com/api/v1/suicide-rates");
         const extData = await resDataExt.json();  
+        console.log(extData)
 
         intData.forEach((v) => {
             Paises.push(v.country);
-            DatosInternos.push((v.cannabis_offences)/100);
+            DatosInternos.push((v.cannabis_offences)/1000);
         });
 
 //      cambiar la v
     extData.forEach((v) => {
-        if((Paises.includes(v.country))){
-    DatosExternos.push(v.yearofbirth)
+        if((v.country=="hungria")){
+    DatosExternos.push(v.noSuicidesMan)
     }});
     console.log(DatosExternos)
-    console.log(Paises)
 
         var ctx = document.getElementById("myChart").getContext("2d");
         var chart = new Chart(ctx, {

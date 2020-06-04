@@ -7,34 +7,36 @@
     
     async function renderChart(){
 
+        let numeroExtra = 0;
         let DatosInternos=[];
         let labelInterno = "Delitos relacionados con el cannabis";
         let DatosExternos=[];
-        let labelExterno = "Datos de nadadores, año en este caso";
+        let labelExterno = "Api de un compi de sos del año pasado que da datos de futbol creo";
         let Paises = [];
-        Paises.push("italy");
         const resdDataInt = await fetch("/api/v1/drug_offences?year=2017");
         const intData = await resdDataInt.json();  
 
-        const resDataExt = await fetch("https://sos1920-22.herokuapp.com/api/v1/swim-stats");
+        const resDataExt = await fetch("https://sos1819-02.herokuapp.com/api/v1/scorers-stats");
         const extData = await resDataExt.json();  
 
         intData.forEach((v) => {
             Paises.push(v.country);
-            DatosInternos.push((v.cannabis_offences)/100);
+            DatosInternos.push((v.cannabis_offences));
         });
 
 //      cambiar la v
     extData.forEach((v) => {
-        if((Paises.includes(v.country))){
-    DatosExternos.push(v.yearofbirth)
-    }});
+        if(v.country =="Spain"){
+            DatosExternos.push(v.scorergoal);
+        }
+        });
+        
     console.log(DatosExternos)
     console.log(Paises)
 
         var ctx = document.getElementById("myChart").getContext("2d");
         var chart = new Chart(ctx, {
-            type:"radar",
+            type:"bar",
             data: {
                 labels: Paises,
                 datasets:[

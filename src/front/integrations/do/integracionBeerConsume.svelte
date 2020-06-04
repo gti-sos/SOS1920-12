@@ -7,28 +7,29 @@
     
     async function renderChart(){
 
+        let numeroExtra = 0;
         let DatosInternos=[];
         let labelInterno = "Delitos relacionados con el cannabis";
         let DatosExternos=[];
-        let labelExterno = "Datos de nadadores, año en este caso";
+        let labelExterno = "Consumicion de cerveza por pais";
         let Paises = [];
-        Paises.push("italy");
-        const resdDataInt = await fetch("/api/v1/drug_offences?year=2017");
+        const resdDataInt = await fetch("/api/v1/drug_offences?year=2016");
         const intData = await resdDataInt.json();  
 
-        const resDataExt = await fetch("https://sos1920-22.herokuapp.com/api/v1/swim-stats");
+        const resDataExt = await fetch("https://sos1819-04.herokuapp.com/api/v1/beer-consumed-stats");
         const extData = await resDataExt.json();  
 
         intData.forEach((v) => {
             Paises.push(v.country);
-            DatosInternos.push((v.cannabis_offences)/100);
+            DatosInternos.push((v.cannabis_offences));
         });
 
-//      cambiar la v
     extData.forEach((v) => {
-        if((Paises.includes(v.country))){
-    DatosExternos.push(v.yearofbirth)
-    }});
+        if(Paises.includes(v.country) ){
+            DatosExternos.push(v.countryConsumition);
+        }
+        });
+        
     console.log(DatosExternos)
     console.log(Paises)
 

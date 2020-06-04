@@ -32,13 +32,18 @@
 //    const DropoutsData ; 
     
     DrugsData.forEach( (v) => {
+      if (Paises.includes(v.pais)) {
+        
+      } else {
         Paises.push(v.country);
+      }
         DelitosCannabis.push((v.cannabis_offences)/1000);
         DenunciasConsumoDrogas.push(v.offences_use);
         DenunciasTraficoDrogas.push(v.offences_supply);
     });
     OverdoseData.forEach((v)=>{
       if (Paises.includes(v.pais)) {
+
       } else {
         Paises.push(v.country);
       }
