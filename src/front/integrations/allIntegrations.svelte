@@ -82,8 +82,6 @@ function displaySchoolDropouts() {
        <div id="divSchoolDropouts" style="display: none;" class="list-group"> <br>
         <a href="#/integrations/RuralTourismStats"  class="list-group-item list-group-item-action list-group-item-success"> Integracion con Estadisticas de Turismo rural</a>
         <a href="#/integrations/CountriesForEqualityStats"  class="list-group-item list-group-item-action list-group-item-warning"> Integracion con Estadisticas de Igualdad en los paises</a>
-        <a href="#/integrations/NatalityStats"  class="list-group-item list-group-item-action list-group-item-success"> Integracion con Estadisticas de Indice de Natalidad</a>
-        <a href="#/integrations/CigarretesSales"  class="list-group-item list-group-item-action list-group-item-warning"> Integracion con Estadisticas de Venta de cigarrillos</a>
         
       </div>
 

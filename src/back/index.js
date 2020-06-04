@@ -9,6 +9,7 @@ const request = require("request");
 
 var remoteAPI1 = "https://sos1920-05.herokuapp.com/api/v1/life_expectancies";
 var remoteAPI2 = "https://sos1920-27.herokuapp.com/api/v2/poverty-stats";
+var remoteAPI3 = "https://sos1920-02.herokuapp.com/api/v2/rural-tourism-stats";
 
 
 
@@ -42,6 +43,10 @@ module.exports = function (app){
     app.use('/proxyPovertyStats',function(req, res){
         console.log('piped: ' + req.baseUrl + req.url);
         req.pipe(request(remoteAPI2)).pipe(res);
+    });
+    app.use('/proxyRuralTourism',function(req, res){
+        console.log('piped: ' + req.baseUrl + req.url);
+        req.pipe(request(remoteAPI3)).pipe(res);
     });
 }
 
