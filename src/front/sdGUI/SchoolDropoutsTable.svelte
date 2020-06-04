@@ -118,6 +118,9 @@
 				else if(res.status == 400){
 					console.log("ERROR Data was not correctly introduced");
 					errorMsg= "Los datos de la entrada no fueron introducidos correctamente";
+				}else if(res.status == 409){
+					console.log("ERROR There is already a data with that country and year in the da tabase");
+					errorMsg= "Ya existe una entrada en la base de datos con la fecha y el país introducido";
 				}
 			});	
 		}
