@@ -1,4 +1,4 @@
-<!-- Gráfica de AwesomeChart (Utilizando morris.js)-->
+<!-- Hecho con morris-->
 
 <script type="text/javascript">
 import Button from "sveltestrap/src/Button.svelte";
@@ -7,23 +7,34 @@ async function loadGraph(){
  
     let datos = [];
     let dropouts = [];
-    var dic = [];
+    var dic = {};
     const resData = await fetch("/api/v2/school-dropouts");
     const json = await resData.json();
 
     json.forEach( (v) => {
-        dic.push({
-            label: v.year,
-            value: v.sd_all
-        })
+         if(v.year in dic){
+          dic[v.year] += Math.round(v.sd_all)
+        }
+        else{
+          dic[v.year]= v.sd_all;
+        }  
     });
+
     console.log(dic);
+
+    for(var v in dic){
+         datos.push({
+            label: v,
+            value: dic[v]
+        })
+    }
+    console.log(datos);
 
 	new Morris.Donut({
   
   element: 'AwesomeChart',
   
-  data: dic
+  data: datos
   
 });
 }
@@ -36,13 +47,19 @@ async function loadGraph(){
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
 </svelte:head>
-
-<div id="AwesomeChart" style="height: 250px;"></div>
-
-<p></p>
-<h1 
+<h5 
 	style="
 		text-align: center
 		  "
 
-		>Esta gráfica ha sido diseñada con Morris.js</h1>
+		>Suma porcentual de todos los abandonos escolares de europa por año</h5>
+
+<div id="AwesomeChart" style="height: 250px;"></div>
+
+<p></p>
+<h6 
+	style="
+		text-align: center
+		  "
+
+		>Esta gráfica ha sido diseñada con Morris.js</h6>
