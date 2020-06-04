@@ -235,9 +235,9 @@
 					<tr>
 						<td><Input type="text" placeholder="Vatican City" bind:value="{newSchoolDropout.country}"/></td>
 						<td><Input type="number" placeholder="2019" min=1990 bind:value="{newSchoolDropout.year}"/></td>
-						<td><Input type="number" placeholder="20" min=0 bind:value="{newSchoolDropout.sd_all}"/></td>
-						<td><Input type="number" placeholder="10" min=0 bind:value="{newSchoolDropout.sd_mas}"/></td>
-						<td><Input type="number" placeholder="30" min=0 bind:value="{newSchoolDropout.sd_fem}"/></td>
+						<td><Input type="number" step="0.1" placeholder="10" min=0 bind:value="{newSchoolDropout.sd_all}"/></td>
+						<td><Input type="number" step="0.1" placeholder="10" min=0 bind:value="{newSchoolDropout.sd_mas}"/></td>
+						<td><Input type="number" step="0.1" placeholder="10" min=0 bind:value="{newSchoolDropout.sd_fem}"/></td>
 						<td><Button outline color= "primary"  on:click={insertSchoolDropout}>Insertar</Button></td>
 					</tr>
 				{#each school_dropouts as school_dropout}

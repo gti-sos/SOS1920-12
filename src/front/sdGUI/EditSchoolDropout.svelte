@@ -97,9 +97,9 @@
 					<tr>
 						<td>{updatedCountry}</td>
 						<td>{updatedYear}</td>
-						<td><input type="number" placeholder="20" min=0 bind:value="{updatedDropoutTotal}"></td>
-						<td><input type="number" placeholder="10" min=0 bind:value="{updatedDropoutMasculine}"></td>
-						<td><input type="number" placeholder="30" min=0 bind:value="{updatedDropoutFemenine}"></td>
+						<td><input type="number" step="0.1" placeholder="10" min=0 bind:value="{updatedDropoutTotal}"></td>
+						<td><input type="number" step="0.1" placeholder="10" min=0 bind:value="{updatedDropoutMasculine}"></td>
+						<td><input type="number" step="0.1" placeholder="10" min=0 bind:value="{updatedDropoutFemenine}"></td>
 						<td><Button outline color= "warning"  on:click={updateSchoolDropout}>Actualizar</Button></td>
 					</tr>
 			</tbody>
