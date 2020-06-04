@@ -21,21 +21,6 @@
         const ipaddr = await extfetch.json();
         var ipfin = ipaddr.ip;
         console.log(ipfin)
-
-      var  reqlink = "https://clearip-clearip-v1.p.rapidapi.com/ip/" + ipfin + "/json"
-        console.log(reqlink)
-        
-        const ciudadreq = await fetch(reqlink, {
-            "method": "GET",
-            "headers": {
-                "x-rapidapi-host": "bigdatacloud-ip-geolocation-v1-1.p.rapidapi.com",
-	            "x-rapidapi-key": "dc25779935mshdcfd03590081056p1ba35fjsn8f7c2d9eae2a"
-            },
-            "query": {
-                "ip": "185.210.23.181"
-            }
-        });
-        console.log(ciudadreq)
         
        
         intData.forEach((v) => {
@@ -63,7 +48,7 @@ console.log(DatosInternos)
             options: {
                 title:{
                     display: true,
-                    text: varDef
+                    text: ipfin
                 }
             }
         });

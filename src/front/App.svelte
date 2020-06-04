@@ -65,7 +65,7 @@
 	import IntegracionBeerConsume from "./integrations/do/integracionBeerConsume.svelte";
 	import IntegrationPopStats from "./integrations/do/integracionPopStats.svelte";
 	import IntegrationPublicSpending from "./integrations/do/integracionPublicSpending.svelte";
-	import IntegracionIPyTiempo from "./integrations/do/integracionIPyTiempo.svelte";
+	import IntegracionIP from "./integrations/do/integracionIP.svelte";
 
 	//Pascual
 	//De compis
@@ -113,7 +113,7 @@
 		"/Integrations/BeerConsume": IntegracionBeerConsume,
 		"/Integrations/PopStats": IntegrationPopStats,
 		"/integrations/PublicSpending":IntegrationPublicSpending,
-		"/Integrations/IPyTiempo": IntegracionIPyTiempo,
+		"/Integrations/IP": IntegracionIP,
 		
 		
 
