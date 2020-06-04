@@ -72,7 +72,7 @@
 	import IntegrationRuralTourismStats from "./integrations/sd/integracionRuralTourismStats.svelte";
 	import IntegrationCountriesForEqualityStats from "./integrations/sd/integracionCountriesForEqualityStats.svelte";
 	import IntegrationGhibli from "./integrations/sd/integracionGhibli.svelte";
-	import IntegrationManga from "./integrations/sd/integracionManga.svelte";
+	import IntegrationCartas from "./integrations/sd/integracionCartas.svelte";
 
 	/* A INTRODUCIR 
 	import sdAnalytics from "./analytics/sd/XXXXXXXXXXXXXXX";
@@ -127,7 +127,7 @@
 		"/integrations/RuralTourismStats":IntegrationRuralTourismStats,
 		"/integrations/CountriesForEqualityStats":IntegrationCountriesForEqualityStats,
 		"/integrations/Ghibli":IntegrationGhibli,
-		"/integrations/Manga":IntegrationManga,
+		"/integrations/Cartas":IntegrationCartas,
 
 		"/integrations":Integrations,
 		"/d3js":analiticad3js,

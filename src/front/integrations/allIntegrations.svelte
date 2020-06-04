@@ -83,7 +83,7 @@ function displaySchoolDropouts() {
         <a href="#/integrations/RuralTourismStats"  class="list-group-item list-group-item-action list-group-item-success"> Integracion con Estadisticas de Turismo rural</a>
         <a href="#/integrations/CountriesForEqualityStats"  class="list-group-item list-group-item-action list-group-item-warning"> Integracion con Estadisticas de Igualdad en los paises</a>
         <a href="#/integrations/Ghibli"  class="list-group-item list-group-item-action list-group-item-success"> Integracion con películas del estudio Ghibli</a>
-        <a href="#/integrations/Manga"  class="list-group-item list-group-item-action list-group-item-warning"> Integracion con Mangas</a>
+        <a href="#/integrations/Cartas"  class="list-group-item list-group-item-action list-group-item-warning"> Integracion con Cartas Yu Gi Oh</a>
       </div>
 
 
